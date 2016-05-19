@@ -1,0 +1,65 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="customization" disable="member_data|categories|pagination"}
+
+	<article class="customization">
+
+	<div class="customization-grid-links centered">
+		<ul>
+			<li class="1 active"><a><img src="{site_url}/images/customization/progress-numbers-1.png"></a></li>
+			<li class="2"><a><img src="{site_url}/images/customization/progress-numbers-2.png"></a></li>
+			<li class="3"><a><img src="{site_url}/images/customization/progress-numbers-3.png"></a></li>
+			<li class="4"><a><img src="{site_url}/images/customization/progress-numbers-4.png"></a></li>
+			<li class="5"><a><img src="{site_url}/images/customization/progress-numbers-5.png"></a></li>
+			<li class="6"><a><img src="{site_url}/images/customization/progress-numbers-6.png"></a></li>
+			<li class="7"><a><img src="{site_url}/images/customization/progress-numbers-7.png"></a></li>
+			<li class="8"><a><img src="{site_url}/images/customization/progress-numbers-8.png"></a></li>
+			<li class="9"><a><img src="{site_url}/images/customization/progress-numbers-9.png"></a></li>
+			<li class="10"><a><img src="{site_url}/images/customization/progress-numbers-10.png"></a></li>
+		</ul>
+
+	</div>
+
+	<!-- =============================================================
+		Create list of blocks in the Customization grid
+	============================================================== -->
+	<!-- Short page button only shown when height of the page does not allow for footer to be present. -->
+	<div class="short-page-button">
+		<p><a class="btn btnGreen">Launch the Product Configurator</a></p>
+	</div>
+	<div class="customization-grid">
+
+		<div class="scrollable">
+
+		{customization_grid}
+			<div class="customization-grid-block block-{customization_grid:count}">
+				
+				<div class="customization-grid-image">
+					<img src="{customization_grid:background_image}" alt="{customization_grid:headline}" />
+				</div>
+				<div class="customization-grid-text grid-text-{customization_grid:count}">
+					<h1>{customization_grid:headline}</h1>
+					{if customization_grid:subhead!=""}<h2>{customization_grid:subhead}</h2>{/if}
+					<p>{customization_grid:copy}</p>
+				</div>
+				{if customization_grid:count=="1"}
+					<div class="customization-grid-scroll-button centered">
+						<p>scroll</p><img src="{site_url}/images/customization/scroll-image.png">
+					</div>
+				{/if}
+			</div>
+		{/customization_grid}
+			<div class="footer-height">
+				<p></p>
+			</div>
+		</div>
+
+	</div>
+</article>
+{/exp:channel:entries}
+
+	<!-- =============================================================
+		Create alternate footer for customization link to configurator
+	============================================================== -->
+
+{embed="includes/.footer"}

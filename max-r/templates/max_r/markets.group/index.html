@@ -1,0 +1,17 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="markets"}
+<div class="headline centered">
+	<h1>{markets_headline}</h1>
+</div>
+
+{/exp:channel:entries}
+
+{exp:channel:entries channel="market"}
+<div class="">
+	<p><a href="{site_url}/market/{url_title}">{market_name}</a></p>
+</div>
+{/exp:channel:entries}
+
+
+{embed="includes/.footer"}

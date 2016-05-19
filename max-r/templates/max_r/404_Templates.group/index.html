@@ -1,0 +1,50 @@
+{embed="includes/.header"}
+
+<img src="{site_url}/blank.gif" style="display: none;" onLoad="ga('send', 'event', '404 Page Visited', '404 Page Visited', '404 Page Visited - {current_path}');">
+
+<article class="error-404">
+	<h1>404 Error : Page not found</h1>
+	{!-- article.error-404 css located in base.scss under the first article declaration --}
+	
+	{if segment_1=="store"}	
+		<h3>We're sorry. The product you are looking for has moved from this url.</h3>
+		<P>We've recently rebuilt our website to make products easier to find. Some of the old links that point to our site are no longer valid.</P>
+		<br />
+		<h3 class="product-groups">Product Groups</h3>
+		<ul class="list-container">
+		  {exp:channel:entries channel="product_category" orderby="menu_display_order" sort="asc" dynamic="no" disable="member_data|categories|category_fields|pagination"}
+
+		    {!-- if category is accessories, list the products, not the product groups.--}
+		    {if url_title != "accessories"}
+		      <li><a href="{site_url}/products/{url_title}" onClick="ga('send', 'event', '404', '404 Product Link', '404 Product Link - Product Category - {category_name}');">{category_name}</a>
+		        <ul>
+		            {category_group}
+		              <li><a href="{site_url}/products/{url_title}/{category_group:url_title}" onClick="ga('send', 'event', '404', '404 Product Link', '404 Product Link - Product Group - {category_group:title}');">{category_group:product_group_name}</a></li>
+		            {/category_group}
+		        </ul>
+		      </li>
+		      {if count % 4 == 0}
+		        </ul>
+		        <ul class="list-container">
+		      {/if}
+		    {if:else}
+		      <li><a>Accessories</a>
+		        <ul>
+		          <li><a href="{site_url}/product/waste-and-recycle-liner-bags" onClick="ga('send', 'event', '404', '404 Product Link', '404 Product Link - Product Category - Accessories - Recycling Liner Bags');">Waste &amp; Recycle Liner Bags</a></li>
+		          <li><a href="{site_url}/product/doggie-waste-bags" onClick="ga('send', 'event', '404', '404 Product Link', '404 Product Link - Product Category - Accessories - Doggie Waste Bags');">Doggie Waste Bags</a></li>
+		          <!-- <li><a href="{site_url}/product/igloo-water-cooler" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Product Category - Accessories - Igloo Water Coolers');">Igloo Water Coolers</a></li> -->
+		        </ul>
+		      </li>
+		      <li class="clearance"><a href="{site_url}/products/clearance" onClick="ga('send', 'event', '404', '404 Product Link', '404 Product Link - Product Category - Clearance');">Clearance</a></li>  
+		    {/if}
+
+		  {/exp:channel:entries}
+		</ul>
+		<div style="clear: both;"></div>
+	{if:else}
+		<h3>We're sorry, that page cannot be found.</h3>
+		<p>Please use the navigation above or search to find what you're looking for.</p>
+	{/if}
+</article>
+<div style="clear: both;"></div>
+{embed="includes/.footer"}

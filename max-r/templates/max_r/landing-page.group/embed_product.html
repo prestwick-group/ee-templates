@@ -1,0 +1,30 @@
+<!-- ======{embed:embeded_product}====== -->
+
+
+{exp:channel:entries channel="product_parent" url_title="{embed:embeded_product}" dynamic="no" order_by="asc" disable="member_data|categories|category_fields|pagination"}
+
+	{parent_child} 
+		{parent_child:product_preview_grid}
+		{if parent_child:product_preview_grid:default=="default"}
+		<div class="col4 {if {embed:embed_num} == 3}last{/if} embeded-product-block mix {parent_child:product_options_grid}{parent_child:product_options_grid:collection} {parent_child:product_options_grid:number_of_streams} {parent_child:product_options_grid:enclosures} {parent_child:product_options_grid:opening} {/parent_child:product_options_grid}" data-myoder="{parent_child:count}">
+			<a class="{url_title} product-link" href="{site_url}/product/{parent_child:url_title}">
+				<img src="{parent_child:product_child_thumbnail}" id="{url_title}" alt="{parent_child:title}">
+				
+					<h2>{parent_child:product_preview_grid:collection}</h2>
+					{if parent_child:product_preview_grid:product_group}
+						<h5>{parent_child:product_preview_grid:product_group}</h5>
+					{/if}
+					{if parent_child:product_preview_grid:configuration}	
+						<h5><em>{parent_child:product_preview_grid:configuration}</em></h5>
+					{/if}
+					
+				<div class="filter-button">
+					<span class="btn btnGrey">VIEW</span>
+				</div>
+			</a>
+		</div>
+		{/if}
+		{/parent_child:product_preview_grid}
+	{/parent_child}
+
+{/exp:channel:entries}

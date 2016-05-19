@@ -1,0 +1,54 @@
+/*  ==== From "_layout-mobile" ====
+@media screen and (max-width: 768px) {
+	#menu {
+		width:1.4em;
+		display: block;
+		background:#ddd;
+		font-size:1.35em;
+		text-align: center;
+	}
+	#nav.js {
+		display: none;
+	}
+	ul {
+		width:100%;
+	}
+	li {
+		width:100%;
+	}
+}
+*/
+
+@media screen and (max-width: 555px) {
+	footer {
+		div#footer-links {
+			.contact-us, .footer-logo {
+				float: none;
+				width: 100%;
+			}
+			.contact-us {
+				text-align: center;
+				margin: 0 0 15px 0;
+			}
+			.footer-logo {
+				margin: 0;
+			}
+			.socialmedia-icons {
+				margin-top: 20px;
+				text-align: center;
+			}
+		}
+
+	}
+
+
+/* ======================= Client Gallery - Mobile ======================== */
+	div.client-gallery {
+		-moz-column-count: 1;
+	    -webkit-column-count: 1;
+	    column-count: 1;
+	}
+}
+
+
+

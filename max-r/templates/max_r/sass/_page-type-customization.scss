@@ -1,0 +1,239 @@
+/* ================= Customization Section Styles ================= */
+
+article.customization {
+	position:relative;
+	padding: 0;
+	margin: 0 auto;
+	div.customization-grid-links {
+		background-color: $white;
+		position:fixed;
+		top: 108px;
+		width: 100%;
+		max-width: 1200px;
+		padding: 0.5% 0;
+		z-index: 400;
+		ul {
+			li {
+				display: inline-block;
+				 width: 80px;
+				 &.slide-12 {
+				 	// width: 58px;
+				 }
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	div.customization-grid {
+		position: absolute;
+		width: 100%;
+
+		// Removes horizontal scroll bar 
+		// overflow-y: hidden;
+		// overflow-x: hidden;
+		div.scrollable {
+			position: relative;
+			max-width: 1200px;
+
+			div.customization-grid-block {
+				// background-color: $alternate-grey;
+				position: relative;
+				overflow: hidden;
+				width: 100%;
+				div.customization-grid-image {
+					position: relative;
+					img {
+						width: 100%;
+					}
+					&.banners {
+						margin: 0 auto;
+					    width: 100%;
+					    max-width: 1200px;
+					    // height: 250px;
+					    position: relative;
+					    margin-right: 10px;
+					    float: left;			
+						img {
+
+							width: 100%;
+							position: absolute;
+							top: 0;
+							left: 0;
+							display: block;
+						}
+					}
+
+				}
+				div.customization-grid-text {
+					position: absolute;
+					z-index: 50;
+					top: 0;
+					text-align: center;
+					width: 100%;
+					h1 {
+						text-transform: uppercase;
+
+					}
+					&.grid-text-1 {
+						h1 {
+							color: $black;
+							margin-top: 3%;
+							display: none;
+						}
+						p {
+							color: $black;
+							width: 30%;
+							margin: 7% 0 0 65%;
+						}
+						a {
+							display: block;
+							width: 30%;
+							margin: 7% 0 0 65%;
+						}
+					}
+					&.grid-text-12 {
+						text-align: right;
+						padding: 10% 14% 0 0;
+						h1 {
+							color: $brightgreen;
+							font-size: 1.6em;
+							padding: 25px 0 40px 0;
+
+						}
+						p {
+							// width: 50%;
+							margin: 0 auto;
+						}
+					}
+					&.grid-text-2, &.grid-text-3, &.grid-text-4, &.grid-text-5, &.grid-text-6, &.grid-text-7, &.grid-text-8, &.grid-text-9, &.grid-text-10,  &.grid-text-11 {
+						h1 {
+							color: $brightgreen;
+							font-size: 1.6em;
+							padding: 25px 0 10px 0;
+						}
+						p {
+							width: 50%;
+							margin: 0 auto;
+						}
+					}
+				}
+				div.customization-grid-scroll-button {
+					position: absolute;
+					bottom: 10%;
+					// z index needs to be below 50 in order to let the link in the first text block to work.
+					z-index: 49;
+					width: 100%;
+					max-width: 1200px;
+					text-align: center;
+					div.customization-grid-scroll-button-container {
+						// background-color: $brightgreen;
+						width: 100px;
+						height: 100px;
+						margin: 0 auto;
+						// border: 2px solid $lightborder;
+						border-radius: 50px;
+						padding: 24px;
+						color: $close-menu-grey;
+						p {
+							margin: 0;
+							padding: 0;
+							color: $lightborder;
+						}
+						img {
+							margin: 0 auto;
+						}
+					}
+				}
+				&.block-12 {
+					&:hover {
+						div.grid-text-12 {
+							p {
+								a {
+									background-color: $white;
+									color: $brightgreen;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+}
+
+div.configurator-button {
+	position: fixed;
+	z-index: 2000;
+	width: 100%;
+	bottom: -241px;
+	// display: none;
+	div.configurator-button-container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		div.configurator-button-block {
+			width: 300px;
+			float: right;
+			margin-right: 0%;
+			background-color: $lightgrey;
+			border-left: 1px solid $lightborder;
+			border-right: 1px solid $lightborder;
+			border-top: 6px solid $lightborder;
+			padding-bottom: 55px;
+
+			p {
+				// float: right;
+				// margin-right: 50px;
+				&.close-window {
+					float: right;
+					clear: both;
+					padding: 5px 15px 5px 15px;
+					background-color: $lightborder;
+					cursor: pointer;
+					font-size: 0.7em;
+					margin: 0 0 15px 0;
+				}
+				&.launch-button {
+					clear: both;
+					width: 300px;
+					margin: 0 auto;
+					text-align: center;
+					a.btn.btnGreen {
+						display: block;
+						width: 250px;
+						margin: 0 auto;
+						line-height: 1.3em;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ---------------------------------------------------
+	Back To Top Styling 
+--------------------------------------------------- */
+div.configuration-back-to-top {
+	// position: fixed;
+	background-image: url('http://www.#{$site-name}.#{$site-extension}/images/footer/arrow.png');
+	background-repeat: no-repeat;
+	height: 68px;
+	width: 68px;
+	//border: 1px solid #222;
+	position: fixed;
+	bottom: 1em;
+	left: 1em;
+	cursor: pointer;
+	display: none;
+	z-index: 100000;
+	&:hover {
+		background-image: url('http://www.#{$site-name}.#{$site-extension}/images/footer/arrow-hover.png');
+	}
+}
+
+footer#customization {
+	display: none;
+}

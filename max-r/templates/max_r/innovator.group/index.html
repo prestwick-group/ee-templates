@@ -1,0 +1,31 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="innovator" disable="member_data|categories|pagination"}
+<div class="full-page-hero-header">
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="{innovator_hero_image_2000}" media="(min-width: 769px)" class="blog-post-hero">
+        <source srcset="{innovator_hero_image_768}" media="(min-width: 1px)" class="blog-post-hero">
+        <!--[if IE 9]></video><![endif]-->
+        <img srcset="{innovator_hero_image_1800}" alt="Test Image">
+    </picture>   
+</div>
+
+
+<article class="innovator hero-image-overlay">
+	{embed="includes_sidenav/.about-sidenav"}
+
+	<div class="innovator col9 last">
+		<h1>{about_headline}</h1>
+		<p>{about_copy}</p>
+	</div>
+
+	<div style="clear: both;"></div>
+</article>
+
+{/exp:channel:entries}
+
+
+
+
+{embed="includes/.footer"}

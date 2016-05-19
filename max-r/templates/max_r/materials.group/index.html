@@ -1,0 +1,35 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="materials" disable="member_data|categories|pagination"}
+
+<article class="hero-image">
+	<div class="headline centered">
+		<h1>{materials_headline}</h1>
+	</div>
+
+    <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="{material_hero_full_size}" media="(min-width: 1280px)">
+        <source srcset="{material_hero_large}" media="(min-width: 800px)">
+        <source srcset="{material_hero_small}" media="(min-width: 100px)">
+        <!--[if IE 9]></video><![endif]-->
+        <img srcset="{material_hero_large}" alt="{materials_headline}">
+    </picture>
+
+
+
+</article>
+<article>
+	{materials_content_grid}
+		<h2>{materials_content_grid:headline}</h2>
+		<p>{materials_content_grid:copy}</p>
+		<img src="{materials_content_grid:headline}" />
+
+	{/materials_content_grid}
+</article>
+
+
+{/exp:channel:entries}
+
+
+{embed="includes/.footer"}

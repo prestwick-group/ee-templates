@@ -1,0 +1,34 @@
+{embed="includes/.header"}
+
+
+{exp:channel:entries channel="sales_policy" disable="member_data|categories|pagination"}
+<div class="full-page-hero-header faqs">
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+ 
+        <source srcset="{sales_policy_hero_2000}" media="(min-width: 769px)" class="blog-post-hero">
+        <source srcset="{sales_policy_hero_768}" media="(min-width: 1px)" class="blog-post-hero">
+
+        <!--[if IE 9]></video><![endif]-->
+        <img src="{sales_policy_hero_2000}" alt="test" class="blog-post-hero" /> 
+    </picture>  
+</div>
+
+<article class="about hero-image-overlay">
+	
+	{embed="includes_sidenav/.resources-sidenav"}
+
+	<div class="col9 last about">
+		
+		<h1>{sales_policy_headline}</h1>
+
+		<p>{sales_policy_copy}</p>
+	</div>
+	<div style="clear: both;"></div>
+</article>
+
+{/exp:channel:entries}
+
+
+
+{embed="includes/.footer"}

@@ -1,0 +1,169 @@
+/* ================= Market section styling ================== */
+
+article.market {
+	h2 {
+		text-transform: uppercase;
+		margin: 15% 0 6% 0;
+		}
+
+	div.market-hero-grid.desktop, div.coordinated-facility-grid.desktop {
+		margin-bottom: 65px;
+		width: 100%;
+		div.market-hero-grid-links, div.market-coordinated-grid-links {
+			width: 33.3%;
+			float: left;
+			text-align: center;
+			padding: 10px 0 10px 0;
+			background-color: $alternate-grey;
+			border: 1px solid $textbox-grey;
+			border-bottom: 1px solid $textbox-grey;
+			cursor: pointer;
+			position: relative;
+			&.link-3 {
+				width: 33.4%
+			}
+			img {
+				display: inline-block;
+				height: 42px;
+			}
+			p {
+				display: inline-block;
+				vertical-align: top;
+				margin: 0;
+				// When the icons were removed, the margin of the text needed to be reduced to provide vertical centering.
+				// This also affected the markets.js file around line 63 which swapped the icons. 
+				// margin: 8px 0 0 0;
+				padding: 0;
+			}
+			&:hover {
+				padding: 10px 0 8px 0;
+				background-color: $brightgreen;
+				border-bottom: 3px solid white;
+				border-left: 1px solid $white;
+				border-right: 1px solid $white;
+				border-top: 1px solid $brightgreen;
+				p {
+					color: $white;
+				}				
+			}
+			&.active {
+				padding: 10px 0 8px 0;
+				background-color: $brightgreen;
+				border-bottom: 2px solid white;
+				border-left: 1px solid $brightgreen;
+				border-right: 1px solid $brightgreen;
+				border-top: 1px solid $brightgreen;
+				p {
+					color: $white;
+				}
+				&::after {
+					content: url('http://www.#{$site-name}.#{$site-extension}/images/markets/selected-market-grid-link.png');
+					position: absolute;
+					left: 50%;
+					bottom: -24px;
+					z-index: 400;
+				}
+			}
+
+
+		}
+		div.market-grid-image {
+			display: none;
+			position: relative;
+			&.visible {
+				display: block;
+
+			}
+			img {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			p {
+				position: absolute;
+				bottom: 1%;
+				right: 6%;
+				font-family: $font-medium;
+				a {
+					color: $white;
+					&:hover {
+						color: $brightgreen;
+					}
+				}
+			}
+		}
+	}
+
+	div.market-hero-grid.mobile, div.coordinated-facility-grid.mobile {
+		display: none;
+	}
+	div.market-testimonial {
+		margin: 45px 0 65px 0;
+		padding-bottom: 35px;
+		border-bottom: 1px solid $lightborder;
+		&.left{
+			img.left {
+				float: left;
+				max-width: 425px;
+			}
+
+		}
+		&.right{
+			img.right {
+				float: right;
+				max-width: 425px;
+			}
+		}
+		/* ----------------------------------------------------------------------
+			Since the testimonial text is shared between different pages,	
+			it has been set up as it's own file and can be imported into
+			the particular articles that utilize it without affecting
+			it's styling
+		----------------------------------------------------------------------- */
+		@import "page-type-testimonial";
+	}
+}
+
+div.market-partnership-grid {
+	text-align: center;
+	margin: 0 auto;
+	a {
+		display: inline-block;
+		margin: 0 2%;
+	}
+}
+
+
+@media screen and (max-width: 768px) {
+	article.market{
+		div.market-hero-grid.desktop, div.coordinated-facility-grid.desktop {
+			display: none;
+		}
+		div.market-hero-grid.mobile, div.coordinated-facility-grid.mobile {
+			display: block;
+			h3 {
+				text-align: center;
+			}
+			img {
+				max-width: 500px;
+				width: 100%;
+				margin: 0 auto;
+			}
+		}
+		div.market-testimonial {
+			&.left {
+
+				img.left {
+					float: none;
+					margin-bottom: 4%;
+				}
+			}
+			&.right{
+				img.right {
+					float: none;
+					margin-bottom: 4%;
+				}
+			}
+		}
+	}
+}

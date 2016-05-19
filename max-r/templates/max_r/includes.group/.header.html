@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+
+
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {if segment_1 == 'contact_us'}
+        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    {/if}
+
+
+<!-- SEO Lite Controled content. -->
+	{if segment_1 == ''}
+		{exp:seo_lite use_last_segment='yes'
+      	default_title='Max-R: Customized Waste &amp; Recycling Bins'
+      	default_keywords='furnishings, recycled plastic, hotel furniture, recycling stations, trash bins, towel caddy, benches, podiums, hardwood, wood, commercial grade'
+      	default_description='Max-R specializes in building waste &amp; recycling bins tailored to specific waste streams and aesthetics. Each bin is made of 97% pure recycled plastic - milk jugs!'
+      	}
+  {if:else}
+		{exp:seo_lite use_last_segment='yes'
+      	default_title='{embed:title} | Max-R'
+      	default_keywords='{embed:default_keywords}'
+      	default_description='Non-front page description'
+      	}
+  {/if}
+  
+
+  {if segment_1=="post"}
+    <meta property="og:type" content="blog" />
+
+    {exp:channel:entries channel="blog_post" disable="member_data|pagination|categories" require_entry="yes"}
+      <meta property="og:title" content="{blog_post_headline}" />
+      <meta property="og:description" content="{blog_post_preview_copy}" />
+
+      <meta property="og:image" content="{blog_post_preview_image}" />
+    {/exp:channel:entries}
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="440" />
+  {if:else}
+      <meta property="og:image" content="http://www.max-r.net/images/header/maxr-logo.svg" />
+      <meta property="og:image:width" content="600" />
+
+  {/if}
+
+
+	<link rel="shortcut icon" type="image/png" href="{site_url}/images/favicon.ico">
+	<link rel="stylesheet" type="text/css" media="all" href="{stylesheet='includes/global_css'}" />
+  
+  <script src="{site_url}/templates/max_r/includes_js.group/jquery-1.12.0.min.js" type="text/javascript"></script>
+  <script async src="{site_url}/templates/max_r/includes_js.group/design.js" type="text/javascript"></script> 
+
+    <!-- Typekit embed -->
+    <script src="https://use.typekit.net/wkq3ppr.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+{!-- Analytics test for search results page to send a page view specifically with the keyword added. --}
+    {if segment_2 == 'no_results' || segment_2 == 'results'}
+      <!-- Use search tracking analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-16573997-1', 'auto');
+      ga('send', 'pageview', '/search/results/?q={exp:search:keywords}');
+    
+    </script>
+    {if:else}
+    <!-- Use non-search tracking analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-16573997-1', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+    {/if}
+
+
+
+    
+    {if segment_1 == 'products' || segment_1 == ''}
+    <script>
+        // When the users device orientation changes, update the page to refresh the filtering options.  
+        window.onorientationchange = function() { window.location.reload(); };
+    </script>
+    {/if}
+
+</head>
+
+<body>
+<!--[if lt IE 9]>
+    <p class="chromeframe text-center">Your browser is getting a little old. <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+<![endif]-->
+	<header class="main-nav">
+    <div class="main-nav">
+      <section class="logo">
+      	<div class="branding">
+          	<a href="{site_index}/" onClick="ga('send', 'event', 'Header', 'Header Menu Link', 'Header Menu Link - Home - Logo');">
+              	<img src="{site_url}/images/header/maxr-logo.svg" alt="Max-R Logo" width="150" />
+            </a>
+        </div>
+      </section>
+
+
+      <!-- Button for mobile menu attached to smaller screen widths by design.js -->      
+      <div class="mobile-menu-container">
+        <a class="mobile_menu" >MENU</a>
+      </div>  
+
+
+      <nav class="nav-block">
+          <!-- a mobile menu link added to appear in window size less than 800px. Controlled in design.js -->
+          <ul id="nav">
+            <!-- <div class="nav-right"> -->
+                <li id="products">
+                  <a href="#" class="product-menu {if segment_1 == 'products'}active{/if}" onClick="ga('send', 'event', 'Header', 'Header Menu Link', 'Header Menu Link - Products Megamenu');">Products <img src="{site_url}/images/header/expand.png" class="expand products" alt="Expand and Contract Menu Button"></a>
+                  <div class="product-subnav-mobile subnav-mobile">
+                      <ul>
+                        {exp:channel:entries channel="product_category" orderby="menu_display_order" sort="asc" dynamic="no" disable="member_data|categories|category_fields|pagination"}
+                          <li><a href="{site_url}/products/{url_title}" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - {category_name}');">{category_name}</a></li>
+                                                                        
+                        {/exp:channel:entries}
+                        <li><a href="{site_url}/products/clearance" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Clearance');">Clearance</a></li>
+                      </ul>
+                    </div>
+                </li>
+                <li id="collections">
+                  <a href="{site_url}/collections" class="collections-menu {if segment_1 == 'collections'}active{/if}"  onClick="ga('send', 'event', 'Header', 'Header Menu Link', 'Header Menu Link - Collections');">Collections <!-- <img src="{site_url}/images/header/expand.png" class="expand collections" alt="Expand and Contract Menu Button"> --></a>
+          <!--
+                  <div class="collections-subnav-mobile subnav-mobile">
+                      <ul>
+                        <li><a href="{site_url}/collection/oxford">Oxford</a></li>
+                        <li><a href="{site_url}/collection/halston">Halston</a></li>
+                        <li><a href="{site_url}/collection/terra">Terra</a></li>
+                        <li><a href="{site_url}/collection/verde">Verde</a></li>
+                        <li><a href="{site_url}/collection/tuscany">Tuscany</a></li>
+                        <li><a href="{site_url}/collection/albany">Albany</a></li>
+                        <li><a href="{site_url}/collection/camden">Camden</a></li>
+                      </ul>
+                    </div>
+          -->
+                </li>
+                <li>
+                  <a href="{site_url}/customization" {if segment_1 == 'customization'}class="active"{/if} onClick="ga('send', 'event', 'Header', 'Header Menu Link', 'Header Menu Link - Configurator');">Configurator</a>
+                </li>
+                
+                <li id="markets"><a href="#" class="markets-menu {if segment_1 == 'markets'}active{/if}">Markets <img src="{site_url}/images/header/expand.png" class="expand markets" alt="Expand and Contract Menu Button"></a>
+                  <div class="markets-subnav-mobile subnav-mobile">
+                      <ul>
+                        <li><a href="{site_url}/market/attractions" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Attractions');">Attractions</a></li>
+                        <li><a href="{site_url}/market/corporate" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Corporate Campus');">Corporate Campus</a></li>
+                        <li><a href="{site_url}/market/restaurants" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Restaurants');">Restaurants (Food Service)</a></li>
+                        <li><a href="{site_url}/market/venues" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Venues');">Venues &amp; Arenas</a></li>
+                        <li><a href="{site_url}/market/education" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Education');">Education</a></li>
+                        <li><a href="{site_url}/market/health-care" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Health Care');">Health Care</a></li>
+                        <li><a href="{site_url}/market/municipalities" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Municipalities');">Municipalities &amp; Parks</a></li>
+                        <li><a href="{site_url}/market/retail" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Retail');">Retail</a></li>
+                      </ul>
+                    </div>
+                </li>               
+                <li id="about">
+                  <a href="#" class="about-menu {if segment_1 == 'about' OR segment_1 == 'innovator' OR segment_1 == 'materials'}active{/if}  onClick="ga('send', 'event', 'Header', 'Header Menu Link', 'Header Menu Link - About');"">About <img src="{site_url}/images/header/expand.png" class="expand about" alt="Expand and Contract Menu Button"></a>
+                  <div class="about-subnav-mobile subnav-mobile">
+                      <ul>
+                        <li><a href="{site_url}/about" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - About');">About Us</a></li>
+                        <li><a href="{site_url}/innovator" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Innovator');">Innovator</a></li>
+                        <li><a href="{site_url}/materials" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Our Materials');">Our Material</a></li>
+                        <li><a href="{site_url}/customization" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Customization');">Customization</a></li>
+                        <li><a href="{site_url}/sustainable-practices" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Sustainable Practices');">Sustainable Practices</a></li>
+                      </ul>
+                    </div>
+                </li>
+                <li id="resources">
+                  <a href="#" class="resources-menu {if segment_1 == 'resources' OR segment_1 == 'blog'  OR  segment_1 == 'post' OR segment_1 == 'faqs' OR segment_1 == 'catalogs' OR segment_1 == 'client_gallery' OR segment_1 == 'case_studies' OR segment_1 == 'case_study' OR segment_1 == 'materials' OR segment_1 == 'warranty'}active{/if}"  onClick="ga('send', 'event', 'Header', 'Header Menu Link', 'Header Menu Link - Resources');">Resources <img src="{site_url}/images/header/expand.png" class="expand resources" alt="Expand and Contract Menu Button"></a>
+                  <div class="resources-subnav-mobile subnav-mobile">
+                      <ul>
+                        <li><a href="{site_url}/blog/" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Blog');">Blog</a></li>
+                        <li><a href="{site_url}/case-studies" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Case Studies');">Case Studies</a></li>
+                        <li><a href="{site_url}/white-papers" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - White Papers');">White Papers</a></li>
+                        <li><a href="{site_url}/sales-policy" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Sales Policy');">Sales Policy</a></li>
+                        <li><a href="{site_url}/client-gallery" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Contact Us');">Client Gallery</a></li>
+                        <li><a href="{site_url}/catalogs" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - Catalogs');">Catalogs</a></li>
+                        <li><a href="{site_url}/faqs" onClick="ga('send', 'event', 'Header', 'Mobile Header Menu Link', 'Mobile Header Menu Link - FAQs');">FAQs</a></li>
+                      </ul>
+                    </div>
+                </li>
+
+                <li>
+                  <a href="{site_url}/contact-us" {if segment_1 == 'contact_us'}class="active"{/if} onClick="ga('send', 'event', 'Header', 'Header Menu Link', 'Header Menu Link - Contact Us');">Contact</a>
+                </li>
+
+                <!-- Site wide search button. When clicked, expands search-subnav. controlled in design.js -->      
+                <li id="search">
+                  <a class="search-menu" onClick="ga('send', 'event', 'Header', 'Header Menu Link', 'Header Menu Link - Search');"></a>
+                </li>   
+               
+                <li class="search mobile"><!-- Search -->
+                    <div class="search-subnav-mobile">
+                    {exp:search:simple_form form_id="search-form" channel="product|blog" results_page="search/result" no_result_page="search/no_results" search_in="entries" status="open" results="16" }
+                      <!-- EE requires input with name XID -->
+                      
+                      <input type="hidden" name="XID" value="{XID_HASH}" /> 
+                      <fieldset class="content">
+                          <legend style="display: none;">Mobile search form</legend>
+                          <label style="display: none;" for="keywords1" form="search-form">Search</label>
+                          
+                            <input type="text" name="keywords1" id="keywords1" value="" maxlength="100" placeholder="SEARCH"><br />
+                            <button class="btn btnGrey">Search</button>
+                          
+                      </fieldset>
+                    {/exp:search:simple_form}
+                    </div>         
+                </li>
+
+                <!-- </div> -->
+          </ul>
+          <!-- <div class="clear-nav"></div> -->
+      </nav>
+      <div style="clear: both;"></div>
+    </div>   
+  </div>
+</header>
+
+<!-- <div class="clear-nav"></div> -->
+
+
+<div id="search-subnav">
+     {exp:search:simple_form form_id="search-form" channel="product|blog_post" results_page="search/result" no_result_page="search/no_results" search_in="entries" status="open" results="16" }
+      <!-- EE requires input with name XID -->
+      <input type="hidden" name="XID" value="{XID_HASH}" /> 
+      <fieldset class="content">
+          <legend style="display: none;">Search Form</legend>
+          <label style="display: none;" for="keyword" form="search-form">Search</label>
+          <input type="text" name="keywords" id="keywords" value="" maxlength="100" placeholder="">
+          <button class="btn btnGrey">Search</button>
+      </fieldset>
+    {/exp:search:simple_form}
+</div>
+
+<div id="product-subnav">
+  {embed="includes_subnav/.subnav_closeMenu"}
+  <div class="subnav-container">
+    {embed="includes_subnav/.subnav_products"}
+  </div>
+</div>
+<div id="collections-subnav">
+  {embed="includes_subnav/.subnav_closeMenu"}
+  <div class="subnav-container">
+    {embed="includes_subnav/.subnav_collections"}
+  </div>
+</div>
+<div id="markets-subnav">
+    {embed="includes_subnav/.subnav_closeMenu"}
+    <div class="subnav-container">
+      {embed="includes_subnav/.subnav_markets"}
+  </div>
+</div>
+<div id="about-subnav">
+    {embed="includes_subnav/.subnav_closeMenu"}
+    <div class="subnav-container">
+      {embed="includes_subnav/.subnav_about"}
+    </div>
+</div>
+<div id="resources-subnav">
+    {embed="includes_subnav/.subnav_closeMenu"}
+    <div class="subnav-container">
+      {embed="includes_subnav/.subnav_resources"}
+    </div>
+</div>

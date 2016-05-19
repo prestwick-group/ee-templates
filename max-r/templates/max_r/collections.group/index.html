@@ -1,0 +1,53 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="collections" disable="member_data|categories|pagination"}
+
+<article class="collections">
+	<div class="headline centered">
+		<h1>{collections_headline}</h1>
+		<h3>{collections_subhead}</h3>
+		<p>{collections_copy}</p>
+	</div>
+
+	{collections_relationship}
+
+	{!-- ----------------------------------------------------------
+		The collection beind displayed is anything but rounds
+	---------------------------------------------------------- --}
+	{if collections_relationship:url_title!="rounds"}
+	<div class="collection-preview-block col6 {if collections_relationship:count % 2 == 0}last{/if}">
+		<a href="{site_url}/collection/{collections_relationship:url_title}" class="collection-preview-link">
+			<div class="collection-name">
+				<h1>{collections_relationship:collection_name}</h1>	
+				<h3>Collection</h3>
+			</div>
+			<img src="{collections_relationship:collection_preview_image}" alt="{collections_relationship:collection_name} Preview Image">
+			<p>{collections_relationship:collection_preview_copy}</p>
+			<button class="btn btnGreyBackground">View {collections_relationship:collection_name}</button>
+		</a>
+	</div>
+
+	{!-- ----------------------------------------------------------
+		The rounds collection is being displayed
+	---------------------------------------------------------- --}
+	{if:else}	
+	<div class="collection-preview-block col6 {if collections_relationship:count % 2 == 0}last{/if}">
+		<a href="{site_url}/product/round-double-portable-waste-recycling-bin" class="collection-preview-link">
+			<div class="collection-name">
+				<h1>{collections_relationship:collection_name}</h1>	
+				<h3>Collection</h3>
+			</div>
+			<img src="{collections_relationship:collection_preview_image}" alt="{collections_relationship:collection_name} Preview Image">
+			<p>{collections_relationship:collection_preview_copy}</p>
+			<button class="btn btnGreyBackground">View {collections_relationship:collection_name}</button>
+		</a>
+	</div>
+	{/if}
+		{if collections_relationship:count % 2 == 0}<div style="clear: both;"></div>{/if}
+	{/collections_relationship}
+	<div style="clear: both;"></div>
+</article>
+
+{/exp:channel:entries}
+
+{embed="includes/.footer"}

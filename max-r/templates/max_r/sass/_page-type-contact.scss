@@ -1,0 +1,187 @@
+/* ================= Contact Form Styling  ================= */
+article.contact {
+	div.contact-form {
+		h1 {
+			border-bottom: 1px solid $lightborder;
+			padding-bottom: 35px;
+		}
+		div.mobile-contact-info {
+			display: none;
+		}
+		form {
+			max-width: 1100px;
+			margin: 0 auto;
+			padding: 45px 15px 45px 0;
+			div.formRow {
+				margin-bottom: 15px;
+				width: 100%;
+				div {
+					display: inline-block;
+					label {
+						display: none;
+					}
+					input {
+						// @include border-radius(5px);
+						border: 1px solid $form-border-grey;
+						padding: 25px 25px;
+						font-size: 1.0em;
+						// box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.4);
+						margin-top: 15px;
+						height: 2em;
+						width: 100%;
+						background-color: $alternate-grey;
+						font-family: $font-regular;
+						color: $textgrey;
+					}
+
+					textarea.textInput {
+						border: 1px solid $form-border-grey;
+						padding: 10px 25px;
+						font-size: 1.1em;
+						// box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.4);
+						margin-top: 15px;
+						width: 100%;
+						background-color: $alternate-grey;
+						font-family: $font-regular;
+						color: $textgrey;
+					}
+
+					div.warning {
+						display: none;
+						color: red;
+					}
+				}
+			}
+			div.center {
+				text-align: center;
+				margin-top: 15px;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 1042px) {
+	article.contact {
+		padding: 10%;
+
+		div.left-nav {
+			display: none;
+		}
+		div.contact-form.col9 {
+			width: 99%;
+			div.mobile-contact-info {
+				display: block;
+				h4 {
+					margin: 2% 0;
+					padding: 0;
+				}	
+			}
+		}
+		div.col6 {
+			width: 99%;
+			padding: 0 25px;
+		}
+		div.col12 {
+			padding: 0 25px;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	article.contact {
+		padding: 2% 1%;
+
+		div.col6 {
+			padding: 0;
+		}
+		div.col12 {
+			padding: 0;
+		}
+	}
+}
+
+
+/* ================= Thank You Page Styles ================= */
+article.thank-you {
+	max-width: 700px;
+}
+
+
+/* ================= Sales Team Page Styles ================= */
+article.sales-team {
+	padding-left: 2%;
+	padding-right: 2%;
+	h1 {
+		padding: 0 0 25px 0;
+		border-bottom: $lightborder 1px solid;
+	}
+
+	h3 {
+		color: $textgrey;
+		margin-bottom: 25px;
+	}
+	div.sales-container {
+		// text-align: center;
+		margin: 15px 0;
+		// width: 100%;
+		div.sales-block {
+			display: inline-block;
+			width: 175px;
+			text-align: left;
+			margin-right: 15px;
+			vertical-align: top;
+
+			img {
+				margin-bottom: 15px;
+				max-width: 100%
+			}
+			h4 {
+				font-size: 1.1em;
+				margin: 0;
+				padding: 0;
+			}
+			p {
+				margin: 0;
+				font-family: $font-regular;
+				font-size: 0.8em;
+				line-height: 1.4em;
+				a {
+					color: $textgrey;
+					&:hover {
+						color: $brightgreen;
+					}
+				}
+			}
+		}
+	}
+
+}
+	
+
+/* ====================== Sales team teritory maps =============== */	
+a.tooltip {
+	outline:none;
+	span {
+		z-index:10;
+    	display:none; 
+    	padding:14px 20px;
+    	margin-top:-30px; 
+    	margin-left:28px;
+    	width:300px; 
+    	line-height:16px;
+    	border-radius:4px;
+    	box-shadow: 5px 5px 8px #CCC;
+	}
+	&:hover {
+		text-decoration:none;
+		span {
+			display:inline; 
+			position:absolute; 
+			color:$darkgrey;
+    		border:1px solid $lightgrey; 
+    		background: $white;
+		}
+	}
+
+}
+.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}

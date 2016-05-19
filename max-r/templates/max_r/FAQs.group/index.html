@@ -1,0 +1,58 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="faqs" disable="member_data|categories|pagination"}
+<div class="full-page-hero-header faqs">
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+<!-- 
+        <source srcset="{blog_post_hero_2000}" media="(min-width: 769px)" class="blog-post-hero">
+        <source srcset="{blog_post_hero_768}" media="(min-width: 1px)" class="blog-post-hero">
+-->
+        <!--[if IE 9]></video><![endif]-->
+        <img src="{faq_hero_image}" alt="test" class="blog-post-hero" /> 
+    </picture>  
+
+
+	
+</div>
+
+<article class="faqs hero-image-overlay">
+	
+	{embed="includes_sidenav/.resources-sidenav"}
+
+	<div class="faq-question-links col9 last">
+		
+		<h1>{faq_headline}</h1>
+		
+		<h3>{material_faqs_label}</h3>
+		{material_faq_list}
+		<div class="faq">
+			<a href="#" class="question materials-{material_faq_list:count} materials" ><img src="{site_url}/images/resources/faq-closed.png" class="plus materials-{material_faq_list:count}"> <p>{material_faq_list:question}</p></a>
+			<p class="answer materials-{material_faq_list:count} sliding">{material_faq_list:answer}</p>
+		</div>
+		{/material_faq_list}
+		
+		<h3>{production_faqs_label}</h3>
+		{production_faq_list}
+		<div class="faq">
+			<a href="#" class="question production-{production_faq_list:count} production" ><img src="{site_url}/images/resources/faq-closed.png" class="plus production-{production_faq_list:count}"><p>{production_faq_list:question}</p></a>
+			<p class="answer production-{production_faq_list:count} sliding">{production_faq_list:answer}</p>
+		</div>
+		{/production_faq_list}
+		
+		<h3>{shipping_faqs_label}</h3>
+		{shipping_faq_list}
+		<div class="faq">
+			<a href="#" class="question shipping-{shipping_faq_list:count} shipping" ><img src="{site_url}/images/resources/faq-closed.png" class="plus shipping-{shipping_faq_list:count}"><p>{shipping_faq_list:question}</p></a>
+			<p class="answer shipping-{shipping_faq_list:count} sliding">{shipping_faq_list:answer}</p>
+		</div>
+		{/shipping_faq_list}		
+	</div>
+
+
+	<div style="clear: both;"></div>
+</article>
+{/exp:channel:entries}
+
+
+{embed="includes/.footer"}

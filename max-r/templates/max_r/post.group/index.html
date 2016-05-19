@@ -1,0 +1,90 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="blog_post" disable="member_data|pagination" require_entry="yes"}
+<div class="full-page-hero-header">
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="{blog_post_hero_2000}" media="(min-width: 769px)" class="blog-post-hero">
+        <source srcset="{blog_post_hero_768}" media="(min-width: 1px)" class="blog-post-hero">
+        <!--[if IE 9]></video><![endif]-->
+        <img srcset="{blog_post_hero_1800}" alt="Test Image" class="blog-post-hero">
+    </picture>              
+   
+	<!-- <img src="{about_hero_image}" alt="About us hero image" class="blog-post-hero" /> -->
+</div>
+
+<article class="blog-post hero-image-overlay">
+	<div class="col3 left-nav">
+	{blog_post_author_relationship}
+		<img src="{blog_post_author_relationship:blog_author_image}" alt="{blog_post_author_relationship:blog_author_name}" class="author" />
+		<p class="left-nav-label">{entry_date format='%M %d, %Y'}</p>
+		<p class="author">{blog_post_author_relationship:blog_author_name}</p>
+		<p class="left-nav-label">CATEGORIES</p>
+		<p class="categories">
+			{categories backspace="2"}<a href="{path=blog/}">{category_name}</a>, {/categories}
+		</p>
+		<div class="social-media-icons">
+			<p class="left-nav-label">SHARE THIS</p>
+			<ul>
+				<li><a onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;" href="#"><img src="{site_url}/images/blog/share-fb.png" id="fb-icon"></a></li>
+				<li><a href="http://twitter.com/share" target="_blank"><img src="{site_url}/images/blog/share-twitter.png" id="twitter-icon"></a></li>
+				<li><a onclick=" window.open( 'http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(location.href), 'width=626,height=436'); return false;" href="#"><img src="{site_url}/images/blog/share-linkedin.png" id="linkedin-icon"></a></li>
+				<!-- <li><a onclick="window.open('https://plus.google.com/share?url='+encodeURIComponent(location.href), 'width=626,height=436'); return false;" href="#" class="icon-googleplus">&nbsp;</a></li> -->
+			</ul>
+			<script>
+				$('img#fb-icon').hover(function() {
+				  $(this).attr('src', '{site_url}/images/blog/share-fb-over.png');
+				}, function() {
+				  $(this).attr('src', '{site_url}/images/blog/share-fb.png');
+				});
+				$('img#twitter-icon').hover(function() {
+				  $(this).attr('src', '{site_url}/images/blog/share-twitter-over.png');
+				}, function() {
+				  $(this).attr('src', '{site_url}/images/blog/share-twitter.png');
+				});
+				$('img#linkedin-icon').hover(function() {
+				  $(this).attr('src', '{site_url}/images/blog/share-linkedin-over.png');
+				}, function() {
+				  $(this).attr('src', '{site_url}/images/blog/share-linkedin.png');
+				});
+
+
+			</script>
+		</div>
+	{/blog_post_author_relationship}
+	</div>
+	<div class="col9 blog-copy last">
+		
+		{embed="includes/.breadcrumbs"}
+		
+		<h2>{blog_post_headline}</h2>
+		<h4>{blog_post_subhead}</h4>
+		{blog_post_copy}
+	</div>
+	<div style="clear: both;"></div>
+
+</article>
+
+{/exp:channel:entries}
+
+{!-- -----------------------------------------
+	Previous entries 
+------------------------------------------ --}
+<article class="border-top-grey related-articles">
+	<h3>Related Articles</h3>
+	{exp:channel:entries channel="blog_post" disable="member_data|pagination" limit="4" dynamic="no"}
+		{if (url_title==segment_2)}
+			{!-- Skip this article --}
+		{if:else}
+		<div class=" related-articles col3 {if count=='4'}last{/if}">			
+			<a href="{site_url}/post/{url_title}"><img src="{blog_post_preview_image}" alt="{blog_post_headline}" class="resource-preview-image" /></a>
+			<h4>{title}</h4>
+			<a href="{site_url}/post/{url_title}" class="btn btnGrey">Read more</a>
+		</div>
+		{/if}
+	{/exp:channel:entries}
+	<div style="clear: both;"></div>
+</article>
+
+
+{embed="includes/.footer"}

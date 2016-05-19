@@ -1,0 +1,205 @@
+// There is a discrepancy between the jquery window width and the CSS screen width.
+// The jquery takes into account the additional width added by a vertical scroll bar.
+// This range 880 to 897 simply assure there will be a vertical sidebar so the widths match.
+/*
+@media screen and (min-width: 845px) and (max-width: 978px) {
+	body {
+		min-height: 1200px;
+	}
+}
+*/
+
+// --> 2-15-2016 increaded width of "large window' to encompas width of ipod hoizontal 
+// @media screen and (max-width: 978px) {
+@media screen and (min-width: 1041px) {
+	header.main-nav {
+		div.main-nav {
+			nav.nav-block {	
+				ul#nav {
+					li {
+						&.mobile {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1041px) {
+
+	article {
+		padding-top: 5%;
+	}
+	h1{
+		font-size: 2.4em;
+	}
+	h2{
+		font-size: 1.4em;
+	}
+
+	div.full-page-hero-header {
+		top: 0;
+	}
+
+
+	header.main-nav {
+		position: relative;
+
+		min-height: 100%;
+		z-index: 1000;
+		// padding: 32px 25px 0 25px;
+		div.main-nav {
+			height: 75px;
+			a.mobile_menu {
+				display: block;
+				margin: 0 15px 0 0;
+				cursor: pointer;
+				float: right;
+				border: 1px solid $brightgreen;
+				padding: 7px 15px;
+				background-color: $brightgreen;
+				color: $white;
+				font-weight: 500;
+				&:hover {
+					background-color: $white;
+					color: $brightgreen;
+				}
+			}			
+
+			nav.nav-block {	
+				width: 100%;	
+				margin-top: 20px;
+				margin-bottom: 150px;
+				
+				ul#nav {
+					padding: 10px 0 0 9%;
+					width:100%;
+					// border-top: 1px solid #ddd;
+					text-align: left;
+					li {
+						width:100%;
+						// border-bottom: 1px solid #ddd;
+						padding: 8px 0;
+						font-size: 3.0em;
+						font-family: $font-regular;
+						.mobile {
+							display: block;
+						}
+						a {
+							display: block;
+							padding: 7px 0;
+							border-bottom: none;
+							// min-height: 72px;
+							&.active {
+								color: $textgrey;
+							}
+							img {
+								height: 25px;
+								width: 25px;
+							}
+						}
+						ul {
+							// border-top: 1px solid #333;
+							margin: 10px 0 10px 5%;
+							li {
+								// background-color: $lightgrey;
+								font-size: 0.6em;
+								font-family: $font-regular;
+								color: $text-lightgrey;
+								margin: 0 0 15px 0;
+								padding: 0;
+								border: none;
+								
+								&:hover {
+									color: $brightgreen;
+								}
+								a {
+									padding: 0;
+									min-height: 0;
+								}
+							}
+						}
+						&#search {
+							display: none;
+						}
+						&.search {
+							color: $textgrey;
+							padding: 10px 0 0 0;
+							margin-bottom: 100px;
+							font-size: 2.4em;
+							div.search-subnav-mobile {
+								form {
+									fieldset.content {
+										margin-top: 0;
+										input {
+											height: 40px;
+											width: 300px;
+											padding-left: 20px;
+											font-family: $font-body-normal;
+											font-size: 0.5em;
+										}
+										button {
+											font-size: 0.4em;
+											/* 
+											background-image: url('http://www.#{$site-name}.com/images/header/magnifying-glass.png');
+											background-repeat: no-repeat;
+											background-color: transparent;
+											background-position: 1px 13px;
+											box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.4);	
+											border: none;			
+											height: 50px;
+											width: 40px;
+											padding-bottom: 10px;
+											*/
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			div.search {
+				display: none;
+			}
+		}
+/*
+		div#search-subnav {
+			form {
+				width: 66%;
+				fieldset {
+					input {
+						width: 80%;
+					}
+				}
+			}
+		}
+*/
+	}
+
+	div.clear-nav {
+		padding: 0;
+		margin: 0;
+	}
+	footer {
+		div#site-links-container {
+			display: none;
+		}
+
+		
+		div#footer-links {
+			.contact-us, .footer-logo {
+				width: 40%;
+			} 
+			.socialmedia-icons {
+				
+			}
+		}
+	}
+}
+
+
+
+
+

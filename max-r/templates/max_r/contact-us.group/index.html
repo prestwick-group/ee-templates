@@ -1,0 +1,115 @@
+{embed="includes/.header"}
+
+
+{exp:channel:entries channel="contact" disable="member_data|pagination"}
+
+<div class="full-page-hero-header">
+    <img src="{contact_hero_image}" alt="About us hero image" class="blog-post-hero" /> 
+</div>
+
+<article class="contact hero-image-overlay">
+
+{embed="includes_sidenav/.contact-sidenav" page="contact"}
+
+
+<div class="contact-form col9 last">
+    <h1>{contact_headline}</h1>
+        <div class="mobile-contact-info">
+            <h4>Phone: {contact_phone_number}</h4>
+            <h4>Address: {contact_address}</h4>
+            {if segment_1=="contact-us"}
+                <a href="{site_url}/sales-team/"} class="btn btnGreen">View Sales Team</a>
+            {/if}            
+        </div>
+        <form id="CommentForm" class="cmxform contact" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+        <input type=hidden name="oid" value="00DG0000000iUgE">
+        <input type=hidden name="retURL" value="{site_url}/contact-us/thank-you">
+
+        <div class="formRow">
+            <div class="col6">   
+                <label for="first_name" class="overlabel">First Name</label> 
+                <input id="first_name" maxlength="40" name="first_name" size="20" type="text" class="required" /><br>
+                <div class="warning first-name-warning">-- Please enter your first name</div>
+            </div>
+
+
+            <div class="col6 last">   
+                <label for="last_name" class="overlabel">Last Name</label>    
+                <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" class="required" /><br>
+                <div class="warning last-name-warning">-- Please enter your last name</div>
+            </div>
+        </div>
+
+        <div class="formRow">
+            <div class="col6">   
+                <label for="email" class="overlabel">Email</label>
+                <input  id="email" maxlength="80" name="email" size="20" type="text" class="required" /><br>
+                <div class="warning email-warning">-- Please enter your email address</div>
+            </div>
+
+            <div class="col6 last">
+                <label for="phone" class="overlabel">Phone</label>
+                <input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+            </div>
+        </div>
+
+        <div class="formRow">
+            <div class="col12">
+                <label for="company" class="overlabel">Company</label>    
+                <input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+            </div>
+        </div>
+
+        <div class="formRow">
+            <div class="col12">
+                <label for="title" class="overlabel">Title</label>
+                <input  id="title" maxlength="40" name="title" size="20" type="text" /><br>
+            </div>
+        </div>
+
+         <div class="formRow">
+            <div class="col12">
+                <label for="description" >Message:</label>
+                <textarea id="message" name="description" class="textInput required" rows="10" cols="4"></textarea>
+            </div>                          
+        </div>
+
+        <input id="empty" class="missing" style="display: none;" name="empty" type="text" value=""  />
+        
+ <!--        
+<p style="display: none">
+            Brand:
+            <select id="00NG000000BFXiH" name="00NG000000BFXiH" title="Brand" value="MXR">
+                <option value="MXR">MXR</option>
+            </select><br .>
+            <input type="hidden" name="00NG000000BFXiH" id="00NG000000BFXiH" value="MXR">
+        </p>
+-->
+        <p style="display: none">
+        Brand:<select id="00NG000000BFXiH" name="00NG000000BFXiH" title="Brand" value="MXR">
+        <option value="">--None--</option>
+        <option value="PGG">PGG</option>
+        <option value="LTD">LTD</option>
+        <option value="MXR"></option>
+        <option value="NXT">NXT</option>
+        </select><br>
+        <input type="hidden" name="00NG000000BFXiH" id="00NG000000BFXiH" value="MXR">
+        </p>
+
+
+        
+        <input type="hidden" id="lead_source" name="lead_source" title="Lead Source" value="Website Form">
+        <div style='clear: both;'></div>
+        <div class="center">
+            <input type="submit" name="submit" class="button_link submit btn btnGreen">
+        </div>
+    </form>
+
+{/exp:channel:entries}
+ 
+</div>
+<div style="clear:both;"></div>
+</article>
+
+{embed="includes/.footer"}

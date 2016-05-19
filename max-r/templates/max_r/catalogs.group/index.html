@@ -1,0 +1,24 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="catalogs" disable="member_data|categories|pagination"}
+
+<article class="catalogs">
+	<div class="headline centered">
+		<h1>{catalog_h1}</h1>
+	</div>
+
+	<div class="catalog-list {!-- col4 {if catalog_grid:count=="3"}last{/if} --}">
+	{catalog_grid}
+		<a href="{site_url}/{catalog_grid:catalog_link}" target="_blank">
+			<img src="{catalog_grid:catalog_image}" alt="{catalog_grid:catalog_title}" />
+			<h3>{catalog_grid:catalog_title}</h3>
+		</a>
+	{/catalog_grid}
+
+	</div>
+	<div style="clear:both;"></div>
+</article>
+{/exp:channel:entries}
+
+
+{embed="includes/.footer"}

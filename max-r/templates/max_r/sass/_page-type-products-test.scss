@@ -1,0 +1,554 @@
+/* ================= Product section styling ================== */
+
+article.products-test {
+	// border-top: 3px solid $brightgreen;
+	&.category {
+		padding: 107px 20px 80px 20px;
+		h1 {
+			position: absolute;
+			z-index: 500;
+			width: 100%;
+			text-align: center;
+			&:after {
+				border-bottom: 1px solid $brightgreen;
+				clear: both;
+				width: 50px;
+				content: " ";
+				display: block;
+				margin: 15px auto;
+			}
+		}
+	}
+	&.group {
+		padding: 107px 20px 80px 20px;
+	}
+	section.product-category-hero {
+		/* ----------------------------------------------
+			height of product-category-hero controlled
+			by products.js
+		---------------------------------------------- */
+		position: relative;
+		margin-bottom: 4%;
+/* 
+		h1 {
+			position: absolute;
+			z-index: 500;
+			width: 100%;
+			text-align: center;
+			&:after {
+				border-bottom: 1px solid $brightgreen;
+				clear: both;
+				width: 50px;
+				content: " ";
+				display: block;
+				margin: 15px auto;
+			}
+		}
+*/
+		div.headline.centered {
+			h1 {
+				position: relative;
+			}
+		}
+
+		img {
+			position: absolute;
+			width: 100%;
+			z-index: 20;
+			border: 1px solid $lightborder;
+		}
+		div.product-category-hero-button {
+			position: absolute;
+			z-index: 501;
+		}
+	}
+
+
+	/* ------------------------------------------------------------------
+		Product Group hero image setup
+	------------------------------------- */
+	section.product-group-hero {
+		position: relative;
+		margin-bottom: 4%;
+		div.product-group-hero-images {
+			position: absolute;
+			width: 100%;
+			z-index: 9;
+			div.product-group-hero-images-container {
+				position: relative;
+				img {
+					width: 100%;
+					position: absolute;
+					z-index: 10;
+					&.active {
+						z-index: 13;
+					}
+				}
+			}
+		}
+		div.product-group-hero-text {
+			position: absolute;
+			z-index: 10;
+			background-color: $grey-transparent;
+			text-align: center;
+			padding: 30px 25px;
+			// right: 0;
+			max-width: 420px;
+			h2 {
+				color: $white;
+				margin: 0;
+				&:after {
+					border-bottom: 1px solid $brightgreen;
+					clear: both;
+					width: 50px;
+					content: " ";
+					display: block;
+					margin: 20px auto 20px auto;
+					line-height: 1.2em;
+					background-color: $grey-transparent;
+				}
+			}
+			h4 {
+				color: $white;
+				margin: 0;
+			}
+		}
+	}
+
+
+	div.product-filtering {
+		padding-left: 35px;
+		position: relative;
+		font-family: $font-regular;
+		h3 {
+			color: $darkgrey-2;
+			text-transform: uppercase;
+			// font-family: $font-medium;
+			padding: 0 0 25px 0;
+			border-bottom: 1px solid $lightborder;
+			margin: 0 0 5px 0;
+			&.active {
+				padding: 0;
+				border: none;
+				// margin: 0 0 5px 0;
+			}
+		}
+
+		div.product-group-filters-mobile-selected {	
+			display: none;
+			p.active-filter-group {
+				display: none;
+			}
+		}
+		div.product-group-filters {
+			p {
+				margin: 0;
+				&.criteria-label {
+					font-size: 0.8em;
+					font-family: $font-light;
+					color: $text-lightgrey;
+					font-style: italic;
+					margin-bottom: 3%;
+					line-height: 1.1em;
+				}
+				&.product-group-filter-header {
+					font-family: $font-medium;
+					color: $close-menu-grey;
+					margin-bottom: 2%;
+				}
+
+				&.product-group {
+					font-family: $font-light;
+					color: $darkgrey;
+					letter-spacing: 0.025em;
+					line-height: 1.1em;
+					margin-bottom: 3%;
+				}
+				&.active-group {
+					padding: 0 0 3%;
+					border-bottom: 1px solid $lightborder;
+					margin-bottom: 15px;
+					a {
+						color: $brightgreen;
+						// background-color: $brightgreen;
+						font-family: $font-medium;
+						letter-spacing: 0.025em;
+						display: block;
+						width: 100%;
+						padding: 0;
+						// text-transform: uppercase;
+						font-size: 1.0em;
+						span.close-group {
+							border-radius: 10px;
+							padding: 4px 6px;
+							margin-top: 5px;
+							line-height: 12px;
+							background-color: $brightgreen;
+							vertical-align: top;
+							color: $white;
+							display: inline-block;
+							font-size: 12px;
+							font-family: $font-semibold;
+						}
+					}
+				}
+
+			}
+			a.mobile-filter-category {
+				display: none;
+			}
+			button {
+				display: block;
+			}
+			&.active {
+				p.product-group-filter-header {
+					display: none;
+				}
+			}
+			form {
+				fieldset {
+					margin-bottom: 4%;
+					h4 {
+						font-family: $font-medium;
+						font-size: 0.9em;
+						color: $close-menu-grey;
+						text-transform: uppercase;
+						margin: 0;
+						border: none;
+						padding: 0;
+						span.expand-filter {
+							display: none;
+						}
+					}
+					p {
+						cursor: pointer;
+						padding: 0 0 0 24px;
+						font-family: $font-light;
+						color: $textgrey;
+						letter-spacing: 0.025em;	
+						font-size: 0.8em;
+						line-height: 1.5em;					
+						&.active {
+							color: $brightgreen;
+							// background-color: ;
+							padding: 0 0 0;
+						}
+						&:hover {
+							color: $brightgreen;
+							// background-color: $brightgreen;
+						}
+						&.filter {
+							
+							span.close-filter {
+								display: none;
+								margin-right: 6px;
+
+								border-radius: 10px;
+								padding: 4px 6px;
+								margin-top: 3px;
+								line-height: 12px;
+								background-color: $brightgreen;
+								vertical-align: top;
+								color: $white;
+								font-size: 12px;
+								font-family: $font-semibold;
+
+
+							}
+						}
+					}
+				}
+				p#Reset {
+					cursor: pointer;
+					color: $brightgreen;
+					border-top: 1px solid $lightborder;
+					padding-top: 3%;
+					font-family: $font-light;
+					letter-spacing: 0.025em;
+					font-size: 0.8em;
+					span.close-group {
+						border-radius: 10px;
+						padding: 4px 6px;
+						margin-top: 3px;
+						line-height: 12px;
+						background-color: $brightgreen;
+						vertical-align: top;
+
+						color: $white;
+						display: inline-block;
+						font-size: 12px;
+						font-family: $font-semibold;
+					}					
+				}
+			}
+		}
+		div.product-group-filters-mobile {
+			display: none;
+		}
+
+	}
+
+	div.product-list {
+		overflow: hidden;
+		img.product-category-hero {
+			width: 100%;
+			margin-bottom: 12%;
+		}
+		/* ----------------------------------------------
+			Styling shared with collection pages.
+			'page-product-block-embed' updates both.
+		---------------------------------------------- */
+		@import "_page-product-block-embed.scss"
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================================================
+=====================================================================================
+	Product Category / Group Filtering : Tablet
+=====================================================================================
+================================================================================== */
+@media screen and (max-width: 1041px) {
+	// Remove Category Hero buttons. They start to become misaligned
+	article.products-test {
+		&.category {
+			padding-top: 5%;		
+		}
+		&.group {
+			padding-top: 5%;
+		}
+
+		section.product-category-hero {
+			display: none;
+		}
+		div.product-filtering {
+			width: 100%;
+			h3 {
+				padding: 0 0 15px 0;
+				margin: 0;
+				border-bottom: none;
+			}
+			div.product-group-filters-mobile-selected {
+				// border-bottom: 1px solid #333;	
+				display: block;
+				font-size: 0.8em;
+				p {
+					float: left;
+					margin-right: 2%;
+					a {
+						color: $brightgreen;
+						span.close-group {
+							color: $black;
+							// font-weight: bold;
+							font-size: 0.7em;
+							vertical-align: middle;
+						}
+					}
+					span.close-group {
+						color: $black;
+						// font-weight: bold;
+						font-size: 0.7em;
+						vertical-align: middle;
+					}
+					&.active-category {
+
+					}
+					&.active-filter-group {
+						display: none;
+						color: $brightgreen;
+						cursor: pointer;
+					}
+				}
+			}	
+			div.product-group-filters.mobile {
+				//display: none;
+				margin-bottom: 5%;
+				p.active-group {
+					display: none;
+				}
+				p.criteria-label {
+					display: none;
+				}
+				p.product-group-filter-header {
+					display: none;
+				}
+				p.mobile-filter-category {
+					display: block;
+				}
+				
+				a.mobile-filter-category {
+					width: 100%;
+					display: block;
+					padding: 1% 3%;
+
+					border: 1px solid $lightborder;
+					cursor: pointer;
+					&:hover p {
+						color: $brightgreen;
+					}
+					p {
+						width: 100%;
+						margin: 0;
+
+						span.expand-filter {
+							display: block;
+							float: right;
+							font-size: 1.3em;
+							margin: 0 10px 10px 0;
+						}
+					}
+				}				
+
+				form.controls {
+					fieldset {
+						margin: 0 0 1% 0;
+						h4 {
+							border: 1px solid $lightborder;
+							padding: 1% 3%;
+							margin: 0;
+							font-family: $font-regular;
+							cursor: pointer;
+							color: $text-headlinegrey;
+							text-transform: none;
+							span.expand-filter {
+								float: right;
+								display: block;
+
+							}
+						}
+						div.filter-list {
+							display: none;
+							p.filter {
+								border: 1px solid $lightborder;
+								padding: 1% 3% 1% 6%;
+								margin: 0;
+								font-family: $font-regular;
+								cursor: pointer;
+								color: $text-headlinegrey;
+								font-size: 0.8em;
+								line-height: 1.5em;
+								// Not sure why this was removed, but display block is needed
+								// for the links to show up under the product group filters
+								// 2-17-2016 -- Lincoln
+								display: block;							
+								
+								span.close-filter {
+									display: none;
+									color: rgba(0,0,0,0);
+								}
+								a {
+									display: block;
+									padding: 1% 3% 1% 6%;
+								}
+							}
+						}
+					}
+				}
+				p#Reset {
+					display: none;
+				}
+
+				div.mobile-filter-category-links {
+					display: none;
+					p.product-group {
+						width: 100%;
+						display: block;
+						// padding: 1% 3% 1% 6%;
+						border: 1px solid $lightborder;
+						cursor: pointer;
+						margin: 0;
+						font-size: 0.9em;
+						&:hover {
+							color: $brightgreen;
+						}
+						a {
+							width: 100%;
+							margin: 0;
+							display: block;
+							padding: 1% 3% 1% 6%;
+						}
+					}
+				}
+			}				
+		}
+		div.product-list {
+			width: 100%;
+			div.embeded-product-block {
+				width: 30%;
+				&.last {
+					margin: 0 0 30px 0;
+				}
+				a {
+					div.filter-button {
+						margin-top: 100px;
+					}
+
+					div.product-block-text {
+						max-width: 200px;
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* ==================================================================================
+=====================================================================================
+	Product Category / Group Filtering : Mobile
+=====================================================================================
+================================================================================== */
+@media screen and (max-width: 666px) {
+	article.products-test {
+		section.product-category-hero {
+			display: none;
+		}
+		div.product-filtering {
+			padding: 0;
+			div.product-group-filters.mobile {
+				div.mobile-filter-category-links {
+					p.product-group {
+						// padding: 3% 3% 3% 6%;
+						a {
+							padding: 3% 3% 3% 6%;
+						}
+					}
+				}
+
+			}			
+		}
+		div.product-list {
+			div.embeded-product-block {
+				width: 100%;
+				&.last {
+					margin-right: 0 0 30px 0;
+				}
+				a {
+					div.filter-button {
+						margin-top: 100px;
+					}
+
+					div.product-block-text {
+						max-width: 200px;
+						margin: 0 auto;
+						h5 {
+							
+						}
+					}
+				}
+			}
+		}
+	}
+}

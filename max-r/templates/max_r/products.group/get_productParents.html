@@ -1,0 +1,27 @@
+
+{exp:channel:entries channel="product_parent" dynamic="no" sort="asc" limit="500" disable="member_data|pagination"}
+	
+	{categories}
+
+	{!-- <p>{embed:embeded_group} vs {category_url_title}</p> --}
+
+		{if embed:embeded_group!=""}
+		{!-- Display product group --}
+			{if category_url_title==embed:embeded_group}
+				{embed="products/get_productBlockContent" embeded_product="{url_title}" div_count="{count}"}
+			{/if}			
+		{/if}
+
+
+		{if embed:embeded_category!=""}
+			{if category_url_title==embed:embeded_category}
+				
+				{!-- Matching Category Name and Embeded Category: {product_parent_name} --}
+				{!-- {count} --}
+				{embed="products/get_productBlockContent" embeded_product="{url_title}" div_count="{count}"}
+			{/if}
+		{/if}
+
+
+	{/categories}	
+{/exp:channel:entries}

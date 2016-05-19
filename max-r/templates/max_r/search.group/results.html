@@ -1,0 +1,62 @@
+{embed="includes/.header"}
+
+<article class="search-results">
+	<h1>Results for "{exp:search:keywords}"</h1>
+	{!-- establish increments for product and blog counts using plugin Pvl Increment --}
+	<p style="display: none;">
+		{exp:pvl_increment id="product_count" start="0" step="1"}
+		{exp:pvl_increment id="blog_count" start="0" step="1"}
+	</p>
+
+
+{exp:search:search_results sort_order="desc"}
+	{if product_child_name != ""}
+		
+		{if {exp:pvl_increment id="product_count" increment="no" random}=="0"}
+			<h2>Products</h2>
+		{/if}
+		<div class="search-result-block-product">
+			<p style="display: none;">{exp:pvl_increment id="product_count" random}</p>
+			
+			<a href="{site_url}/product/{url_title}">
+				<img src="{product_child_thumbnail}" id="{url_title}">
+				<h5>{title}</h5>
+				<span class="btn btnGrey">VIEW</span>
+			</a>	
+		</div>
+		{if {exp:pvl_increment id="product_count" increment="no" random} % 4 == 0}
+			<div style="clear: both;"></div>
+		{/if}
+	{/if}
+	
+	{if blog_post_headline != ""}
+	{if {exp:pvl_increment id="blog_count" increment="no" random}=="0"}
+		<div style="clear: both;"></div>
+		<h2>Blog posts</h2>
+	{/if}
+	<div style="clear: both;"></div>
+	<section class="resource-preview">
+		<p style="display: none;">{exp:pvl_increment id="blog_count" random}</p>
+		<div class="col4">
+			<a href="{site_url}/post/{url_title}"><img src="{blog_post_preview_image}" alt="{blog_post_headline}" class="resource-preview-image" /></a>
+		</div>
+		<div class="text-block col8 last">
+			<p class="category">{categories backspace="2"}<a href="{path=blog/}">{category_name}</a>, {/categories}</p>
+			<h3><a href="{site_url}/post/{url_title}">{blog_post_headline}</a></h3>
+			<!-- <h4>{blog_post_subhead}</h4> -->
+			<p class="date-and-author">{entry_date format="%F %d, %Y"}, {blog_post_author_relationship}{blog_post_author_relationship:blog_author_name}{/blog_post_author_relationship}</p>
+			<p class="preview-copy">{blog_post_preview_copy}</p>
+			<a href="{site_url}/post/{url_title}" class="btn btnGrey">Read More</a>
+		</div>
+		<div style="clear: both;"></div>
+	</section>
+
+
+	{/if}
+
+
+{/exp:search:search_results}
+	<div style="clear: both;"></div>
+</article>
+
+{embed="includes/.footer"}

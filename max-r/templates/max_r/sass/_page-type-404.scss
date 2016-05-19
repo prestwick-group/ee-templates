@@ -1,0 +1,32 @@
+/* ================= About section styling ================== */
+
+article.error-404 {
+	max-width: 820px;
+	margin-bottom: 40px;
+	h3.product-groups {
+		margin-top: 4%;
+		border-bottom: 1px solid #333;
+	}
+	ul.list-container {
+		float: left;
+		width: 44%;
+		margin-right: 3%;
+		li {
+			font-size: 1.2em;
+			//font-family: $font-medium;
+			// text-decoration: underline;
+			ul {
+				margin: 4px 0 25px 0;
+				li {
+					font-size: 0.8em;
+					line-height: 1.1em;
+					margin: 0 0 10px 0;
+					font-family: $font-regular;
+				}
+			}
+		}
+	}
+}
+
+
+

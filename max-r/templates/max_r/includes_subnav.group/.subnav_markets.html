@@ -1,0 +1,78 @@
+<ul class="col4">
+	<li id="attractions" class="mouseOverToggle-markets">
+		<a href="{site_url}/market/attractions" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Markets - Attractions');">
+			<h1 class="underline">Attractions</h1>
+			<!-- <p>.</p> -->
+		</a>
+	</li>
+	<li id="corporate" class="mouseOverToggle-markets">
+		<a href="{site_url}/market/corporate" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Markets - Corporate Campus');">
+			<h1 class="underline">Corporate Campus</h1>
+			<!-- <p>.</p> -->		
+		</a>
+	</li>
+	<li id="restaurants" class="mouseOverToggle-markets">
+		<a href="{site_url}/market/restaurants"  onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Markets - Restaurants');">
+			<h1 class="underline">Restaurants</h1>
+			<!-- <p>.</p> -->
+		</a>
+	</li>
+	<li id="venues" class="mouseOverToggle-markets">
+		<a href="{site_url}/market/venues"  onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Markets - Venues');">
+			<h1 class="underline">Venues &amp; Arenas</h1>
+			<!-- <p>.</p> -->
+		</a>
+	</li>
+
+</ul>
+<ul class="col4">
+	<li id="education" class="mouseOverToggle-markets">
+		<a href="{site_url}/market/education" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Markets - Education');">
+			<h1 class="underline">Education</h1>
+			<!-- <p>.</p> -->
+		</a>	
+	</li>
+	<li id="health-care" class="mouseOverToggle-markets">
+		<a href="{site_url}/market/health-care"  onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Markets - Health Care');">
+			<h1 class="underline">Healthcare</h1>
+			<!-- <p>.</p> -->
+		</a>	
+	</li>
+	<li id="municipalities" class="mouseOverToggle-markets">
+		<a href="{site_url}/market/municipalities" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Markets - Municipalities');">
+			<h1 class="underline">Municipalities &amp; Parks</h1>
+			<!-- <p>.</p> -->
+		</a>
+	</li>
+	<li id="retail" class="mouseOverToggle-markets">
+		<a href="{site_url}/market/retail" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Markets - Retail');">
+			<h1 class="underline">Retail</h1>
+			<!-- <p>.</p> -->
+		</a>
+	</li>
+</ul>
+
+<script>
+$(document).ready(function(){
+
+	$('li.mouseOverToggle-markets').hover(function() {
+  		console.log(this.id);
+  		//$("img#preview-image").css('display', 'none');
+
+  		$("source.preview-image").attr('srcset', '{site_url}/images/header/markets-' + this.id + '.jpg');
+  		$("img#preview-image").attr('alt', 'Image for ' + this.id);
+
+	});
+});
+</script>
+
+<div class="col4 last">
+
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="{site_url}/images/header/markets-education.jpg" media="(min-width: 1041px)" class="preview-image">
+        <source srcset="{site_url}/images/empty.gif" media="(min-width: 1px)" >
+        <!--[if IE 9]></video><![endif]-->
+        	<img src="{site_url}/images/header/markets-education.jpg" alt="Market preview image" id="preview-image">
+    </picture>   	
+</div>

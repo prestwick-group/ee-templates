@@ -1,0 +1,698 @@
+body {
+	background-color: $white;
+	color: $darkgrey;
+	line-height: 140%;
+	font-size: 1.2rem;
+	font-family: $font-regular;
+	min-height: 0;
+}
+
+
+h1 {
+	font-family: $font-regular;
+	font-size: 2.4em;
+	padding: 25px 0 55px 0;
+	color: $textgrey;
+	line-height: 1em;
+	strong {
+		font-weight: normal;
+		font-family: $font-semibold;
+	}
+}
+
+h2 {
+	font-family: $font-light;
+	font-size: 1.6em;
+	color: $textgrey;
+	margin: 15px 0;
+	color: $text-headlinegrey;
+	letter-spacing: 0.01em;
+}
+
+h3 {
+	font-family: $font-light;
+	font-size: 1.4em;
+	// font-weight: 300;
+	color: #363636;
+	margin: 20px 0 15px 0;
+	line-height: 1.2em;
+}
+
+h4 {
+	font-family: $font-regular;
+	font-size: 1.1em;
+	color: $textgrey;
+
+	margin: 0 0 1.33em 0;
+}
+
+p {
+	font-family: $font-body-normal;
+	font-size: 1.0em;
+	color: $textgrey;
+	line-height: 1.6em;
+	margin: 15px 0;
+	font-weight: 300; // light
+}
+hr {
+	background-color: $lightborder;
+	margin: 45px 0;
+}
+
+a {
+	color: $darkgrey;
+	border-collapse: collapse;
+}
+a:hover {
+	color: $brightgreen;
+}
+button {
+	font-family: $font-regular;
+}
+
+article {
+ 	max-width: 1200px;
+	padding: 158px 20px 80px 20px;
+	margin: 0 auto;
+	&.border-top-grey {
+		border-top: solid 1px $textgrey;
+	}
+	&.border-top-green {
+		border-top: solid 1px $brightgreen;
+	}
+	div.breadcrumbs {
+		margin: -20px 0 0 0;
+		padding: 0;
+		width: 1000px;
+		font-size: 0.8em;
+		float: left;
+		text-transform: uppercase;
+	}
+	&.no-padding {
+		padding-top: 0;
+		padding-bottom: 2%;
+	}
+
+}
+article.hero-image {
+ 	max-width: none;
+	margin: 0;
+	position: relative;
+	div.headline {
+		position: absolute;
+		width: 100%;
+		z-index: 100;
+	}
+	img {
+		width: 100%;
+	}
+}
+
+
+
+/* ----- Header Styling --------------- */
+header {
+	text-align: center;
+	margin: 0 auto;
+	padding: 32px 0 0 0;
+	position: fixed;
+	z-index: 10000;
+	background-color: $white;
+	width: 100%;
+	border-bottom: 1px solid $lightborder;
+	background-color: rgba(255,255,255,1);
+	// border-bottom: 1px solid #ddd;
+
+	div.main-nav {
+		margin: 0 auto;
+		text-align: center;
+		max-width: 1200px;
+		
+		section.logo {
+			float: left;
+			width: 150px;
+			// padding-bottom: 15px;
+			// border: 1px solid #333;
+			img {
+				width: 150px;
+				margin-left: 25px;
+			}
+		}
+		
+		a.mobile_menu {
+			display: none;
+			// border: 1px solid #333;
+		}
+
+
+		nav {
+			text-transform: uppercase;
+			font-size: 12px;
+			overflow: hidden;
+			width: auto;
+//			div.nav-right {
+//				float: right;
+//			}
+			ul#nav {
+				list-style-type: none;
+				margin: 9px 0 0 0;
+				padding: 0;
+				text-align: right;
+				
+				li {
+					display: inline-block;
+					cursor: pointer;
+					margin: 0;
+					padding: 0;
+					font-family: $font-regular;
+					
+					a {
+						display: inline-block;
+						padding: 0 12px;
+						color: $textgrey;
+						font-size: 1.1em;
+						letter-spacing: 1px;
+						padding-bottom: 25px;
+						border-bottom: 15px $white solid;						
+						&:hover {
+							color: $brightgreen;
+							// border-bottom: 25px #333 solid;
+						}
+						img.expand {
+							margin-right: 5px;
+						}
+						&.active {
+							color: $brightgreen;
+						}
+					}
+					a.current {
+							color: $brightgreen;
+							border-bottom: 15px $lightborder solid;
+							
+						}
+
+					div.product-subnav-mobile, div.collections-subnav-mobile, div.markets-subnav-mobile, div.about-subnav-mobile, div.resources-subnav-mobile {
+						display: none;
+					}
+				}
+
+				li#search {
+					// display: block;
+					float: right;
+					width: auto;
+					height: 40px;
+					// border: 1px solid #333;
+					a {
+						// @include border-radius(5px);
+						background-image: url('http://www.#{$site-name}.#{$site-extension}/images/header/magnifying-glass.jpg');
+						background-repeat: no-repeat;
+						background-color: $white;
+						background-position: 4px 1px;
+						// box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.4);	
+						border: none;			
+						height: 22px;
+						width: 35px;
+						// margin-top: 8px;
+
+						&.current {
+							padding-bottom: 52px;
+							margin-bottom: 0;
+							border-bottom: 15px $lightborder solid;
+						}
+					}
+				}
+
+			}
+		}
+	}
+}
+
+div#subnav, div#product-subnav, div#search-subnav, div#product-subnav, div#resources-subnav, div#about-subnav, div#markets-subnav, div#collections-subnav {
+	display: none;
+	position: absolute;
+	top: 108px;
+	background-color: $lightgrey;
+	width: 100%;
+	border-bottom: 0.5px solid $lightborder;
+	padding: 0 0 15px 0;
+	// background-image: url('http://www.#{$site-name}.#{$site-extension}/images/header/mega-menu-background-pattern.jpg');
+	z-index: 1000;
+	
+	div.close-submenu-button {
+		max-width: 1100px;
+		margin: 0 auto 15px auto;
+		padding-right: 25px;
+		p {
+			float: right;
+			margin: 7px 0 3px 0;
+			cursor: pointer;
+			color: $close-menu-grey;
+			text-transform: uppercase;
+			font-family: $font-regular;
+			font-size: 0.7em;
+			span.close-button {
+				// border: 2px solid #c2c2c2;
+			    padding: 0 5px;
+			    margin-left: 3px;
+			    background-color: $close-menu-grey;
+			    color: $lightgrey;
+			    border-radius: 20px;
+			}
+		}
+	}
+	div.subnav-container {
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+}
+
+
+/* ---------------------------------------------------
+	Product specific subnav
+--------------------------------------------------- */
+
+div#product-subnav {
+	div.subnav-container {
+		ul.list-container {
+			border-left: 1px solid $lightborder;
+			float: left;
+			margin: 0;
+			padding: 0 0 0 3%;
+			width: 25%;
+			min-height: 430px;
+			
+			&:first-child {
+				border: none;
+			}
+
+			&.no-border {
+				border: none;
+			}
+			li {
+				font-size: 1.2em;
+				text-transform: uppercase;
+				font-family: $font-light;
+				min-height: 150px;
+				margin-bottom: 25px;
+				letter-spacing: 0.5px;
+				&.clearance {
+					min-height: 50px;
+				}
+				a {
+					color: $textgrey;
+					display: block;
+					width: 100%;
+					// border-bottom: 1px solid $brightgreen;
+					&:after {
+						border-bottom: 1px solid $brightgreen;
+						clear: both;
+						width: 50px;
+						content: " ";
+						display: block;
+						margin: 6px 0 7px 0;
+					}
+					&:hover {
+						background-color: $white-transparent;
+					}
+				}
+				ul {
+					border: none;
+					float: none;
+					margin: 0;
+					padding: 0;
+					width: 100%;
+					li {
+						font-size: 0.7em;
+						min-height: auto;
+						text-transform: none;
+						border-right: none;
+						margin-bottom: 0;
+						color: $textgrey;
+						min-height: 0;
+						&:hover {
+							background-color: $white-transparent;
+						}
+						a {
+							color: $textgrey;
+							&:after {
+								display: none;
+							}
+						}
+
+					}
+				}
+			}
+
+			&.last {
+				li {
+					border-right: none;
+				}
+			}
+		}
+	}
+}
+
+/* ---------------------------------------------------
+	About, Resources, Markets specific subnav
+--------------------------------------------------- */
+
+div#resources-subnav, div#about-subnav, div#markets-subnav {
+	ul {
+		border-right: 1px solid $lightborder;
+		li {
+			text-transform: uppercase;
+			
+			color: $textgrey;
+			min-height: 100px;
+			
+			// margin-bottom: 25px;
+			padding: 15px 5px;
+			&:hover {
+				background-color: $white-transparent;
+			}
+			a {
+				// border-bottom: 1px solid $brightgreen;
+				h1 {
+					font-size: 1.3em;
+					font-family: $font-light;
+					margin: 0;
+					padding: 0;
+					color: $textgrey;					
+					&.underline {	
+						&:after {
+							border-bottom: 1px solid $brightgreen;
+							// clear: both;
+							width: 50px;
+							content: " ";
+							display: block;
+							margin: 6px 0 7px 0;
+						}
+					}
+				}
+				p {
+					font-size: 0.75em;
+					text-transform: none;
+					font-family: $font-light;
+					line-height: 1.3em;
+					font-style: none;
+					color: $text-lightgrey;
+				}
+			}
+		}
+	
+		&.last {
+			li {
+				border-right: none;
+			}
+		}
+	}
+}
+
+/* ---------------------------------------------------
+	Collections specific subnav
+--------------------------------------------------- */
+div#collections-subnav {
+	ul {
+		li {
+			min-height: 100px;
+			border-right: 1px solid $lightborder;
+			margin-bottom: 25px;
+			padding: 15px 0 15px 15px;
+			&:hover {
+				background-color: $white-transparent;
+			}
+			a {
+				img {
+					float: left;
+				}
+				// border-bottom: 1px solid $brightgreen;
+				div.collection-text {
+					float: left;
+					padding-left: 25px;
+					h1 {
+						font-size: 1.5em;
+						font-family: $font-medium;
+						margin: 0;
+						padding: 0;
+						color: $textgrey;
+						text-transform: uppercase;
+					}
+					h2 {
+						font-size: 0.9em;
+						font-family: $font-light;
+						margin: 0;
+						padding: 0;
+						line-height: 1em;	
+						color: $textgrey;
+						text-transform: uppercase;
+						&:after {
+							border-bottom: 1px solid $brightgreen;
+							// clear: both;
+							width: 50px;
+							content: " ";
+							display: block;
+							margin: 3px 0 0 0;
+						}
+					}
+					p {
+						font-size: 0.9em;
+						text-transform: none;
+						font-family: $font-light;
+						font-style: italic;
+						margin: 3px 0 5px 0;
+					}
+
+				}
+			}
+		}
+	
+		&.last {
+			li {
+				border-right: none;
+			}
+		}
+	}
+}
+
+
+/* ---------------------------------------------------
+	Search specific subnav
+--------------------------------------------------- */
+div#search-subnav {
+	display: none;
+	// background-color: $darkgrey;
+	padding: 50px 0;
+
+	form {
+		// @include border-radius(5px);
+		// background-color: $white;
+		margin: 0 auto;
+		width: 55%;
+		fieldset {
+			text-align: center;
+			input {
+				background-color: $white;
+				border: none;
+				vertical-align:middle;
+				border: 1px solid $lightborder;
+				width: 50%;
+				height: 30px;
+				margin-left: 2px;
+				font-size: 0.8em;
+				padding: 16px 0 16px 20px;
+				font-family: $font-body-normal;
+				letter-spacing: 0.01em;
+			}
+			button {
+				margin-left: 15px;
+				/* 
+				height: 25px;
+				width: 25px;
+				background-image: url('http://www.#{$site-name}.com/images/header/magnifying-glass.jpg');
+				background-repeat: no-repeat;
+				vertical-align:middle;
+				box-shadow: none;
+				border: 0;
+				background-color: #fff;
+				*/
+			}				
+		}
+	}
+}
+
+div.clear-nav {
+	padding-top: 92px;
+}
+
+
+
+
+/* ---------------------------------------------------
+	Breadcrumb Styling 
+--------------------------------------------------- */
+section#breadcrumbs {
+	margin-bottom: 35px;
+	ul {
+		list-style-type: none;
+		li {
+			display: inline-block;
+			margin: 0;
+			padding: 0;	
+			font-size: 0.7em;
+			font-family: $font-regular;
+			color: $text-lightgrey;
+			text-transform: uppercase;
+			a {
+				color: $text-lightgrey;
+				&:hover {
+					color: $brightgreen;
+				}
+			}
+		}
+	}
+}
+
+/* ---------------------------------------------------
+	Back To Top Styling 
+--------------------------------------------------- */
+div.back-to-top {
+	// position: fixed;
+	background-image: url('http://www.#{$site-name}.#{$site-extension}/images/footer/arrow.png');
+	background-repeat: no-repeat;
+	height: 68px;
+	width: 68px;
+	//border: 1px solid #222;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	cursor: pointer;
+	display: none;
+	z-index: 100000;
+	&:hover {
+		background-image: url('http://www.#{$site-name}.#{$site-extension}/images/footer/arrow-hover.png');
+	}
+}
+
+
+/* ---------------------------------------------------
+	Footer Styling 
+--------------------------------------------------- */
+footer {
+	// margin-top: 40px;
+	background-color: #darkgrey;
+	color: #fff;
+	position: relative;
+
+	div#site-links-container {
+		margin: 0;
+		padding: 40px 0 30px 0;
+		text-align: center;
+		// border: 1px solid #fff;	
+		background-color: #444;
+		
+		div#site-links-centered {
+			max-width: 1200px;
+			// border: 1px solid #fff;
+			text-align: center;
+			margin: 0 auto;
+			padding: 0 95px;
+
+			.site-links {
+				margin: 0;
+				width: 25%;
+				float: left;
+				ul {
+					list-style-type: none;
+					margin: 0 0 5px 0;
+					// border: 1px solid #fff;
+					li {
+						text-align: left;
+						font-size: 14px;
+						margin: 0 0 10px 0;
+						cursor: pointer;
+						a {
+							text-transform: uppercase;
+							color: $white;
+
+						
+							&:hover {
+								color: $brightgreen;
+							}
+						}
+
+						ul {
+							margin: 0;
+							padding: 0;
+							li {
+								font-style: italic;
+								line-height: 1em;
+								margin: 5px 0 12px 10px;
+								cursor: pointer;
+								a {
+									color: #a5a5a5;	
+								}
+							}
+							
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	div#footer-links {
+		width: 100%;
+		padding: 40px 0 0 0;
+		text-align: center;
+		background-color: $darkgrey;
+		
+		.address, .footer-logo, .socialmedia-icons, #footer-copywrite {
+			text-align: center;
+			max-width: 800px;
+			width: 100%;
+			margin: 0 auto;
+			a {
+				color: $white;
+				&:hover {
+					color: $brightgreen;
+				}
+			}
+		}
+		.footer-logo{
+			img {
+				width: auto;
+				margin: 0 auto;
+			}
+		}
+		.address {
+			max-width: 500px;
+			width: 100%;
+			text-align: center;
+			font-size: 0.9em;
+			p {
+				color: #a5a5a5;
+				font-family: $font-regular;
+			}
+		}
+		.socialmedia-icons {
+			width: 240px;
+			margin: 10px auto 25px auto;
+			// border: 1px solid $white;
+			a {
+				img {
+					float: left;
+					padding: 0 11px;
+				}
+			}
+		}
+	}
+
+
+	.copywrite {
+		font-size: 9px;
+		color: #6c6c6c;
+	}
+}
+
+

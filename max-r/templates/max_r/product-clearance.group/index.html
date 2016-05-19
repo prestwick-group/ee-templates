@@ -1,0 +1,51 @@
+{embed="includes/.header"}
+
+		<article class="product">
+			<div class="product-content">
+				{exp:channel:entries channel="product_clearance" disable="member_data|pagination"}
+				
+				<div class="product-content-image col6">
+					<!-- ==========================================================================
+						Large product image
+					========================= -->
+					<img src="{clearance_product_image}" alt="{clearance_product_name}" class="large-preview clearance" />
+				</div>
+
+				<div class="product-content-text col6 last">
+					<!-- ==========================================================================
+						Clearance Product Name
+					========================= -->	
+					<h1>{clearance_product_name}</h1>
+			
+					<!-- ==========================================================================
+						Product Parent copy
+					========================= -->
+					<div class="product-copy">
+						<p>Sale price on color combination and quantity shown only. The listed price includes a replacement side panel. Actual product may vary slightly. Standard lead times may apply. </p>
+						{if clearance_product_description!=""}
+							<p>{clearance_product_description}</p>
+						{/if}
+						{clearance_product_specification}					
+							<p itemprop="price">Price: {clearance_product_specification:price}</p>
+						{/clearance_product_specification}
+					</div>
+
+					{/exp:channel:entries}
+
+					
+					<!-- <h4>Other Clearance Products</h4> -->
+					{exp:channel:prev_entry channel="product_clearance"}
+						{embed="product-clearance/get_product" product="{url_title}" direction="Previous"}
+					{/exp:channel:prev_entry}					
+
+					{exp:channel:next_entry channel="product_clearance"}
+						{embed="product-clearance/get_product" product="{url_title}" direction="Next"}
+					{/exp:channel:next_entry}
+
+				</div>						
+			</div>
+			<div style="clear: both;"></div>
+		</article>
+	
+
+{embed="includes/.footer"}

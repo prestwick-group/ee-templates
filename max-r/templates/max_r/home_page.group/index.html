@@ -1,0 +1,145 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="home" disable="member_data|categories|pagination"}
+
+<div class="page-container">
+	<div id="featured-slides" >
+		<div id="featured-slides-scroll">
+			<div id="move-on-scroll">		
+				{!-- ----------------------------------------------------------------
+				---------------------------------------------------------------------
+					Loop through featured slides contained in "home" content
+					in the cms. 
+				---------------------------------------------------------------------
+				------------------------------------------------------------------ --}
+				{sliding_hero_image_grid}
+				<div class="home-page-hero {sliding_hero_image_grid:switch='first|second|third'}">
+					<div class="home-page-hero-text {sliding_hero_image_grid:switch='first|second|third'}">
+						<h1 class="{sliding_hero_image_grid:switch='first|second|third'}">{sliding_hero_image_grid:hero_headline}</h1>
+						{if sliding_hero_image_grid:hero_subhead!=""}
+							<h2>{sliding_hero_image_grid:hero_subhead}</h2>
+						{/if}
+						<a href="{sliding_hero_image_grid:call_to_action_url}" class="btn btnLarge btn{sliding_hero_image_grid:call_to_action_color} {sliding_hero_image_grid:switch='first|second|third'}"  onClick="ga('send', 'event', 'Home Page Link', 'Home Page Link - Sliding Hero Image Link', 'Home Page Link  - Sliding Hero Image Link  - Slide #{sliding_hero_image_grid:count} : {sliding_hero_image_grid:call_to_action_text}');">{sliding_hero_image_grid:call_to_action_text}</a>
+					</div>				
+				</div>
+				{/sliding_hero_image_grid}
+			</div>
+		</div>
+		{!-- ----------------------------------------------------------------
+		---------------------------------------------------------------------
+			Create bullets for each slide. This is not automated
+			and will need to be updated if a fourth slide is added
+			or one is removed.
+		---------------------------------------------------------------------
+		------------------------------------------------------------------ --}		
+		<div class="scroll-buttons">
+			<div class="bullets bullet1">
+				<span class="bullet1 active"></span>
+			</div>
+			<div class="bullets bullet2">
+				<span class="bullet2" ></span>
+			</div>
+			<div class="bullets bullet3">
+				<span class="bullet3"></span>
+			</div>
+		</div> 
+
+	</div>
+
+
+	<div id="featured-slides-mobile">
+		{sliding_hero_image_grid}
+			<div class="featured-slide-mobile-block">
+				<img src="{sliding_hero_image_grid:hero_image_tablet}" alt="{sliding_hero_image_grid:hero_headline}" />			
+				<h1 class="{sliding_hero_image_grid:switch='first|second|third'}">{sliding_hero_image_grid:hero_headline}</h1>
+				{if sliding_hero_image_grid:hero_subhead!=""}
+					<h2>{sliding_hero_image_grid:hero_subhead}</h2>
+				{/if}
+				<a href="{sliding_hero_image_grid:call_to_action_url}" class="btn btnLarge btn{sliding_hero_image_grid:call_to_action_color} {sliding_hero_image_grid:switch='first|second|third'}"  onClick="ga('send', 'event', 'Home Page Link', 'Home Page Link - Sliding Hero Image Link', 'Home Page Link  - Sliding Hero Image Link  - Slide #{sliding_hero_image_grid:count} : {sliding_hero_image_grid:call_to_action_text}');">{sliding_hero_image_grid:call_to_action_text}</a>
+			</div>
+		{/sliding_hero_image_grid}
+	</div>
+
+
+
+	<article class="no-padding">
+		<section class="product-intro-container">
+			{product_information_grid}
+				<h1>{product_information_grid:product_intro_headline}</h1>
+				<h3>{product_information_grid:product_intro_subhead}</h3>
+				<div class="product-category-image">
+					<!-- Build list of product category links and positions -->
+					<img src="{product_information_grid:product_intro_image}" alt="Product Categories" class="product-category-hero-image" />
+				</div>
+				<div class="product-category-buttons">
+					<h6>Browse our products:</h6>
+					{product_information_grid:product_category_list}
+					<p><a href="{site_url}/products/{product_information_grid:product_category_list:url_title}" class="btn btnBlack" onClick="ga('send', 'event', 'Home Page Link', 'Home Page Link - Product Category Links', 'Home Page Link - Product Category Links - {product_information_grid:product_category_list:title}');">{product_information_grid:product_category_list:title}</a></p>
+					{/product_information_grid:product_category_list}
+				</div>
+			{/product_information_grid}		
+		</section>
+
+
+		<section class="case-study-slider">
+			{home_page_case_studies}
+				{!-- <h1>{home_page_case_studies:case_studies_headline}</h1> --}
+				
+				<div id="case-study-slider" class="royalSlider rsDefault">
+					
+					{home_page_case_studies:case_study}
+					<div class="rsContent">
+						
+						<!-- <p>{home_page_case_studies:case_study:title}</p> -->
+						<img src="{home_page_case_studies:case_study:case_study_units limit="1"}{home_page_case_studies:case_study:case_study_units:bin_image}{/home_page_case_studies:case_study:case_study_units}" class="bin-image" alt="{home_page_case_studies:case_study:title} bin">
+							<div class="testimonial-text">
+								<!-- There shouldn't be any link here -->
+								<img src="{home_page_case_studies:case_study:case_study_logo}" class="case-study-logo" alt="{home_page_case_studies:case_study:title} logo">			
+							
+								{home_page_case_studies:case_study:case_study_testimonial}
+									<p class="quote-copy">"{home_page_case_studies:case_study:case_study_testimonial:testimonial_preview_copy}"</p>
+									<p class="quote-author">{home_page_case_studies:case_study:case_study_testimonial:testimonial_author}</p>
+									<p class="quote-author-info">{home_page_case_studies:case_study:case_study_testimonial:testimonial_author_info}</p>
+									<p class="learn-more-button"><a href="{site_url}/case-study/{home_page_case_studies:case_study:url_title}" class="btn btnGrey" onClick="ga('send', 'event', 'Home Page Link', 'Home Page Link - Case Study', 'Home Page Link  - Case Study  - {home_page_case_studies:case_study:title}');">Learn More</a></p>
+								{/home_page_case_studies:case_study:case_study_testimonial}
+								
+							</div>
+						
+					</div>
+					{/home_page_case_studies:case_study}
+				</div>
+
+			{/home_page_case_studies}	
+		</section>
+
+	</article>
+
+	<section class="cross-promotion">
+		{home_page_cross_promo}
+		<h1>{home_page_cross_promo:cross_promotion_headline}</h1>
+		<h3>{home_page_cross_promo:cross_promotion_copy}</h3>
+		<p><a href="{home_page_cross_promo:cross_promotion_link}" class="btn btnGreen">{home_page_cross_promo:cross_promotion_link_text}</a></p>
+		{/home_page_cross_promo}
+	</section>
+</div>
+	{/exp:channel:entries}
+
+
+	<script>
+	    jQuery(document).ready(function($) {
+		    $('#case-study-slider').royalSlider({
+		        // controlNavigation:'bullets',
+		        autoScaleSlider: 'true',
+		        autoScaleSliderWidth: '1200',
+		        autoScaleSliderHeight: '530',
+	        	loop: 'true',
+	        	arrowsNavAutoHide: false  
+		    });
+			$('#case-study-slider .rsNavItem').each(function(i) {
+			    $(this).html(i + 1); 
+			});
+	    });
+	</script>
+
+
+{embed="includes/.footer"}

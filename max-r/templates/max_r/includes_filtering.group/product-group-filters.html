@@ -1,0 +1,55 @@
+<form class="controls col3" id="Filters" >
+	{if (embed:product_group=="waste-and-recycling-square")}
+	<fieldset class="filtering-list square streams">
+		<h2 class="filtering-label">Streams</h2>
+		<button class="mixitin filter" data-filter=".1">1</button>
+		<button class="mixitin filter" data-filter=".2">2</button>
+		<button class="mixitin filter" data-filter=".3">3</button>
+		<button class="mixitin filter" data-filter=".4">4</button>
+		<button class="mixitin filter" data-filter=".5">5</button>
+		<button class="mixitin filter" data-filter=".6">6</button>
+	</fieldset>
+	<fieldset class="filtering-list square contianers">
+		<h2 class="filtering-label">Enclosures</h2>
+		<button class="mixitin filter" data-filter=".single">Single</button>
+		<button class="mixitin filter" data-filter=".double">Double</button>
+		<button class="mixitin filter" data-filter=".triple">Triple</button>
+	</fieldset>
+	<fieldset class="filtering-list square collections">
+		<h2 class="filtering-label">Collection</h2>
+		<button class="mixitin filter" data-filter=".Albany">Albany</button>
+		<button class="mixitin filter" data-filter=".Tuscany">Tuscany</button>
+		<button class="mixitin filter" data-filter=".Verde">Verde</button>
+		<button class="mixitin filter" data-filter=".Halston">Halston</button>
+		<button class="mixitin filter" data-filter=".Oxford">Oxford</button>
+		<button class="mixitin filter" data-filter=".Camden">Camden</button>
+		<button class="mixitin filter" data-filter=".Terra">Terra</button>
+	</fieldset>
+	<fieldset class="filtering-list square openings">
+		<h2 class="filtering-label">Openings</h2>
+		<button class="mixitin filter" data-filter=".topload">Top Load</button>
+		<button class="mixitin filter" data-filter=".sideload">Side Load</button>
+	</fieldset>
+	{/if}
+
+	{if (embed:product_group=="waste-and-recycling-round")}
+	<fieldset class="filtering-list square streams">
+		<h2 class="filtering-label">Streams</h2>
+		<button class="mixitin filter" data-filter=".1">1</button>
+		<button class="mixitin filter" data-filter=".2">2</button>
+		<button class="mixitin filter" data-filter=".3">3</button>
+		<button class="mixitin filter" data-filter=".4">4</button>
+		<button class="mixitin filter" data-filter=".5">5</button>
+		<button class="mixitin filter" data-filter=".6">6</button>
+	</fieldset>
+	<fieldset class="filtering-list square contianers">
+		<h2 class="filtering-label">Enclosures</h2>
+		<button class="mixitin filter" data-filter=".single">Single</button>
+		<button class="mixitin filter" data-filter=".double">Double</button>
+		<button class="mixitin filter" data-filter=".triple">Triple</button>
+	</fieldset>	
+	{/if}
+	<br /><br />
+	<button id="Reset">Clear Filters</button>
+</form>
+

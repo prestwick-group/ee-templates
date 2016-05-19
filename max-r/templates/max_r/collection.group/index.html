@@ -1,0 +1,110 @@
+{embed="includes/.header"}
+
+<article class="collection">
+	{exp:channel:entries channel="collection" disable="member_data|categories|pagination"}
+
+	<!-- ===============================================================================================
+		Collection hero content
+	=============================================================================================== -->	
+	{!-- ============== Desktop ============= --}
+	<section class="collection-hero">
+		<img src="{collection_hero_image}" alt="{collection_name}" class="collection-hero" />
+		{collection_hero_copy_grid}
+		<div class="collection-copy-block" style="margin-top: {collection_hero_copy_grid:top}%; margin-left: {collection_hero_copy_grid:left}%">
+			<h1>{collection_hero_copy_grid:headline}</h1>
+			<h2>{collection_hero_copy_grid:subhead}</h2>
+			{collection_hero_copy_grid:copy}
+		</div>
+		{/collection_hero_copy_grid}
+	</section>
+	
+
+	{!-- ============== Mobile ============= --}
+	<section class="collection-hero-mobile">
+		{collection_hero_copy_grid}
+			<h1>{collection_hero_copy_grid:headline}</h1>
+		{/collection_hero_copy_grid}
+	
+		<div class="product-category-filters-mobile-selected filterContainer">
+			<p class="active-filter-group product-category filter" data-filter=""><span class="close-group">X</span> Product Category: <span class="filterName"> </span></p>
+		</div>
+	<div style="clear: both;"></div>
+	</section>
+	{/exp:channel:entries}
+
+
+
+	{!-- ============== Desktop and Mobile ============= --}
+	<!-- ===============================================================================================
+		Connect to product categories and then create lists of associated groups. 
+	=============================================================================================== -->
+	<div class="product-filtering-mobile-link">
+		<h3>Product Groups <span class="expand-filter">+</span></h3>
+	</div>
+	<div class="product-filtering col4"> 
+		<form class="controls filterContainer">
+			<fieldset class="category">
+				{exp:channel:entries channel="product_category" disable="member_data|categories|pagination" entry_id="not 1206|2094" dynamic="no" sort="asc"}
+					{category_collection_relationship}
+						<!-- <p>{category_collection_relationship:url_title}</p> -->
+						{if category_collection_relationship:url_title==segment_2}
+
+							{embed="collection/get_productGroups" embeded_collection="{segment_2}" embeded_category="{url_title}"}
+
+						{/if}
+					{/category_collection_relationship}
+				{/exp:channel:entries}
+			</fieldset>	
+		</form>
+	</div>
+
+
+
+	<div id="Container" class="product-list container col8 last">
+			<!-- ===============================================================================================
+				Loop through product parents. If category #13 == segment_2 then list that parent's children via the parent_child relationship.
+				Use pvl_increment plugin to iterate each child element. This isn't possible with count as the 
+				value would reset each time the category itterated.
+			=================================================================================================== -->
+			<span style="display: none;">{exp:pvl_increment id="child_count" start="0" step="1"}</span>	
+			{exp:channel:entries channel="product_parent" disable="member_data|pagination" dynamic="no" sort="asc"}				
+				{embed="collection/get_children" 
+					currentParent="{url_title}"
+					parentCategory="{categories show_group="12"}{category_url_title}{/categories}"
+					parentCollection="{categories show_group="13"}{category_url_title}{/categories}"
+					collectionName="{categories show_group="13"}{category_name}{/categories}"					
+					currentCollection="{segment_2}"
+					parentProductGroup="{categories show_group="not 12|13"}{category_name}{/categories}"
+				}
+			{/exp:channel:entries}	
+
+		<div id="noResults" style="display: none;"><h3>Sorry, your filters don't match any of our proudcts.</h3></div>
+		<div style="clear: both;"></div>
+	</div>
+	
+	<div style="clear: both;"></div>
+
+
+</article>
+
+
+{embed="includes/.footer"}
+
+
+<script>
+	buttonFilter.init();
+	  
+	// Instantiate MixItUp
+	  
+	$('#Container').mixItUp({
+	controls: {
+	  enable: false // we won't be needing these
+	},
+	callbacks: {
+	  onMixFail: function(){
+	    $("#noResults").css("display", "block");
+	    // alert('No items were found matching the selected filters.');
+	  }
+	}
+	});   
+</script>

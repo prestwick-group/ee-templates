@@ -1,0 +1,18 @@
+{exp:channel:entries channel="contact" disable="member_data|pagination"}
+
+<div class="col3 left-nav">
+    <h4>Phone</h4>
+    <p>{contact_phone_number}</p>
+
+    <h4>Address</h4>
+    <p>{contact_address}</p>
+	{if segment_1=="contact-us"}
+    	<a href="{site_url}/sales-team/"} class="btn btnGreen">View Sales Team</a>
+    {/if}
+    {if segment_1=="sales-team"}
+    	<a href="{site_url}/contact-us/"} class="btn btnGreen">Contact Us</a>
+    {/if}
+
+</div>
+
+{/exp:channel:entries}

@@ -1,0 +1,16 @@
+
+{if segment_1==""}
+	<!-- Home page -->
+{if:else}
+<section id="breadcrumbs" class="desktop tablet">
+	<ul>
+		<li><a href="{site_url}">HOME</a></li>
+		
+
+		{if segment_1=="post"}
+			 <li>&gt; <a href="{site_url}/blog">BLOG</a></li>
+		{/if}
+
+	</ul>
+</section>
+{/if}

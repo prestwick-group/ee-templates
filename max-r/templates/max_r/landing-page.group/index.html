@@ -1,0 +1,215 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="landing_page" disable="member_data|categories|pagination"}
+
+
+<article class="landing">  	
+	<h1 class="centered">{landing_headline}</h1>
+	<hr class="mobile">
+	<p class="centered mobile">{landing_copy}</p>
+
+
+	
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		Add call to action button. Currently set to either "contact" 
+		or "configurator".
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}		
+	{if landing_call_to_action=="Contact"} 
+		<p class="centered contact-button mobile"><a href="{site_url}/contact-us" class="btn btnGreen" onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - Mobile - First Call To Action', 'Landing Page Link - {segment_2} - First Call To Action  - Contact Us');">Contact Us</a></p>
+	{/if}
+	{if landing_call_to_action=="Configurator"} 
+		<p class="centered contact-button mobile"><a href="{site_url}/customization" class="btn btnGreen" onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - Mobile - First Call To Action', 'Landing Page Link - {segment_2} - First Call To Action  - Customize');">Customization</a></p>
+	{/if}
+	
+	{landing_page_custom_cta}
+		{if landing_page_custom_cta:text!=""}
+			<p class="centered contact-button mobile"><a href="{site_url}/{landing_page_custom_cta:link}" class="btn btnGreen" onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - Mobile - First Call To Action', 'Landing Page Link - {segment_2} - First Call To Action  - Custom: {landing_page_custom_cta:text}');">{landing_page_custom_cta:text}</a></p>
+		{/if}
+	{/landing_page_custom_cta}
+
+
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		The before and after grid draws from the grid in the 
+		CMS. The images can either have labels added to them in the
+		graphics or via css. That will need to be added.
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}		
+	{landing_before_and_after_grid}
+		{if landing_before_and_after_grid:left_image!=""}
+			<div class="before-and-after-grid">
+				<img src="{landing_before_and_after_grid:left_image}" class="before-and-after-image-left" alt="Before">
+				<img src="{landing_before_and_after_grid:right_image}" class="before-and-after-image-right" alt="After">
+			</div>
+			<div style="clear: both;"></div>
+		{/if}
+	{/landing_before_and_after_grid}
+
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		The hero image is pulled from the "landing page hero image" filed.
+		If it is left blank, there will be no hero image. Typically we'll
+		have either a single hero image or a before and after image set.
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}	
+	{if landing_page_hero_image!=""}
+		<img src="{landing_page_hero_image}" alt="{landing_headline}"
+>	{/if}
+
+	<h2 class="centered first-subhead desktop">{landing_subhead}</h2>
+	<p class="centered first-block desktop">{landing_copy}</p>
+
+	<h2 class="centered second-subhead desktop">{landing_second_subhead}</h2>
+
+
+
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		Add call to action button. Currently set to either "contact" 
+		or "configurator".
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}		
+	{if landing_call_to_action=="Contact"} 
+		<p class="centered contact-button desktop"><a href="{site_url}/contact-us" class="btn btnGreen"  onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - First Call To Action', 'Landing Page Link - {segment_2} - First Call To Action  - Contact Us');">Contact Us</a></p>
+	{/if}
+	{if landing_call_to_action=="Configurator"} 
+		<p class="centered contact-button desktop"><a href="http://www.customizeabin.com" class="btn btnGreen" onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - First Call To Action', 'Landing Page Link - {segment_2} - First Call To Action  - Launch Configurator');">Launch the Configurator</a></p>
+	{/if}
+
+	{landing_page_custom_cta}
+		{if landing_page_custom_cta:text!=""}
+			<p class="centered contact-button desktop"><a href="{site_url}/{landing_page_custom_cta:link}" class="btn btnGreen" onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - Mobile - First Call To Action', 'Landing Page Link - {segment_2} - First Call To Action  - Custom: {landing_page_custom_cta:text}');">{landing_page_custom_cta:text}</a></p>
+		{/if}
+	{/landing_page_custom_cta}
+
+	<hr class="desktop">
+
+
+
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		Grid of blocks in the third subhead position on the page.
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}	
+	<h2 class="centered third-subhead">{third_block_subhead}</h2>
+	{third_block_grid}
+		{if third_block_grid:total_rows==3}
+			<div class="col4 {if third_block_grid:count=='3'}last{/if} third-block">
+				<h4>{third_block_grid:block_headline}</h4>
+				<img src="{third_block_grid:block_image}" alt="Selling point image" class="third-block-images">
+				<p>{third_block_grid:block_copy}</p>
+				{if third_block_grid:block_link_text!=""}<p><a href="{third_block_grid:block_link_url}" class="btn btnWhite" onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - Second Call To Action', 'Landing Page Link - {segment_2} - Second Call To Action  - {third_block_grid:block_link_text}');">{third_block_grid:block_link_text}</a></p>{/if}
+			</div>
+		{/if}
+	{/third_block_grid}
+	<div style="clear: both;"></div>
+
+
+
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		If the individual blocks above don't have sepecific links
+		added to them, a general link is added here.
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}	
+	{third_block_link}
+		{if third_block_link:third_block_link_text!=""}
+			<p class="centered"><a href="{site_url}{third_block_link:third_block_link_url}" class="btn btnWhite"onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - Second Call To Action', 'Landing Page Link - {segment_2} - Second Call To Action  - {third_block_link:third_block_link_text}');">{third_block_link:third_block_link_text}</a></p>
+		{/if}
+	{/third_block_link}
+
+
+
+
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		Testimonial 
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}	
+	{landing_page_testimonial}
+		<section class="landing-testimonial">
+			<div class="testimonial-container">
+
+					<div class="testimonial-image-block col6">
+						<img src="{landing_page_testimonial:testimonial_preview_image}" class="testimonial-hero col5 {landing_page_testimonial:switch='left|right'}" />
+					</div>			
+					<div class="testimonial-text-block testimonial-text col6 last">
+						<img src="{site_url}/images/testimonial/quote-icon.jpg" class="quote-icon" />
+						<p class="quote-copy">{landing_page_testimonial:testimonial_copy}</p>
+						<P class="quote-author">{landing_page_testimonial:testimonial_author}</P>
+						<p class="quote-author-info">{landing_page_testimonial:testimonial_author_info}</p>
+						<p class="quote-author-company">{landing_page_testimonial:testimonial_company}</p>
+					</div>		
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+		</section>
+	{/landing_page_testimonial}
+
+
+
+
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		Case study 
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}	
+	{case_study_cross_promotion limit="1"}
+		<h2 class="centered case-study-block-subhead">{case_study_block_headline}</h2>
+	{/case_study_cross_promotion}
+	{case_study_cross_promotion}
+	
+	<div class="col2"><br /></div>
+	
+		<div class="case-study-preview col4">
+			{case_study_cross_promotion:case_study_units limit="1"}
+				<img src="{case_study_cross_promotion:case_study_units:bin_image}" class="case-study-preview-image" alt="Case study image">
+			{/case_study_cross_promotion:case_study_units}
+			<h3>{case_study_cross_promotion:case_study_headline}</h3>
+			<p>{case_study_cross_promotion:landing_page_preview_copy}</p>
+			<p><a href="{site_url}/case-study/{case_study_cross_promotion:url_title}" class="btn btnWhite" onClick="ga('send', 'event', 'Landing Page Link', 'Landing Page Link - {segment_2} - Case Study', 'Landing Page Link - {segment_2} - Case Study  - {case_study_cross_promotion:case_study_headline}');">Learn More</a></p>
+		</div>
+	<div class="col2 last"></div>
+	{/case_study_cross_promotion}
+
+
+
+	{!-- ----------------------------------------------------------------
+	---------------------------------------------------------------------
+		The following is a tie to specific Max-R products.
+		It was added to the initial comp, but removed in the first 
+		phase of design. If it's not going to be used, it can be 
+		removed for good. Don't forget to remove the fields in EE.
+	---------------------------------------------------------------------
+	------------------------------------------------------------------ --}	
+	{!-- 
+		{landing_products}
+				{embed="landing-page/embed_product" embeded_product="{landing_products:url_title}" embed_num="{landing_products:count}"}
+		{/landing_products}
+	--}
+
+	<div style="clear: both;"></div>
+</article>
+
+
+
+{!-- ----------------------------------------------------------------
+---------------------------------------------------------------------
+	Re-utilized the cross promotion block from the bottom
+	of the home page. It wasn't included in the first design
+	phase. Remove if unused later on.
+---------------------------------------------------------------------
+------------------------------------------------------------------ --}	
+{!-- 
+{landing_cross_promotion}
+	{embed="cross_promotion/embed_cross_promotion" embeded_cross_promo="{landing_cross_promotion:url_title}"}
+{/landing_cross_promotion}
+--}
+
+
+{/exp:channel:entries}
+
+
+{embed="includes/.footer"}

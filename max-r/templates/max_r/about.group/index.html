@@ -1,0 +1,31 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="about_pages" disable="member_data|categories|pagination"}
+<div class="full-page-hero-header">
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="{about_hero_image_2000}" media="(min-width: 769px)" class="blog-post-hero">
+        <source srcset="{about_hero_image_768}" media="(min-width: 1px)" class="blog-post-hero">
+        <!--[if IE 9]></video><![endif]-->
+        <img srcset="{about_hero_image_768}" alt="Test Image">
+    </picture>   
+</div>
+
+
+<article class="about hero-image-overlay">
+	{embed="includes_sidenav/.about-sidenav"}
+
+	<div class="about col9 last">
+		<h1>{about_headline}</h1>
+		<p>{about_copy}</p>
+	</div>
+
+	<div style="clear: both;"></div>
+</article>
+
+{/exp:channel:entries}
+
+
+
+
+{embed="includes/.footer"}

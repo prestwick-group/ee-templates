@@ -1,0 +1,507 @@
+/* ================= Home Page Styling  ================= */
+
+
+/* *********************************************************************************************************************
+ * Home page specific styling
+ */
+div.page-container {
+	position: relative;
+	div#featured-slides-mobile {
+		display: none;
+	}
+	div#featured-slides {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		div#featured-slides-scroll {
+			// overflow: auto;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			div#move-on-scroll{
+				div.home-page-hero {
+					// position: relative;
+					// background-size: 100%;
+					background-size: cover;
+					background-position: center;
+					background-repeat: no-repeat;
+					&.first {
+						background-image: url('http://www.#{$site-name}.#{$site-extension}/images/home-page/home-page-slide-2.jpg');
+						
+					}			
+					&.second {
+						background-image: url('http://www.#{$site-name}.#{$site-extension}/images/home-page/home-page-slide-1.jpg');
+						background-color: $black;
+					}			
+					&.third {
+						background-image: url('http://www.#{$site-name}.#{$site-extension}/images/home-page/home-page-slide-3.jpg');
+					}			
+
+					div.home-page-hero-text {
+						position: absolute;
+						z-index: 22;
+						text-align: center;
+
+
+						&.first {
+							max-width: 65%;
+							margin: 3% 2% 0 8%;
+							h1 {
+								color: $darkgrey;
+								// text-shadow: 1px 1px 3px #fff;
+								// font-size: 2.4em;
+								font-size: 2.8em;
+							}
+							a {
+								display: block;
+								margin: 5% auto;
+								width: 30%;
+								position: absolute;
+								bottom: 60%;
+								// because the object is 40% wide, to center it, the left needs to be 30%
+								left: 35%;								
+							}								
+						} 
+
+						&.second {
+							// max-width: 55%;
+							margin: 0 auto;
+							padding: 3% 1% 0 1%;
+							// position: relative;
+							// max-width: 1400px;
+							width: 100%;
+							display: block;
+							text-align: center;
+
+							h1 {
+								margin: 0 auto;
+								color: $white;
+
+								// padding-bottom: 405px;
+							}
+							h2 {
+								margin: 5px 0 32px 0;
+								color: $white;
+								font-size: 1.4em;
+								font-weight: 500;
+								// text-shadow: 1px 1px 3px #fff;
+							}							
+							a {
+								display: block;
+								margin: 0 auto;
+								width: 40%;
+								position: absolute;
+								bottom: 5%;
+								// because the object is 40% wide, to center it, the left needs to be 30%
+								left: 30%;
+							}							
+						}
+
+
+
+						&.third {
+							max-width: 59%;
+							margin: 10% 0% 0 63%;
+							h1 {
+								color: $darkgrey;
+								font-size: 2.7em;
+								max-width: 550px;
+							}
+							a {
+								display: block;
+								margin: 5% auto;
+								width: 70%;
+								position: absolute;
+								bottom: 45%;
+								// because the object is 40% wide, to center it, the left needs to be 30%
+								left: 14%;								
+							}								
+						}
+						h1 {
+							color: $white;
+							line-height: 1em;
+							// text-shadow: 1px 1px #333;
+							// margin-bottom: 32px;
+							padding: 0;
+							max-width: 1000px;
+						}
+
+
+					}
+
+
+					 	
+					div.home-page-hero-image {
+						background-color: #222;
+						border: 3px solid $brightgreen;
+					 	img {
+					 		width: 100%;
+					 		position: absolute;
+					 		&.first-hero {
+					 			z-index: 10;
+					 		}
+					 		&.second-hero {
+					 			z-index: 9;
+					 		}
+					 		&.third-hero {
+					 			z-index: 8;
+					 		}
+					 	}
+					}
+				}
+			 }
+
+		}
+		div.scroll-buttons {
+			/* border: 1px solid #fff; */
+			z-index: 500;
+			position: relative;
+			float: right;
+			right: 20px;
+			top: 40%;
+			div.bullets {
+				width: 16px;
+				height: 16px;
+				display: block;
+				/* *display:inline; */
+				*zoom:1;
+				/* padding: 6px 11px 6px; */
+				cursor: pointer;
+				margin-bottom: 10px;
+				span {
+					display: block;
+					width: 16px;
+					height: 16px;
+					border-radius: 50%;
+					// background: #fff;
+					border: 1px solid $subnav-grey;
+					// border: 1px solid $white;
+					&:hover {
+						// background: rgba(62, 173, 43, 1);
+						background: $white;
+					}
+					&.active {
+						// background: rgba(62, 173, 43, 1);
+						background: $white;
+					}
+				}
+
+			}
+		}
+	}
+}
+article {
+
+	section.product-intro-container {
+		position: relative;
+		h1 {
+			max-width: 1000px;
+			text-align: center;
+			padding: 3% 0 2% 0;
+			margin: 0 auto;
+		}
+		h3{
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 1% 0 2% 0;
+			text-align: center;
+		}
+		div.product-category-image {
+			position: relative;
+			img {
+				width: 100%;
+				max-width: 1200px;
+			}
+		}
+		div.product-category-buttons {
+			position: absolute;
+			z-index: 40;
+			bottom: 3%;
+			width: 60%;
+			margin: 0 20%;
+			text-align: center;
+			h6 {
+				color: $white;
+				font-family: $font-medium;
+				text-transform: uppercase;
+			}
+			p {
+				display: inline-block;
+			}
+		}
+	}
+
+
+	section.case-study-slider {
+		background-color: $white;
+		padding: 2% 0;
+		margin: 3%;
+			h1 {
+				text-align: center;
+			}
+			div#case-study-slider {
+			    width: 100%;
+			    // height: 400px;
+			    // background: white;
+			    // border: 1px solid $lightborder
+				
+
+
+				div.rsContent {
+					img.bin-image {
+						width: 40%;
+						float: left;
+						padding-left: 2%;
+					}
+					
+					@import "page-type-testimonial";
+					div.testimonial-text {
+						float: right;
+						max-width: 600px;
+						width: 54%;
+						margin-right: 3%;
+						img.case-study-logo {
+							margin: 0 auto;
+							max-height: 100px;
+						}
+					}
+					div.testimonial-text {
+						float: right;
+						max-width: 600px;
+						width: 54%;
+						margin-right: 3%;
+						img.case-study-logo {
+							margin: 0 auto;
+							max-height: 100px;
+						}
+					}					
+					div.slide-checks {
+						padding: 4% 0;
+						border-bottom: 1px solid $lightborder;
+						ul {
+							li {
+								float: left;
+							}
+						}
+					}
+				}
+				div.rsBullets {
+					bottom: 87%;
+					padding: 1% 0;
+					border-bottom: 1px solid #ccc;
+					background-color: #ddd;
+					display: none;
+				}
+			    div.rsOverflow {
+			    	// border: 10px solid #333;
+			    	div.rsArrow {
+						// border: 10px solid #333;
+						
+						&.rsArrowLeft {
+							//border: 10px solid #333;
+							div.rsArrowIcn {
+								background: url('http://www.#{$site-name}.#{$site-extension}/images/product/slider-arrow-left.png');
+								background-size: 100%;
+								background-repeat: no-repeat;
+								left: 20%;
+							}
+						}
+						&.rsArrowRight {
+							div.rsArrowIcn {
+								background: url('http://www.#{$site-name}.#{$site-extension}/images/product/slider-arrow-right.png');
+								background-size: 100%;
+								background-repeat: no-repeat;
+								left: 14%;
+							}
+						}
+			    	}
+			    }
+				
+		}
+	}
+}
+
+
+@media screen and (max-width: 1042px) {
+	div.page-container {
+		div#featured-slides {
+			display: none;
+		}
+		div#featured-slides-mobile {
+			height: auto;
+			display: block;
+			div.featured-slide-mobile-block {
+				padding-bottom: 15%;
+				text-align: center;
+				img {
+					width: 100%;
+				}
+				h2 {
+					margin: -35px 0 45px 0;
+				}
+			
+			}
+
+/*
+			div#featured-slides-scroll {
+				position: relative;
+
+				div#move-on-scroll{
+					div.home-page-hero {
+
+						div.home-page-hero-text {
+							height: 400px;
+							&.first, &.second, &.third {
+								display: block;
+								position: relative;
+							}
+							&.first {
+								a {
+									bottom: auto;
+								}
+							}
+							&.second {
+								h1 {
+									padding-top: 3%;
+									font-size: 2.0em;
+								}
+								a {
+									position: relative;
+									bottom: auto;
+									left: auto;
+								}
+							}
+							&.third {
+								margin-top: 0;
+								h1 {
+									padding-top: 6%;
+									font-size: 2.0em;
+								}
+								a {
+									position: relative;
+									bottom: auto;
+									left: auto;
+								}
+							}
+						}
+
+					}
+				}
+			}
+			div.scroll-buttons {
+				display: none;
+			}
+*/
+		}
+
+		article {
+			section.product-intro-container {
+				margin-top: 10%;
+			}		
+		}
+	}
+
+}
+
+@media screen and (max-width: 660px) {
+	div.page-container {
+		div#featured-slides {
+			display: none;
+		}
+		div#featured-slides-mobile {
+			height: auto;
+			display: block;
+			div.featured-slide-mobile-block {
+				padding-bottom: 15%;
+				text-align: center;
+				img {
+					width: 100%;
+				}
+				h2 {
+					margin: -35px 0 45px 0;
+				}
+
+			}
+/*
+			div#featured-slides-scroll {
+				div#move-on-scroll{
+					div.home-page-hero {
+						background-size: auto;
+						background-position: initial;
+						&.first {
+							background-image: url('http://www.#{$site-name}.#{$site-extension}/images/home-page/home-page-slide-2-mobile.jpg');
+						}			
+						&.second {
+							background-image: url('http://www.#{$site-name}.#{$site-extension}/images/home-page/home-page-slide-1-mobile.jpg');
+							margin-top: 15%;
+							margin-bottom: 20%;
+						}			
+						&.third {
+							background-image: url('http://www.#{$site-name}.#{$site-extension}/images/home-page/home-page-slide-3-mobile.jpg');
+						}	
+						div.home-page-hero-text {
+							height: auto;
+							&.first, &.second, &.third {
+								display: block;
+								position: relative;
+								
+								a {
+									position: relative;
+									left: auto;
+									bottom: auto;
+								}
+							}
+							&.first {
+								padding-top: 50%;
+								padding-bottom: 5%;
+								a {
+									width: 70%;
+								}
+							}
+							&.second {
+								max-width: 100%;
+								margin: 0 3%;
+								padding-top: 60%;
+								h1 {
+									font-size: 1.8em;
+								}
+								a {
+									width: 60%;
+								}
+							}
+							&.third {
+								max-width: 100%;
+								margin: 0 3%;
+								padding-top: 60%;
+								h1 {
+									font-size: 1.8em;
+								}
+								a {
+									
+								}
+							}
+						}
+					}
+				}
+			}
+			div.scroll-buttons {
+				display: none;
+			}
+*/
+		}
+	}
+	article {
+		section.product-intro-container {
+			div.product-category-buttons {
+				position: relative;
+				h6 {
+					color: $black;
+					padding-top: 3%;
+				}
+			}
+		}
+		section.case-study-slider {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,119 @@
+<!-- ======{embed:embeded_product}====== -->
+
+{exp:channel:entries channel="product_parent" url_title="{embed:embeded_product}" dynamic="no" order_by="asc" disable="member_data|category_fields|pagination"}
+
+
+	{!-- increment child_count using plugin Pvl Increment, declaration of the variable happens at the root of the page: index.html --}
+	<p style="display: none;">{exp:pvl_increment id="product_child_count" random}</p>	
+
+
+	{categories show_group="14|21|16|22|23|25|24|26"}
+		{!-- {category_url_title} - --}
+		
+		<!-- =================================================================
+				Square Waste and Recycle 
+		==================================================================== -->
+		{if category_url_title=="square"}	
+			{parent_child}
+			<div class="{if {exp:pvl_increment id="product_child_count" increment="no" random} % 3 == 0}last{/if} embeded-product-block mix {parent_child:product_options_grid}{parent_child:product_options_grid:collection} {parent_child:product_options_grid:number_of_streams} {parent_child:product_options_grid:enclosures} {parent_child:product_options_grid:opening} {/parent_child:product_options_grid}" data-myoder="{parent_child:count}">
+				<a class="{url_title} product-link" href="{site_url}/product/{parent_child:url_title}">
+					<img src="{parent_child:product_child_thumbnail}" id="{url_title}" alt="{parent_child:title}">
+					<div class="filter-button">
+						<span class="btn btnTransparentGreen">VIEW</span>
+					</div>
+					<div class="product-block-text">
+					{parent_child:product_preview_grid}	
+						<p class="base-bin">Base Bin:</p>
+						<h2>{parent_child:product_preview_grid:collection} Collection</h2>
+						{if parent_child:product_preview_grid:configuration}	
+							<h5>{parent_child:product_preview_grid:configuration}</h5>
+						{/if}
+						{if parent_child:product_preview_grid:product_group}
+							<h5>{parent_child:product_preview_grid:product_group}</h5>
+						{/if}
+
+					{/parent_child:product_preview_grid}	
+					</div>
+				</a>
+			</div>
+			<!-- 
+			{if {exp:pvl_increment id="product_child_count" increment="no" random} % 3 == 0}
+				<div style="clear: both;"></div>
+			{/if}
+			-->
+			{/parent_child}
+		{/if}
+
+
+		<!-- =================================================================
+				Non Square Waste and Recycle 
+		==================================================================== -->
+		{if category_url_title!="square"}
+
+
+			<!-- =================================================================
+					Product groups which don't show the word "collection" 
+			==================================================================== -->						
+			{if category_url_title=="doggie-waste-stations" ||
+				category_url_title=="toss-n-go" ||
+				category_url_title=="modular-food-service-units" ||
+				category_url_title=="bike-racks" ||
+				category_url_title=="barriers" ||
+				category_url_title=="bags" ||
+				category_url_title=="coolers" ||
+				category_url_title=="message-centers" ||
+				category_url_title=="signs-and-posts"
+			}
+				
+
+				{parent_child}
+				<div class="{if {exp:pvl_increment id="product_child_count" increment="no" random} % 3 == 0}last{/if} embeded-product-block mix {parent_child:product_options_grid}{parent_child:product_options_grid:collection} {parent_child:product_options_grid:number_of_streams} {parent_child:product_options_grid:enclosures} {parent_child:product_options_grid:opening} {/parent_child:product_options_grid}" data-myoder="{parent_child:count} {exp:pvl_increment id="product_child_count" increment="no" random}">
+					<a class="{url_title} product-link" href="{site_url}/product/{parent_child:url_title}">
+						<img src="{parent_child:product_child_thumbnail}" id="{url_title}" alt="{parent_child:title}">
+						<div class="filter-button">
+							<span class="btn btnTransparentGreen">VIEW</span>
+						</div>
+						<div class="product-block-text">
+						{parent_child:product_preview_grid}	
+							<h2>{parent_child:product_preview_grid:collection}</h2>
+							<h5>
+							{if parent_child:product_preview_grid:configuration}{parent_child:product_preview_grid:configuration}{/if}
+							{if parent_child:product_preview_grid:product_group} {parent_child:product_preview_grid:product_group}{/if}
+							</h5>
+						{/parent_child:product_preview_grid}	
+						</div>
+					</a>
+				</div>
+				{/parent_child}
+			{if:else}
+				{parent_child}
+				<div class="{if {exp:pvl_increment id="product_child_count" increment="no" random} % 3 == 0}last{/if} embeded-product-block mix {parent_child:product_options_grid}{parent_child:product_options_grid:collection} {parent_child:product_options_grid:number_of_streams} {parent_child:product_options_grid:enclosures} {parent_child:product_options_grid:opening} {/parent_child:product_options_grid}" data-myoder="{parent_child:count}">
+					<a class="{url_title} product-link" href="{site_url}/product/{parent_child:url_title}">
+						<img src="{parent_child:product_child_thumbnail}" id="{url_title}" alt="{parent_child:title}">
+						<div class="filter-button">
+							<span class="btn btnTransparentGreen">VIEW</span>
+						</div>
+						<div class="product-block-text">
+						{parent_child:product_preview_grid}	
+							<h2>{parent_child:product_preview_grid:collection} Collection</h2>
+							<h5>
+							{if parent_child:product_preview_grid:configuration}{parent_child:product_preview_grid:configuration}{/if}
+							{if parent_child:product_preview_grid:product_group} {parent_child:product_preview_grid:product_group}{/if}
+							</h5>
+						{/parent_child:product_preview_grid}	
+						</div>
+					</a>
+				</div>
+				{/parent_child}
+			{/if}
+		{/if}
+
+		
+	{/categories}
+
+<!--
+{if {exp:pvl_increment id="product_child_count" increment="no" random} % 3 == 0}
+	<div style="clear: both;"></div>
+{/if}
+-->
+{/exp:channel:entries}

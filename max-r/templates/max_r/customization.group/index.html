@@ -1,0 +1,115 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="customization" disable="member_data|categories|pagination"}
+{!-- For texting of JS. Remove at launch --}
+{!-- <p id="js-test"></p> --}
+
+	<article class="customization">
+
+	<div class="customization-grid-links centered">
+		<ul>
+			<li class="slide-1 active"><a><img src="{site_url}/images/customization/progress-numbers-1.png"></a></li>
+			<li class="slide-2"><a><img src="{site_url}/images/customization/progress-numbers-2.png"></a></li>
+			<li class="slide-3"><a><img src="{site_url}/images/customization/progress-numbers-3.png"></a></li>
+			<li class="slide-4"><a><img src="{site_url}/images/customization/progress-numbers-4.png"></a></li>
+			<li class="slide-5"><a><img src="{site_url}/images/customization/progress-numbers-5.png"></a></li>
+			<li class="slide-6"><a><img src="{site_url}/images/customization/progress-numbers-6.png"></a></li>
+			<li class="slide-7"><a><img src="{site_url}/images/customization/progress-numbers-7.png"></a></li>
+			<li class="slide-8"><a><img src="{site_url}/images/customization/progress-numbers-8.png"></a></li>
+			<li class="slide-9"><a><img src="{site_url}/images/customization/progress-numbers-9.png"></a></li>
+			<li class="slide-10"><a><img src="{site_url}/images/customization/progress-numbers-10.png"></a></li>
+			<li class="slide-11"><a><img src="{site_url}/images/customization/progress-numbers-11.png"></a></li>
+			<li class="slide-12"><a><img src="{site_url}/images/customization/progress-numbers-12.png"></a></li>
+		</ul>
+
+	</div>
+
+{!-- For texting of JS. Remove at launch --}
+{!-- <p id="js-test"></p> --}
+
+	<!-- =============================================================
+		Create list of blocks in the Customization grid
+	============================================================== -->
+	<div class="customization-grid">
+		<div class="scrollable">
+		{customization_grid}
+			<div class="customization-grid-block block-{customization_grid:count}">
+							
+
+				{if customization_grid:count==12}
+					<div class="customization-grid-text grid-text-{customization_grid:count}">
+						<a href="https://customizeabin.com">
+							<h1>{customization_grid:headline}</h1>
+							{if customization_grid:subhead!=""}<h2>{customization_grid:subhead}</h2>{/if}
+							<p><a href="https://www.customizeabin.com" class="btn btnGreen btnLarge">Create your customized bin today!</a></p>
+						</a>
+					</div>
+				{if:else}				
+					<div class="customization-grid-text grid-text-{customization_grid:count}">
+						<h1>{customization_grid:headline}</h1>
+						{if customization_grid:subhead!=""}<h2>{customization_grid:subhead}</h2>{/if}
+						<p>{customization_grid:copy}</p>
+						{if customization_grid:count==1}
+							<a href="http://www.customizeabin.com" class="btn btnGreen">Launch the Product Configurator</a>
+						{/if}
+					</div>
+				{/if}
+
+
+				
+
+				{if customization_grid:count==1}
+					<div class="customization-grid-image banners" data-loops="2000">
+						<img src="{customization_grid:background_image}" alt="{customization_grid:headline}" class="rotating-image first" />
+						<img src="{site_url}/images/customization/customization-slide1-frame2.jpg" alt="{customization_grid:headline}" class="rotating-image second" />
+						<img src="{site_url}/images/customization/customization-slide1-frame3.jpg" alt="{customization_grid:headline}" class="rotating-image third" />
+						<img src="{site_url}/images/customization/customization-slide1-frame4.jpg" alt="{customization_grid:headline}" class="rotating-image fourth" />
+					</div>
+				{if:elseif customization_grid:count==12}
+					<div class="customization-grid-image">
+						<a href="https://customizeabin.com">
+							<img src="{customization_grid:background_image}" alt="{customization_grid:headline}" />
+						</a>
+					</div>
+				{if:else}
+					<div class="customization-grid-image">
+						<img src="{customization_grid:background_image}" alt="{customization_grid:headline}" />
+					</div>
+				{/if}
+				
+
+
+				{if customization_grid:count=="1"}
+					<div class="customization-grid-scroll-button centered">
+						<div class="customization-grid-scroll-button-container">
+							<p>scroll</p><img src="{site_url}/images/customization/scroll-image.png">
+						</div>
+					</div>
+				{/if}
+			</div>
+		{/customization_grid}
+			<div class="footer-height">
+				<p></p>
+			</div>
+		</div>
+
+	</div>
+</article>
+
+<!-- Short page button only shown when height of the page does not allow for footer to be present. -->
+<div class="configurator-button">
+	<div class="configurator-button-container">
+		<div class="configurator-button-block">
+			<p class="close-window">X close</p>
+			<p class="launch-button"><a class="btn btnGreen" href="https://customizeabin.com/" target="_blank">Launch the<br /> Product Configurator</a></p>
+		</div>
+	</div>
+</div>
+{/exp:channel:entries}
+
+<div class='configuration-back-to-top'>
+	
+</div>
+
+<div style="clear: both;"></div>
+{embed="includes/.footer"}

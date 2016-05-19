@@ -1,0 +1,36 @@
+/* ================= Search  ================= */
+
+article.search-results {
+	//border: 1px solid #333;
+	div.search-result-block-product {
+		width: 24%;
+		// border: 1px solid #333;
+		float: left;
+		text-align: center;
+		margin-bottom: 5%;
+		img {
+			max-width: 200px;
+			width: 100%;
+			margin: 0 auto;
+			border: 1px solid $lightborder;
+		}
+		h5 {
+			padding-bottom: 4%;
+		}
+
+	}
+
+	div.search-result-block-blog {
+		width: 50%;
+		a {
+			img.resource-preview-image {
+				// float: left;
+			}
+			div.search-result-blog-text {
+				float: left;
+				width: 70%;
+				margin-left: 3%;
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+{if "{embed:parentCollection}"=="{embed:currentCollection}"}
+<!--
+	<p>
+	{embed:parentCategory}
+	{embed:parentCollection}
+	{embed:currentCollection}
+	{embed:collectionName}
+	parent Product Group : {embed:parentProductGroup}
+	</p>
+-->
+
+	{exp:channel:entries channel="product_parent" url_title="{embed:currentParent}" disable="member_data|pagination" dynamic="no" sort="asc"}
+		{parent_child}
+			<div class="embeded-product-block mix {embed:parentCategory}" data-myoder="{parent_child:count}">
+				{!-- increment child_count using plugin Pvl Increment --}
+				<p style="display: none;">{exp:pvl_increment id="child_count" random}</p>
+				<a class="{url_title} product-link" href="{site_url}/product/{parent_child:url_title}">
+					<img src="{parent_child:product_child_thumbnail}" id="{url_title}" style="width: 100%; max-width: 300px;">
+					<div class="filter-button">
+						<span class="btn btnGrey">VIEW</span>
+					</div>
+					<div class="product-block-text">
+					{if embed:parentProductGroup=="Square"||embed:parentProductGroup=="Round"}
+						<p class="base-bin">Base Bin:</p>
+					{/if}
+					<h2>{embed:collectionName} Collection</h2>				
+					{parent_child:product_preview_grid}	
+						<h5>{parent_child:product_preview_grid:product_group}</h5>
+						<h5>{parent_child:product_preview_grid:configuration}</h5>
+					{/parent_child:product_preview_grid}	
+					</div>
+				</a>	
+			</div>
+<!--
+			{if {exp:pvl_increment id="child_count" increment="no" random} % 3 == 0}
+				<div style="clear: both;"></div>
+			{/if}
+-->
+		{/parent_child}
+	{/exp:channel:entries}
+{/if}

@@ -1,0 +1,59 @@
+<ul class="col4">
+	<li id="about-us" class="mouseOverToggle-about">
+		<a href="{site_url}/about" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - About - About Us');">
+			<h1 class="underline">About Us</h1>
+			<p class="subnav-descriptions">Max-R is a part of a family of brands with the belief that our customers deserve better, more innovative products, a better buying experience, and better service.</p>
+		</a>
+	</li>
+	<li id="innovator" class="mouseOverToggle-about">
+		<a href="{site_url}/innovator" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - About - Innovator');">
+			<h1 class="underline">Innovator</h1>
+			<p class="subnav-descriptions">The desire to provide a better, more innovative product drove us to become the leader in customized site furnishings and the innovator of the customized waste and recycle bin.</p>
+		</a>
+	</li> 
+	<li id="our-materials" class="mouseOverToggle-about" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - About - Our Materials');">
+		<a href="{site_url}/materials">
+			<h1 class="underline">Our Material</h1>
+			<p class="subnav-descriptions">Our signature material, Max-R Lumber&trade; is made from 97% Type-2 HDPE and is the purest grade of recycled plastic available in the industry today.</p>
+		</a>
+	</li> 
+</ul>
+<ul class="col4">
+	<li id="customization" class="mouseOverToggle-about">
+		<a href="{site_url}/customization" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - About - Customization Experience');">
+			<h1 class="underline">Customization</h1>
+			<p class="subnav-descriptions">We created Customization Made Easy to help your waste and recycling program reach it goals while maintaining your facility’s unique aesthetics and brand standards.</p>
+		</a>
+	</li>
+	<li id="sustainable-practices" class="mouseOverToggle-about">
+		<a href="{site_url}/sustainable-practices" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - About - Sustainable Practices');">
+			<h1 class="underline">Sustainable Practices</h1>
+			<p class="subnav-descriptions">We believe in creating a better product that leads to a better future and we implement that in our day to day practices at our facility in Sussex, WI.</p>
+		</a>
+	</li> 
+</ul>
+
+<script>
+$(document).ready(function(){
+	$('li.mouseOverToggle-about').hover(function() {
+  		console.log(this.id);
+  		//$("img#preview-image").css('display', 'none');
+  		$("source.preview-image").attr('srcset', '{site_url}/images/header/about-' + this.id + '.jpg');
+
+  		// $("img#preview-image").attr('src', '/images/header/about-' + this.id + '.jpg');
+  		$("img#preview-image").attr('alt', 'Image for ' + this.id);
+
+	});
+});
+</script>
+
+<div class="col4 last">
+	
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="{site_url}/images/header/about-about-us.jpg" media="(min-width: 1041px)" class="preview-image">
+        <source srcset="{site_url}/images/empty.gif" media="(min-width: 1px)" >
+        <!--[if IE 9]></video><![endif]-->
+        	<img src="{site_url}/images/header/about-about-us.jpg" alt="About preview image" id="preview-image">
+    </picture>   	
+</div>

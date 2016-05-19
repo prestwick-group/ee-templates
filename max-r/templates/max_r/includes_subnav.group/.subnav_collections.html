@@ -1,0 +1,106 @@
+<ul class="col4">
+	<li id="oxford" class="mouseOverToggle-collections">
+		<a href="{site_url}/collection/oxford" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Collections - Oxford');">
+			<img src="{site_url}/images/header/collecitons-oxford-menu-tmb.png" alt="Oxford Collection">
+			<div class="collection-text">
+				<h1>Oxford</h1>
+				<h2>Colleciton</h2>
+				<p>Simple and Clean</p>
+			</div>
+			<div style="clear: both;"></div>
+		</a>
+	</li>
+	<li id="terra" class="mouseOverToggle-collections"onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Collections - Terra');">
+		<a href="{site_url}/collection/terra" >
+			<img src="{site_url}/images/header/collecitons-oxford-menu-tmb.png" alt="Terra Collection">
+			<div class="collection-text">
+				<h1>Terra</h1>
+				<h2>Colleciton</h2>
+				<p>Simple and Clean</p>
+			</div>
+			<div style="clear: both;"></div>
+		</a>
+	</li>	
+	<li id="tuscany" class="mouseOverToggle-collections">
+		<a href="{site_url}/collection/tuscany" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Collections - Tuscany');">
+			<img src="{site_url}/images/header/collecitons-oxford-menu-tmb.png" alt="Tuscany Collection">
+			<div class="collection-text">
+				<h1>Tuscany</h1>
+				<h2>Colleciton</h2>
+				<p>Simple and Clean</p>
+			</div>
+			<div style="clear: both;"></div>
+		</a>
+	</li>
+	<li id="camden" class="mouseOverToggle-collections">
+		<a href="{site_url}/collection/camden" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Collections - Camden');">
+			<img src="{site_url}/images/header/collecitons-oxford-menu-tmb.png" alt="Camden Collection">
+			<div class="collection-text">
+				<h1>Camden</h1>
+				<h2>Colleciton</h2>
+				<p>Simple and Clean</p>
+			</div>
+			<div style="clear: both;"></div>
+		</a>
+	</li>
+</ul>
+<ul class="col4">
+	<li id="halston" class="mouseOverToggle-collections">
+		<a href="{site_url}/collection/halston" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Collections - Halston');">
+			<img src="{site_url}/images/header/collecitons-oxford-menu-tmb.png" alt="Halston Collection">
+			<div class="collection-text">
+				<h1>Halston</h1>
+				<h2>Colleciton</h2>
+				<p>Simple and Clean</p>
+			</div>
+			<div style="clear: both;"></div>
+		</a>
+	</li>
+	<li id="verde" class="mouseOverToggle-collections">
+		<a href="{site_url}/collection/verde" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Collections - Verde');">
+			<img src="{site_url}/images/header/collecitons-oxford-menu-tmb.png" alt="Verde Collection">
+			<div class="collection-text">
+				<h1>Verde</h1>
+				<h2>Colleciton</h2>
+				<p>Simple and Clean</p>
+			</div>
+			<div style="clear: both;"></div>
+		</a>
+	</li>
+	<li id="albany" class="mouseOverToggle-collections">
+		<a href="{site_url}/collection/albany" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Collections - Albany');">
+			<img src="{site_url}/images/header/collecitons-oxford-menu-tmb.png" alt="Albany Collection">
+			<div class="collection-text">
+				<h1>Albany</h1>
+				<h2>Colleciton</h2>
+				<p>Simple and Clean</p>
+			</div>
+			<div style="clear: both;"></div>
+		</a>
+	</li>
+</ul>
+
+<script>
+$(document).ready(function(){
+	$('li.mouseOverToggle-collections').hover(function() {
+  		console.log(this.id);
+  		//$("img#preview-image").css('display', 'none');
+
+   		$("source.preview-image").attr('srcset', '{site_url}/images/header/collections-' + this.id + '-large-image.jpg');
+  		$("img#preview-image").attr('alt', 'Image for ' + this.id);
+
+	});
+});
+</script>
+
+<div class="col4 last">
+
+
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="{site_url}/images/header/collections-verde-large-image.jpg" media="(min-width: 1041px)" class="preview-image">
+        <source srcset="{site_url}/images/empty.gif" media="(min-width: 1px)" >
+        <!--[if IE 9]></video><![endif]-->
+        	<img src="{site_url}/images/header/collections-verde-large-image.jpg" alt="Verde collection preview image" id="preview-image">
+    </picture>   	
+</div>

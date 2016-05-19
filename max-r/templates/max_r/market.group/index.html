@@ -1,0 +1,129 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="market" disable="member_data|categories|pagination"}
+<article class="market">
+	<div class="headline centered">
+		<h1>{market_name}</h1>
+	</div>
+
+	{!-- ---------------------------------------------------------------------------- 
+		Mouse over effects and clicked changes for all market hero grids 
+		are all handled in market.js 
+	------------------------------------------------------------------------------ --}
+	<div class="market-hero-grid desktop">
+		{market_hero_grid}
+			<div class="market-hero-grid-links link-{market_hero_grid:count} {market_hero_grid:count} {if market_hero_grid:count==1}active{/if}">
+				{!--
+				{if market_hero_grid:count==1}
+					<img src="{market_hero_grid:label_icon_hover}" alt="{market_hero_grid:label}" class="label-icon icon-{market_hero_grid:count} active"/>
+				{if:else}
+					<img src="{market_hero_grid:label_icon}" alt="{market_hero_grid:label}" class="label-icon icon-{market_hero_grid:count}"/>
+				{/if}
+				--}
+				<p class="label">{market_hero_grid:label}</p>
+			</div>
+		{/market_hero_grid}
+		<div style="clear: both;"></div>
+		{market_hero_grid}
+			<div class="market-grid-image hero-image-{market_hero_grid:count} {if market_hero_grid:count==1}visible{/if}">
+				<img src="{market_hero_grid:image}" alt="{market_hero_grid:label}"/>
+				<p><a href="{market_hero_grid:link}">{market_hero_grid:call_to_action} >></a></p>
+				
+			</div>
+		{/market_hero_grid}
+	</div>
+
+	<div class="market-hero-grid mobile">
+		{market_hero_grid}
+			<h3>{market_hero_grid:label}</h3>
+			<img src="{market_hero_grid:image}" alt="{market_hero_grid:label}"/>
+		{/market_hero_grid}
+	</div>
+
+
+
+	{!-- ---------------------------------------------------------------------------- 
+		Testimonial blocks. Rotate left and right.
+		-- Controls of image vertical centering maintained in testimonials.js
+	------------------------------------------------------------------------------ --}
+	{if market_testimonial_headline}
+		<h2 class="centered">{market_testimonial_headline}</h2>
+		{market_testimonials}
+		
+		<div class="market-testimonial {market_testimonials:switch='left|right'}">
+			<img src="{market_testimonials:testimonial_preview_image}" class="testimonial-hero col5 {market_testimonials:switch='left|right'}" />
+			
+			<div class="testimonial-text col7 last" >
+				<img src="{site_url}/images/testimonial/quote-icon.jpg" class="quote-icon" />
+				<p class="quote-copy">{market_testimonials:testimonial_copy}</p>
+				<P class="quote-author">{market_testimonials:testimonial_author}</P>
+				<p class="quote-author-info">{market_testimonials:testimonial_author_info}</p>
+				<p class="quote-author-company">{market_testimonials:testimonial_company}</p>
+			</div>		
+			<div style="clear: both;"></div>
+		</div>
+		{/market_testimonials}
+		<div style="clear: both;"></div>
+	{/if}
+
+
+
+	{!-- ---------------------------------------------------------------------------- 
+		Second itteration of the hero sized images. Uses "coordinated" in the naming
+		All scripts handled in market.js 
+	------------------------------------------------------------------------------ --}
+<!--
+	<h2 class="centered">Coordinate your facility</h2>
+	<div class="coordinated-facility-grid desktop">
+		{market_hero_grid}
+			<div class="market-coordinated-grid-links link-{market_hero_grid:count} {market_hero_grid:count} {if market_hero_grid:count==1}active{/if}">
+				{if market_hero_grid:count==1}
+					<img src="{market_hero_grid:label_icon_hover}" alt="{market_hero_grid:label}" class="label-icon icon-{market_hero_grid:count} active"/>
+				{if:else}
+					<img src="{market_hero_grid:label_icon}" alt="{market_hero_grid:label}" class="label-icon icon-{market_hero_grid:count}"/>
+				{/if}
+				<p class="label">{market_hero_grid:label}</p>
+			</div>
+		{/market_hero_grid}
+		<div style="clear: both;"></div>
+		{market_hero_grid}
+			<div class="market-grid-image coordinated-image-{market_hero_grid:count} {if market_hero_grid:count==1}visible{/if}">
+				<img src="{market_hero_grid:image}" alt="{market_hero_grid:label}"/>
+				<p><a href="{market_hero_grid:link}">{market_hero_grid:call_to_action} >></a></p>
+			</div>
+		{/market_hero_grid}
+	</div>
+
+	<div class="coordinated-facility-grid mobile">
+		{market_hero_grid}
+			<h3>{market_hero_grid:label}</h3>
+			<img src="{market_hero_grid:image}" alt="{market_hero_grid:label}"/>
+		{/market_hero_grid}
+	</div>
+-->
+
+
+	{!-- ---------------------------------------------------------------------------- 
+		Partnership links
+	------------------------------------------------------------------------------ --}
+	{partnership_grid limit="1"}
+		{if partnership_grid:partner_name!=""}
+			<h2 class="centered">{partnership_label}</h2>
+			<div class="market-partnership-grid">
+		{/if}
+	{/partnership_grid}
+	
+		{partnership_grid}
+			<a href="{partnership_grid:partner_link}" target="_blank"><img src="{partnership_grid:partner_image}" alt="{partnership_grid:partner_name}" /></a>
+		{/partnership_grid}
+
+	{partnership_grid}
+		{if partnership_grid:partner_name!=""}
+			</div>
+		{/if}
+	{/partnership_grid}
+</article>
+{/exp:channel:entries}
+
+
+{embed="includes/.footer"}

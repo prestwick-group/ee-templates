@@ -1,0 +1,25 @@
+/* -------------------------------------------
+	Styles 
+--------------*/
+
+div.color-block {
+	height: 200px;
+	width: 200px;
+	margin-bottom: 15px;
+	// &.black { background-color: $black; color: $white;}
+	&.brightgreen { background-color: $brightgreen; }
+	// &.lightgreen { background-color: $lightgreen; }
+	// &.darkgreen { background-color: $darkgreen; color: $white;}
+	&.darkgrey { background-color: $darkgrey;  color: $white;}
+	&.text-headlinegrey { background-color: $text-headlinegrey;  color: $white;}
+	&.textgrey { background-color: $textgrey; }
+	&.text-lightgrey { background-color: $text-lightgrey; }
+	&.lightgrey { background-color: $lightgrey; }
+	&.lightborder { background-color: $lightborder; }
+	&.alternate-grey { background-color: $alternate-grey; }
+	&.textbox-grey { background-color: $textbox-grey; }
+	&.subnav-grey { background-color: $subnav-grey; }
+	&.close-menu-grey { background-color: $close-menu-grey; }
+
+
+}

@@ -1,0 +1,40 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="case_study" disable="member_data|categories|pagination"}
+<article class="case-study">
+	<h2 class="headline centered">{case_study_headline}</h2>
+	<h3 class="centered">{case_study_subhead}</h3>
+
+	<div class="grey-line"></div>
+
+
+{!--  <div class="breadcrumbs">breadcrumbs</div>  --}
+
+	<div class="case-study-images col5">
+		{case_study_units}
+			<img src="{case_study_units:bin_image}" alt="{case_study_units:bin_caption}">
+			<p>{case_study_units:bin_caption}</p>
+		{/case_study_units}
+	</div>
+
+	<div class="case-study-copy col7 last">
+		<div class="testimonial-text">
+		{case_study_testimonial}
+			<img src="{site_url}/images/testimonial/quote-icon.jpg" class="quote-icon" />
+			<p class="quote-copy">{case_study_testimonial:testimonial_copy}</p>
+			<P class="quote-author">{case_study_testimonial:testimonial_author}</P>
+			<p class="quote-author-info">{case_study_testimonial:testimonial_author_info}</p>
+			<p class="quote-author-company">{case_study_testimonial:testimonial_company}</p>
+		{/case_study_testimonial}
+		</div>
+		<div class="grey-line"></div>
+		<img src="{site_url}/images/case-study/case-study-icon.jpg" class="case-study-icon" />
+		{case_study_copy}
+
+	</div>
+	<div style="clear: both;"></div>
+</article>
+
+{/exp:channel:entries}
+
+{embed="includes/.footer"}

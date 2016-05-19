@@ -1,0 +1,151 @@
+/* ================= Landing page styling ================== */
+
+article.landing {
+	p {
+		font-family: $font-light;
+		color: $text-lightgrey;
+		line-height: 1.4em;
+	}
+	div.before-and-after-grid {
+		max-width: 1200px;
+		margin: 0 auto;
+		img {
+			display: block;
+			float: left;
+			width: 48%;
+			&.before-and-after-image-left {
+				margin-right: 1%;
+			}
+		}
+
+	}
+	h2 {
+		max-width: 70%;
+		line-height: 1.1em;
+	}
+	h2.first-subhead {
+		margin: 5% auto 3% auto;
+	}
+	p.first-block {
+		margin: 0 15%;
+	}
+	h2.second-subhead {
+		margin: 7% auto 3% auto;
+	}
+	p.contact-button{
+		margin: 5% auto;
+	}
+	h2.third-subhead {
+		margin: 4% auto;	
+	}
+	div.third-block {
+		h4 {
+			font-family: $font-medium;
+			margin: 0;
+			padding: 0;
+			text-transform: uppercase;
+		}
+		img.third-block-images {
+			width: 100%;
+			margin: 2% 0;
+		}
+		p {
+			margin: 0 0 4% 0;
+			padding: 0;
+		}
+	}
+	h2.case-study-block-subhead {
+		margin: 5% auto 3% auto;
+	}
+	div.case-study-preview {
+		img.case-study-preview-image {
+			width: 100%;
+		}
+	}
+}
+
+section.landing-testimonial {
+	margin: 0;
+	padding: 5% 0;
+	// background-color: $textbox-grey;
+	position: relative;
+	div.testimonial-container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		background-color: $white;
+
+		div.testimonial-text-block {
+			background-color: $white;
+			// border: 1px solid $lightborder;
+			text-align: center;
+			padding: 45px 0;
+			img {
+				margin: 40px auto;
+
+			}
+		}
+		@import "page-type-testimonial";			
+		
+		div.testimonial-image-block {
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 1041px) {
+	article.landing {
+		h1 {
+			padding-bottom: 3%;
+		}
+		hr {
+			margin: 0;
+			padding: 0;
+		}
+		h2.first-subhead {
+			margin: 2% auto;
+		}
+		div.before-and-after-grid {
+			margin-top: 10%;
+			img {
+				max-width: 600px;
+				width: 100%;
+				margin: 0 auto 15px auto;
+				float: none;
+				&.before-and-after-image-left {
+					margin-right: auto;
+				}				
+			}
+		}
+
+
+		div.case-study-preview {
+			img.case-study-preview-image {
+				max-width: 400px;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 768px) {
+	article.landing {
+		h2.third-subhead {
+			text-align: left;
+			margin: 3%;
+			padding: 0;
+		}
+		h2.case-study-block-subhead {
+			margin-bottom: 0;
+		}
+		div.col2 {
+			padding: 0;
+			br {
+				display: none;
+			}
+		}
+	}	
+}

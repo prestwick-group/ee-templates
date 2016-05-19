@@ -1,0 +1,19 @@
+<h1>Test</h1>
+{exp:freeform:form form_name="max-r_form_test" }
+	{freeform:all_form_fields}
+		<label>{freeform:field_label}</label>
+    	{freeform:field_output}
+
+	{/freeform:all_form_fields}
+		<input type="checkbox" name="optin1" value="Y" {if '{freeform:value:optin1}' == 'Y'}checked{/if}>
+
+		<input type="checkbox" checked="checked" name="optin_check[]" value="Yes">
+        <label for="optin_check" class="checker">Yes, sign me up to recieve the newsletter!</label>
+        <input type="hidden" id="optin" name="optin" class="optin" value="">
+		
+	{freeform:captcha}
+	<input type="text" id="captcha" name="captcha" autocomplete="off" value="" maxlength="20" />
+
+	{freeform:submit} 
+{/exp:freeform:form} 
+

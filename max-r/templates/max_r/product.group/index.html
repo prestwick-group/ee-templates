@@ -1,0 +1,917 @@
+{embed="includes/.header"}
+
+<?php
+	if(isset($_GET['stream'])) {
+		$streamNum = $_GET['stream'];
+		// $streamNum = "2";
+		if($streamNum==""){
+			$streamNum = "1";
+		}
+	} else {
+		$streamNum = "1";
+	}
+?>
+
+
+
+
+{exp:channel:entries channel="product" disable="member_data|pagination" sort="asc"}
+	{parents field="parent_child" channel="product_parent" limit="1"}
+	<article class="product" itemscope itemtype="http://schema.org/Product">
+		
+		<!-- ==========================================================================
+			Breadcrumbs
+		========================= -->
+		<section id="breadcrumbs">
+			<ul>
+				<li><a href="">Products</a> > </li>
+				<li><a href="{site_url}/products/{parents:categories show_group="12"}{category_url_title}{/parents:categories}">{parents:categories show_group="12"}{category_name}{/parents:categories}</a> ></li>
+				
+
+				<li><a href="{site_url}/products/{parents:categories show_group="12"}{category_url_title}{/parents:categories}/{parents:categories show_group="14|16|21|22|23|24|25|26"}{category_url_title}{/parents:categories}">{parents:categories show_group="14|16|21|22|23|24|25|26"}{category_name}{/parents:categories}</a> > </li> 
+				<li>{parents:product_parent_name}</li>
+			</ul>
+		</section>
+		<div style="clear: both;"></div>
+		
+
+
+
+{!-- 	
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+					Square Waste and Recycling
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+--}
+			
+		{parents:categories show_group="12|14"}
+			{if category_name=="Square"}
+				<!--
+				<h1>Waste and Recycling</h1>
+				-->
+				<div class="product-content">
+					<div class="product-content-image col6">
+						<!-- ==========================================================================
+							Large product image
+						========================= -->
+						{product_configuration_options limit="1"}
+							<img src="{product_configuration_options:preview_image}" alt="{title} {product_configuration_options:configuration_name}" class="large-preview" />
+						{/product_configuration_options}
+							
+						<div class="large-preview-links">
+							{if related_product_option_name=="Front Load"}
+								<p><a class="btn btnGrey active" itemprop="isSimilarTo" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Related Product Link', 'Product Page Link - Related Product Link - {parents:product_parent_name} : {related_product_option_name}');">{related_product_option_name}</a></p>
+							{/if}
+							{related_product_option}
+								<p><a href="{related_product_option:url_title}" class="btn btnGrey" itemprop="isSimilarTo" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Related Product Link', 'Product Page Link - Related Product Link - {parents:product_parent_name} : {related_product_option:related_product_option_name}');">{related_product_option:related_product_option_name}</a></p>
+							{/related_product_option}
+							{if related_product_option_name=="Top Load"}
+								<p><a class="btn btnGrey active" itemprop="isSimilarTo" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Related Product Link', 'Product Page Link - Related Product Link - {parents:product_parent_name} : {related_product_option_name}');">{related_product_option_name}</a></p>
+							{/if}
+						</div>
+					</div>
+
+					<div class="product-content-text col6 last">
+						<!-- ==========================================================================
+							Child Name
+						========================= -->
+						
+						<h1 itemprop="name">{parents:product_parent_name}</h1>
+						<h2>{product_preview_grid}{product_preview_grid:configuration}{/product_preview_grid}</h2>
+
+
+						<!-- ==========================================================================
+							In page navigation
+						========================= -->
+						<div class="in-page-navigation">
+							<p><a href="#custom" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - In Page Navigation', 'Product Page Link - In Page Navigation - Customization');">Customization</a> | <a href="#testimonial" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - In Page Navigation', 'Product Page Link - In Page Navigation - Testimonial');">Testimonial</a> | <a href="#gallery" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - In Page Navigation', 'Product Page Link - In Page Navigation - Gallery');">Gallery</a> | <a href="#specs" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - In Page Navigation', 'Product Page Link - In Page Navigation - Specs');" >Specs</a></p>
+						</div>
+
+						
+						<!-- ==========================================================================
+							Product Parent copy
+						========================= -->
+						<div class="product-copy">
+							<p itemprop="description">{parents:product_parent_copy}</p>
+						</div>
+
+
+						<!-- ==========================================================================
+							Stream Configuration Options
+						========================= -->
+						<h4>Stream Configuration Options</h4>
+						{product_configuration_options}
+						<div class="configuration-option-block {product_configuration_options:configuration_name}"  onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Stream Option', 'Product Page Link - Stream Option - {product_configuration_options:configuration_name}');">
+							<img src="{product_configuration_options:preview_image}" alt="{title} {product_configuration_options:configuration_name}" class="small-preview {if product_configuration_options:count==1}active{/if}" />
+							<h5 itemprop="isRelatedTo">{product_configuration_options:configuration_name}</h5>
+							<p>{product_configuration_options:description}</p>
+						</div>
+						{/product_configuration_options}	
+						
+					</div>						
+				</div>
+				<div style="clear: both;"></div>
+
+				<hr>
+
+				<!-- ==========================================================================
+					Sibling Options List
+				========================= -->
+				<div class="sibling-options">
+					<h3>See our other configuration options:</h3>
+					{parents:parent_child}
+					<div class="sibling-block">	
+						<a href="{parents:parent_child:url_title}" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Configuration Option', 'Product Page Link - Configuration Option - {parents:parent_child:product_preview_grid}{parents:parent_child:product_preview_grid:configuration}{/parents:parent_child:product_preview_grid}');">
+							<img src="{parents:parent_child:product_child_thumbnail}" alt="{parents:parent_child:title}" class="{if segment_2==parents:parent_child:url_title} active {/if}"} />
+							<h5>{parents:parent_child:product_preview_grid}{parents:parent_child:product_preview_grid:configuration}{/parents:parent_child:product_preview_grid}</h5>
+						</a>
+					</div>
+					<!-- {if parents:parent_child:count % 4 == 0}<div style='clear: both;'></div>{/if} -->
+					{/parents:parent_child}
+					<div style="clear: both;"></div>		
+				</div>
+			</article>
+
+
+			<!-- ==========================================================================
+				Customization made easy slider
+			========================= -->
+			<section class="customization-slider desktop">
+				<div class="customization-slider">
+					<a name="custom" style="position: absolute; top: -100px;"></a>
+					<!-- Get collection of product from product grid:  -->
+					
+					{product_options_grid}
+					{!-- <p>{product_options_grid:collection}</p> --}
+						{embed="product/embed_customization_slider" collectionToDisplay="{product_options_grid:collection}"}
+					{/product_options_grid}
+					
+				</div>
+			</section>
+
+
+			<!-- ==========================================================================
+				Testimonial
+			========================= -->
+			{parents:testimonial}
+				{if parents:testimonial:testimonial_copy != ""}
+
+				<section class="product-testimonial">
+					<a name="testimonial" style="position: absolute; top: -100px;"></a>
+					<div class="testimonial-container">
+						<div class="testimonial-text-block testimonial-text col6">
+							<img src="{site_url}/images/testimonial/quote-icon.jpg" class="quote-icon" />
+
+							
+								<p class="quote-copy {if parents:testimonial:long_testimonial=="Long Testimonial"}long{/if}">{parents:testimonial:testimonial_copy}</p>
+								<P class="quote-author">{parents:testimonial:testimonial_author}</P>
+								<p class="quote-author-info">{parents:testimonial:testimonial_author_info}</p>
+								<p class="quote-author-company">{parents:testimonial:testimonial_company}</p>
+								{parents:testimonial:case_study_link}
+									<p><a href="{site_url}/case_study/{parents:testimonial:case_study_link:url_title}" class="btn btnGrey">Read More</a></p>
+									{if parents:testimonial:case_study_link:no_results}
+										
+									{/if}
+								{/parents:testimonial:case_study_link}
+							
+						</div>
+						<div class="testimonial-image-block col6 last">
+							<img src="{parents:testimonial:testimonial_preview_image}" class="testimonial-hero" alt="{parents:testimonial:title}" />
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</section>
+				{/if}
+			{/parents:testimonial}
+
+			<!-- ==========================================================================
+				Image Gallery
+			========================= -->
+			<article class="no-padding">
+				<div class="product-image-gallery">
+					<a name="gallery" style="position: absolute; top: -100px;"></a>
+					<h2>{parents:product_parent_name} Image Gallery</h2>
+					<div id="image-gallery" class="royalSlider rsDefault">
+						{parents:parent_image_gallery}
+						<div>
+							<img src="{parents:parent_image_gallery:image}" alt="{parents:parent_image_gallery:description}" />
+						</div>
+						{/parents:parent_image_gallery}
+					</div>		
+				</div>
+			</article>
+
+
+			<!-- ==========================================================================
+				Build your bin include
+			========================= -->
+			<section class="build-your-bin desktop">
+				<div>
+					{embed="product/embed_build_your_bin"}
+				</div>
+			</section>
+
+			<article class="no-padding">
+				<!-- ==========================================================================
+					Specifications
+				========================= -->
+				<div class="specifications">
+					<a name="specs" style="position: absolute; top: -200px;"></a>
+					<h2 class="centered">Specifications</h2>
+					{if parents:product_parent_spec_sheets}
+						<p class="centered spec-sheet-download"><a href="{parents:product_parent_spec_sheets}" target="_blank" class="btn btnGreen btnSpecSheet" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Specification Download', 'Product Page Link - Specification Download - {title}');">Download {parents:title} Spec Sheet</a></p>
+					{/if}
+					
+					<h3 class="centered">{title}</h3>
+
+
+					<div class="specification-block">
+						{product_configuration_options}
+							{if product_configuration_options:configuration_name=="Standard"}
+							<div class="specification-preview-image col3">	
+								<!-- ========================================================================================
+									Get the product preview image from the "Product Configuraiton Options" grid
+								========================================================================================== -->
+								<img src="{product_configuration_options:preview_image}">
+							</div>
+							{/if}
+						{/product_configuration_options}
+						<h3>Standard Configuration</h3>
+						<table>
+							<tr>
+								<th>Capacity</th>				
+								<th>Dimensions*</th>
+								
+								<!-- <th>Weight*</th>
+								<th>Milk Jugs Reclaimed</th>-->		
+							</tr>
+							{product_specification search:configuration="Standard"}
+								<tr>
+									<td class="center">{product_specification:capacity}{if product_specification:capacity!=""} gal{/if}</td>
+									<td>{product_specification:dimensions}</td>
+									<!-- <td class="center" itemprop="weight">{product_specification:weight} {if product_specification:weight!=""}lbs{/if}</td>
+									<td itemprop="sku">{product_specification:milk_jugs_reclaimed}</td> -->
+								</tr>							
+							{/product_specification}
+						</table>		
+					</div>
+					<div style="clear: both;"></div>	
+
+
+
+				{!-- ======================================================================================================================
+					If there has been a "Slim Configuration" added to the product configuration options grid, add the spec content block
+				========================================================================================================================= --}				
+
+				{product_configuration_options}
+					{if product_configuration_options:configuration_name=="Slim Configuration"}
+						<div class="specification-block">						
+							<div class="specification-preview-image col3">	
+								<img src="{product_configuration_options:preview_image}">
+							</div>
+							<h3>Slim Configuration</h3>
+							<table>
+								<tr>
+									<th>Capacity</th>				
+									<th>Dimensions*</th>
+									<!-- <th>Weight*</th> -->
+								</tr>
+					{/if}
+				{/product_configuration_options}	
+
+						{product_specification search:configuration="Slim"}
+								<tr>
+									<td class="center">{product_specification:capacity}{if product_specification:capacity!=""} gal{/if}</td>
+									<td>{product_specification:dimensions}</td>
+									<!-- <td class="center" itemprop="weight">{product_specification:weight} {if product_specification:weight!=""}lbs{/if}</td> -->
+								</tr>							
+						{/product_specification}
+
+				{product_configuration_options}
+					{if product_configuration_options:configuration_name=="Slim Configuration"}							
+							</table>
+						</div>
+						<div style="clear: both;"></div>
+					{/if}
+				{/product_configuration_options}	
+
+
+
+
+				{!-- ======================================================================================================================
+					If there has been a "Split Configuration" added to the product configuration options grid, add the spec content block
+				========================================================================================================================= --}				
+
+				{product_configuration_options}
+					{if product_configuration_options:configuration_name=="Split Configuration"}
+
+						<div class="specification-block">
+							<div class="specification-preview-image col3">	
+								<img src="{product_configuration_options:preview_image}">
+							</div>
+
+							<h3>Split Configuration</h3>
+							<table>
+								<tr>
+									<th>Capacity</th>				
+									<th>Dimensions*</th>
+									<!-- <th>Weight*</th>
+									<th>Milk Jugs Reclaimed</th> -->			
+								</tr>
+					{/if}
+				{/product_configuration_options}	
+
+							{product_specification search:configuration="Split"}
+								<tr>
+									<td class="center">{product_specification:capacity}{if product_specification:capacity!=""} gal{/if}</td>
+									<td>{product_specification:dimensions}</td>
+									<!-- <td class="center" itemprop="weight">{product_specification:weight} {if product_specification:weight!=""}lbs{/if}</td>
+									<td itemprop="sku">{product_specification:milk_jugs_reclaimed}</td> -->	
+								</tr>
+							{/product_specification}							
+
+				{product_configuration_options}
+					{if product_configuration_options:configuration_name=="Split Configuration"}
+							</table>
+						</div>
+						<div style="clear: both;"></div>
+						
+					{/if}
+				{/product_configuration_options}
+				<p class="footnote">*Approximate Dimensions</p>
+				</div>
+			</article>
+		{/if}
+
+
+
+
+{!-- 	
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+					Round Waste / Recycling 
+ 	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+--}
+
+	{if category_name=="Round"}
+			<div class="product-content">
+				<div class="product-content-image col6">
+					<!-- ==========================================================================
+						Large product image
+					========================= -->
+					{product_configuration_options limit="1"}
+						<img src="{product_configuration_options:preview_image}" alt="{title} {product_configuration_options:configuration_name}" class="large-preview" />								
+					{/product_configuration_options}	
+				</div>
+
+				<div class="product-content-text col6 last">
+					<!-- ==========================================================================
+						Child Name
+					========================= -->
+					<h1 itemprop="name">{title}</h1>
+
+					<!-- ==========================================================================
+						In page navigation
+					========================= -->
+					<div class="in-page-navigation">
+						<p><a href="#custom" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - In Page Navigation', 'Product Page Link - In Page Navigation - Custom');">Customization</a> <!-- | <a href="#testimonial">Testimonial</a> | <a href="#gallery">Gallery</a>  --> | <a href="#specs" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - In Page Navigation', 'Product Page Link - In Page Navigation - Specs');">Specs</a></p>
+					</div>
+
+					
+					<!-- ==========================================================================
+						Product Parent copy
+					========================= -->
+					<div class="product-copy">
+						<p>{parents:product_parent_copy}</p>
+					</div>
+
+
+					<!-- ==========================================================================
+						Alternate Configuration Options
+
+						If there is more than one relationship between the parent and children
+						list the preview options here. 
+					========================= -->
+					
+					<h4>Configuration Options</h4>
+					{parents:parent_child}
+						{if parents:parent_child:total_count == 1}
+							<p>There is only one child for this parent. Eventually remove this block of code. Leave it for testing.</p>
+						
+						{if:elseif parents:parent_child:total_results == 4}
+							<!-- <p>There are four products associated with this parent.</p> -->
+							{parents:parent_child:product_configuration_options}
+							<a href="{parents:parent_child:url_title}" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Configuration Option', 'Product Page Link - Configuration Option - Rounds - {parents:parent_child:title}');">
+							<div class="configuration-option-block {parents:parent_child:product_configuration_options:configuration_name} four-up">
+								<img src="{parents:parent_child:product_configuration_options:preview_image}" alt="{title} {parents:parent_child:product_configuration_options:configuration_name}" class="small-preview {if parents:parent_child:url_title==segment_2}active{/if}" />
+								<!-- Add conditional to see if product has more than one configuration option, if not, display the title. -->
+								<h5>{parents:parent_child:title}</h5>
+								<p>{parents:parent_child:product_configuration_options:description}</p>
+							</div>
+							</a>
+							{/parents:parent_child:product_configuration_options}
+						{if:else}
+							{!-- {parents:parent_child:count} --}
+
+
+							{parents:parent_child:product_configuration_options}
+								{if parents:parent_child:product_configuration_options:total_rows>1}
+
+									<div class="configuration-option-block {parents:parent_child:product_configuration_options:configuration_name}">
+										<img src="{parents:parent_child:product_configuration_options:preview_image}" alt="{title}" class="small-preview {if product_configuration_options:count==1}active{/if}" />
+										<h5>{parents:parent_child:product_configuration_options:configuration_name}</h5>
+										<p>{parents:parent_child:product_configuration_options:description}</p>
+									</div>
+
+								{if:else}
+									<a href="{parents:parent_child:url_title}" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Configuration Option', 'Product Page Link - Configuration Option - Rounds - {parents:parent_child:title}');">
+									<div class="configuration-option-block {parents:parent_child:product_configuration_options:configuration_name}">
+										<img src="{parents:parent_child:product_configuration_options:preview_image}" alt="{title} {parents:parent_child:product_configuration_options:configuration_name}" class="small-preview {if parents:parent_child:url_title==segment_2}active{/if}" />
+										<h5>{parents:parent_child:title}</h5>
+										<p>{parents:parent_child:product_configuration_options:description}</p>
+									</div>
+									</a>
+								{/if}						
+							{/parents:parent_child:product_configuration_options}
+
+
+
+						{/if}
+					{/parents:parent_child}					
+				</div>						
+			</div>
+			<div style="clear: both;"></div>
+
+
+			<!-- ==========================================================================
+				Customization made easy slider
+			========================= -->
+			<section class="customization-slider">
+				<div class="customization-slider">
+					<a name="custom" style="position: absolute; top: -100px;"></a>
+					<!-- Get collection of product from product grid:  -->
+					
+					{product_options_grid}
+					{!-- <p>{product_options_grid:collection}</p> --}
+						{embed="product/embed_customization_slider" collectionToDisplay="Rounds"}
+					{/product_options_grid}
+					
+				</div>
+			</section>
+
+
+			<!-- ==========================================================================
+				Testimonial
+			========================= -->
+			{parents:testimonial}{if parents:testimonial:title!=""}
+			</article>
+			<section class="product-testimonial">
+				<a name="testimonial" style="position: absolute; top: -100px;"></a>
+				<div class="testimonial-container">
+					<div class="testimonial-text-block testimonial-text col6">
+						<img src="{site_url}/images/testimonial/quote-icon.jpg" class="quote-icon" />
+
+						
+							<p class="quote-copy {if parents:testimonial:long_testimonial=="Long Testimonial"}long{/if}">{parents:testimonial:testimonial_copy}</p>
+							<P class="quote-author">{parents:testimonial:testimonial_author}</P>
+							<p class="quote-author-info">{parents:testimonial:testimonial_author_info}</p>
+							<p class="quote-author-company">{parents:testimonial:testimonial_company}</p>
+							{parents:testimonial:case_study_link}
+								<p><a href="{site_url}/case_study/{parents:testimonial:case_study_link:url_title}" class="btn btnGrey">Read More</a></p>
+								{if parents:testimonial:case_study_link:no_results}
+									
+								{/if}
+							{/parents:testimonial:case_study_link}
+						
+					</div>
+					<div class="testimonial-image-block col6 last">
+						<img src="{parents:testimonial:testimonial_preview_image}" class="testimonial-hero" alt="{parents:testimonial:title}" />
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+			</section>
+			<article class="no-padding">
+			{/if}{/parents:testimonial}
+
+
+			
+
+
+			<!-- ==========================================================================
+				Specifications
+			========================= -->
+			<div class="specifications">
+				<a name="specs" style="position: absolute; top: -200px;"></a>
+				<h2 class="centered">Specifications</h2>
+					{if parents:product_parent_spec_sheets}
+						<p class="centered spec-sheet-download"><a href="{parents:product_parent_spec_sheets}" target="_blank" class="btn btnGreen btnSpecSheet" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Specification Download', 'Product Page Link - Specification Download - {parents:parent_child:title}');">Download {parents:title} Spec Sheet</a></p>
+					{/if}
+				
+				{parents:parent_child limit="1"}
+				<h3 class="centered">{parents:parent_child:title}</h3>
+				<div class="specification-block">
+
+						
+					<div class="specification-preview-image col4">	
+						{parents:parent_child:product_configuration_options}
+							<img src="{parents:parent_child:product_configuration_options:preview_image}">
+						{/parents:parent_child:product_configuration_options}
+					</div>
+						
+					
+					<table>
+						<tr>
+							<th>Capacity</th>				
+							<th>Dimensions*</th>
+							<!-- <th>Weight*</th>
+							<th>Milk Jugs Reclaimed</th> -->			
+						</tr>
+						{parents:parent_child:product_specification}
+						<tr>
+							<td class="center">{parents:parent_child:product_specification:capacity}{if parents:parent_child:product_specification:capacity!=""} gal{/if}</td>
+							<td>{parents:parent_child:product_specification:dimensions}</td>
+							<!-- <td class="center" itemprop="weight">{parents:parent_child:product_specification:weight} {if parents:parent_child:product_specification:weight!=""}lbs{/if}</td>
+							<td itemprop="sku">{parents:parent_child:product_specification:milk_jugs_reclaimed}</td> -->
+						</tr>		
+						{/parents:parent_child:product_specification}
+					</table>		
+				</div>
+				<div style="clear: both;"></div>
+				<p>*Approximate Dimensions</p>	
+				{/parents:parent_child}
+			</div>
+		</article>
+	{/if}
+
+
+
+
+
+{!-- 	
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+					Non-Square Waste / Recycling as well as all other categories other than accessories and clearance
+ 	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+--}
+
+	<!-- If a non-waste and recycling product is not showing up, make sure it's associated with a product group category and that that product group category is listed in the "if" statement to include them -->
+	{if category_name=="Food Service" OR category_name=="Furniture" OR category_name=="Towel Solutions" OR category_name=="Signs and Displays" OR category_name=="Beverage Solutions" OR category_name=="Site Furnishings" OR category_name=="E-cyclers" OR category_name=="Roll-Out Cart Enclosures" OR category_name=="Cardboard Recyclers" OR category_name=="Toss N Go"  OR category_name=="Newspaper Stations"  OR category_name=="Doggie Waste Stations" OR category_name=="E-Cycler" OR category_name=="Doggie Waste Stations"}
+			<div class="product-content">
+				<div class="product-content-image col6">
+					<!-- ==========================================================================
+						Large product image
+					========================= -->
+					{product_configuration_options limit="1"}								
+						<img src="{product_configuration_options:preview_image}" alt="{title} {product_configuration_options:configuration_name}" class="large-preview" />								
+					{/product_configuration_options}	
+				</div>
+
+				<div class="product-content-text col6 last">
+					<!-- ==========================================================================
+						Child Name
+					========================= -->
+					<h1 itemprop="name">{title}</h1>
+
+					<!-- ==========================================================================
+						In page navigation
+					========================= -->
+					<div class="in-page-navigation">
+						<p><a href="#custom" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - In Page Navigation', 'Product Page Link - In Page Navigation - Custom');">Customization</a> <!-- | <a href="#testimonial">Testimonial</a> | <a href="#gallery">Gallery</a>  --> | <a href="#specs" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - In Page Navigation', 'Product Page Link - In Page Navigation - Specs');">Specs</a></p>
+					</div>
+
+					
+					<!-- ==========================================================================
+						Product Parent copy
+					========================= -->
+					<div class="product-copy">
+						<p>{parents:product_parent_copy}</p>
+					</div>
+
+
+					<!-- ==========================================================================
+						Alternate Configuration Options
+
+						If there is more than one relationship between the parent and children
+						list the preview options here. 
+					========================= -->
+					
+					<h4>Configuration Options</h4>
+					{parents:parent_child}
+						{if parents:parent_child:total_count == 1}
+							{!-- <p>There is only one child for this parent. Eventually remove this block of code. Leave it for testing.</p> --}
+						
+						{if:elseif parents:parent_child:total_results == 4}
+							<!-- <p>There are four products associated with this parent.</p> -->
+							{parents:parent_child:product_configuration_options}
+							<a href="{parents:parent_child:url_title}" <a href="{parents:parent_child:url_title}" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Configuration Option', 'Product Page Link - Configuration Option - {parents:parent_child:title}');">
+							<div class="configuration-option-block {parents:parent_child:product_configuration_options:configuration_name} four-up">
+								<img src="{parents:parent_child:product_configuration_options:preview_image}" alt="{title} {parents:parent_child:product_configuration_options:configuration_name}" class="small-preview {if parents:parent_child:url_title==segment_2}active{/if}" />
+								<!-- Add conditional to see if product has more than one configuration option, if not, display the title. -->
+								<h5>{parents:parent_child:title}</h5>
+								<p>{parents:parent_child:product_configuration_options:description}</p>
+							</div>
+							</a>
+							{/parents:parent_child:product_configuration_options}
+						{if:else}
+							{!-- {parents:parent_child:count} --}
+							{parents:parent_child:product_configuration_options}
+								{if parents:parent_child:product_configuration_options:total_rows>1}
+									<div class="configuration-option-block {parents:parent_child:product_configuration_options:configuration_name}">
+										<img src="{parents:parent_child:product_configuration_options:preview_image}" alt="{title} {product_configuration_options:configuration_name}" class="small-preview {if parents:parent_child:product_configuration_options:count==1}active{/if}" />
+										<h5>{parents:parent_child:product_configuration_options:configuration_name}</h5>
+										<p>{parents:parent_child:product_configuration_options:description}</p>
+									</div>
+								{if:else}
+									<a href="{parents:parent_child:url_title}" <a href="{parents:parent_child:url_title}" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Configuration Option', 'Product Page Link - Configuration Option - {parents:parent_child:title}');">
+									<div class="configuration-option-block {parents:parent_child:product_configuration_options:configuration_name}">
+										<img src="{parents:parent_child:product_configuration_options:preview_image}" alt="{title} {parents:parent_child:product_configuration_options:configuration_name}" class="small-preview {if parents:parent_child:url_title==segment_2}active{/if}" />
+										<h5>{parents:parent_child:title}</h5>
+										<p>{parents:parent_child:product_configuration_options:description}</p>
+									</div>
+									</a>
+								{/if}						
+							{/parents:parent_child:product_configuration_options}
+						{/if}
+					{/parents:parent_child}					
+				</div>						
+			</div>
+			<div style="clear: both;"></div>
+		</article>
+			<!-- ==========================================================================
+				Customization Made Easy: Pass group name
+			========================= -->
+
+			{if category_name=="Signs and Displays"}
+			<section class="customization-slider">
+				<div class="customization-slider">
+					<a name="custom" style="position: absolute; top: -100px;"></a>
+					{!-- <p>"{category_name}" Customization Slider Content</p> --}
+
+					{embed="product/embed_customization_slider" collectionToDisplay="{category_name}"}
+				</div>
+			</section>
+			{/if}
+
+
+			<!-- ==========================================================================
+				Testimonial
+			========================= -->
+			{parents:testimonial}{if parents:testimonial:title!=""}
+			
+			<section class="product-testimonial">
+				<a name="testimonial" style="position: absolute; top: -100px;"></a>
+				<div class="testimonial-container">
+					<div class="testimonial-text-block testimonial-text col6">
+
+						<img src="{site_url}/images/testimonial/quote-icon.jpg" class="testimonial-hero quote-icon" />
+
+							<p class="quote-copy">{parents:testimonial:testimonial_copy}</p>
+							<P class="quote-author">{parents:testimonial:testimonial_author}</P>
+							<p class="quote-author-info">{parents:testimonial:testimonial_author_info}</p>
+							<p class="quote-author-company">{parents:testimonial:testimonial_company}</p>
+							{parents:testimonial:case_study_link}
+								<p><a href="{site_url}/case_study/{parents:testimonial:case_study_link:url_title}" class="btn btnGrey">Read More</a></p>
+								{if parents:testimonial:case_study_link:no_results}
+									
+								{/if}
+							{/parents:testimonial:case_study_link}
+						
+					</div>
+					<div class="testimonial-image-block col6 last">
+						<img src="{parents:testimonial:testimonial_preview_image}" alt="" />
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+			</section>
+			{/if}{/parents:testimonial}
+
+
+
+
+			<!-- ==========================================================================
+				Coordinate facility: Based on product category
+			========================= -->
+			<article class="products no-padding">
+			{if category_url_title=="beverage-solutions" || category_url_title=="towel-solutions" || category_url_title=="food-service" || category_url_title=="furniture" || category_url_title=="site-furnishings" || category_url_title=="signs-and-displays"}
+				{embed="product/embed_tabbed_hero_block" categoryToDisplay="{category_url_title}"}	
+			{/if}
+			</article>
+
+
+			<article class="products no-padding">
+
+			<!-- ==========================================================================
+				Specifications
+			========================= -->
+			<div class="specifications">
+				<a name="specs" style="position: absolute; top: -200px;"></a>
+				<h2 class="centered">Specifications</h2>
+				{if parents:product_parent_spec_sheets}
+					<p class="centered spec-sheet-download"><a href="{parents:product_parent_spec_sheets}" target="_blank" class="btn btnGreen btnSpecSheet"  onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Specification Download', 'Product Page Link - Specification Download - {parents:parent_child:title}');">Download {parents:title} Spec Sheet</a></p>
+				{/if}
+				
+				{parents:parent_child}
+				<h3 class="centered">{parents:parent_child:title}</h3>
+				<div class="specification-block">
+
+						
+					<div class="specification-preview-image col3">	
+						{parents:parent_child:product_configuration_options limit="1"}
+							<img src="{parents:parent_child:product_configuration_options:preview_image}">
+						{/parents:parent_child:product_configuration_options}
+					</div>
+						
+					
+					<table>
+						{!-- If there are no entries in the CMS for the products specs, use the following embed to display a "call for details message" --}
+						{embed="product/embed_dimensions" dimensionTotal="{parents:parent_child:product_specification:total_rows}"}
+
+						
+						
+						{!-- If there are no entries in the CMS for the products specs, the following block will be skipped. --}
+						{parents:parent_child:product_specification limit="1"}
+						<tr>
+							<th>Dimensions*</th>
+							{if parents:parent_child:product_specification:capacity!=""}	
+								<th>Capacity</th>
+							{/if}
+						</tr>
+						{/parents:parent_child:product_specification}
+						{parents:parent_child:product_specification}	
+							<tr>
+								<td>
+									{parents:parent_child:product_specification:dimensions}
+								</td>
+								<td>
+									{parents:parent_child:product_specification:capacity}
+								</td>					
+							</tr>
+						{/parents:parent_child:product_specification}
+						
+
+						
+					</table>		
+				</div>
+				<div style="clear: both;"></div>
+				{/parents:parent_child}
+				<p>*Approximate Dimensions</p>	
+			</div>
+		</article>
+	{/if}
+
+
+
+
+
+{!-- 	
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+					Accessories - Clearance products have their own channel products-clearance.group
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+	==================================================================================================================================================================================================
+--}
+
+
+			{if category_name=="Accessories"}
+				
+					<div class="product-content">
+						<div class="product-content-image col6">
+							<!-- ==========================================================================
+								Large product image
+							========================= -->
+							{product_configuration_options limit="1"}
+								
+									<img src="{product_configuration_options:preview_image}" alt="{title} {product_configuration_options:configuration_name}" class="large-preview" />
+								
+							{/product_configuration_options}	
+						</div>
+
+						<div class="product-content-text col6 last">
+							<!-- ==========================================================================
+								Child Name
+							========================= -->
+							
+							<h1 itemprop="name">{parents:product_parent_name}</h1>
+							<h2>{product_preview_grid}{product_preview_grid:subhead}{/product_preview_grid}</h2>
+
+
+							
+							<!-- ==========================================================================
+								Product Parent copy
+							========================= -->
+							<div class="product-copy">
+								<p>{parents:product_parent_copy}</p>
+							</div>
+
+
+							<!-- ==========================================================================
+								Stream Configuration Options
+							========================= -->
+							<h4>Stream Configuration Options</h4>
+							{product_configuration_options}
+							<div class="configuration-option-block {product_configuration_options:configuration_name}">
+								<img src="{product_configuration_options:preview_image}" alt="{title} {product_configuration_options:configuration_name}" class="small-preview {if product_configuration_options:streams=="<?php echo $streamNum ?>"}active{/if}" />
+								<h5>{product_configuration_options:configuration_name}</h5>
+								<p>{product_configuration_options:description}</p>
+							</div>
+							{/product_configuration_options}	
+							
+						</div>						
+					</div>
+					<div style="clear: both;"></div>
+				</article>	
+
+				<article>
+
+					<!-- ==========================================================================
+						Specifications
+					========================= -->
+					<div class="specifications">
+						<a name="specs" style="position: absolute; top: -200px;"></a>
+						<h2 class="centered">Specifications</h2>
+						<!--
+							<p class="centered spec-sheet-download"><a href="" class="btn btnGreen">Download {parents:title} Spec Sheet</a></p>
+						-->
+						{parents:parent_child}
+						<h2 class="centered">{parents:parent_child:title}</h2>
+						<div class="specification-block">
+
+								
+							<div class="specification-preview-image col4">	
+								{parents:parent_child:product_configuration_options}
+									<img src="{parents:parent_child:product_configuration_options:preview_image}">
+								{/parents:parent_child:product_configuration_options}
+							</div>
+								
+							
+							<table>
+								<tr>
+									{if segment_2=="waste-and-recycle-liner-bags"}
+										<th>Capacity</th>			
+									{/if}
+									<th>Dimensions*</th>
+									<!-- <th>Weight*</th>
+									<th>Milk Jugs Reclaimed</th>-->		
+								</tr>
+								{parents:parent_child:product_specification}
+								<tr>
+									{if segment_2=="waste-and-recycle-liner-bags"}
+										<td>{parents:parent_child:product_specification:capacity}{if parents:parent_child:product_specification:capacity!=""} gal{/if}</td>
+									{/if}
+									<td>{parents:parent_child:product_specification:dimensions}</td>
+									<!-- <td class="center" itemprop="weight">{parents:parent_child:product_specification:weight} {if parents:parent_child:product_specification:weight!=""}lbs{/if}</td>
+									<td itemprop="sku">{parents:parent_child:product_specification:milk_jugs_reclaimed}</td> -->
+								</tr>		
+								{/parents:parent_child:product_specification}
+							</table>		
+						</div>
+						<div style="clear: both;"></div>	
+						{/parents:parent_child}
+					</div>
+				</article>
+
+			{/if}
+		
+
+		{/parents:categories}
+	{/parents}
+{/exp:channel:entries}
+
+
+
+<script>
+    jQuery(document).ready(function($) {
+	    $('#customization-slider').royalSlider({
+	        // controlNavigation:'bullets',
+	        autoScaleSlider: 'true',
+	        autoScaleSliderWidth: '1200',
+	        autoScaleSliderHeight: '570',
+	        arrowsNavAutoHide: false
+	    });
+		$('#customization-slider .rsNavItem').each(function(i) {
+		    $(this).html(i + 1); 
+		});
+
+	    $('#image-gallery').royalSlider({
+	        controlNavigation:'bullets',
+	        autoScaleSlider: 'true',
+	        loop: 'true',
+	        autoScaleSliderWidth: '1200',
+	        autoScaleSliderHeight: '563',
+	        arrowsNavAutoHide: false        
+	    });
+    });
+</script>
+
+{embed="includes/.footer"}

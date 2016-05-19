@@ -1,0 +1,264 @@
+{embed="includes/.header"}
+
+<!-- inline styling -->
+<article class="client-gallery" style="padding-bottom: 0px;">	
+
+    <div class="headline centered">
+        <h1>Client Gallery</h1>
+    </div>
+
+    {!-- ------------------------------------------------------------------
+    -----------------------------------------------------------------------
+        First group of 6 client images
+    -----------------------------------------------------------------------
+    -------------------------------------------------------------------- --}
+	{exp:channel:entries channel="client_gallery" limit="6"}
+
+	<div class="client-gallery col4 {switch="||last"}">
+		<a href="{client_image}" class="lightbox-trigger {url_title}" onClick="ga('send', 'event', 'Client Gallery Image', 'Client Gallery Image - Lightbox', 'Client Gallery Image - Lightbox - {client_name}');">
+			<div class="gallery-item">
+				<img src="{client_preview_image}" alt="{client_name}" >
+				<h4>{client_name}</h4>
+				{!-- <p>{client_description}</p> --}
+			</div>
+		</a>
+	</div>
+
+    <div id="lightbox" class="{url_title}">
+        <div class="light-box-close btn btnGrey">Close window</div>
+        <h3>{client_name}</h3>
+        <h4>{client_description}</h4>
+        <img src="{client_image}">
+    </div>
+
+	{/exp:channel:entries}
+	<div style="clear: both;"></div>
+</article>
+
+{!-- ------------------------------------------------------------------
+-----------------------------------------------------------------------
+    Call to action interupter.
+-----------------------------------------------------------------------
+-------------------------------------------------------------------- --}
+<!-- inline styling -->
+<section class="cross-promotion" style="margin-bottom: 5%; padding: 5% 0;">
+    <h1>Start designing your customized bin!</h1>
+    <p><a href="/contact-us" class="btn btnGreen" style="margin-top: 2%;"  onClick="ga('send', 'event', 'Client Gallery CTA', 'Client Gallery CTA - Contact Us', 'Client Gallery CTA - Contact Us');">Contact Us</a></p> 
+</section>
+
+
+{!-- ------------------------------------------------------------------
+-----------------------------------------------------------------------
+    Second group of 6 client images
+-----------------------------------------------------------------------
+-------------------------------------------------------------------- --}
+<!-- space -->
+<article class="client-gallery no-padding">
+    {exp:channel:entries channel="client_gallery" limit="6" offset="6"}
+    <div class="client-gallery col4 {switch="||last"}">
+        <a href="{client_image}" class="lightbox-trigger {url_title}" onClick="ga('send', 'event', 'Client Gallery Image', 'Client Gallery Image - Lightbox', 'Client Gallery Image - Lightbox - {client_name}');">
+            <div class="gallery-item">
+                <img src="{client_preview_image}" alt="{client_name}">
+                <h4>{client_name}</h4>
+                {!-- <p>{client_description}</p> --}
+            </div>
+        </a>
+    </div>
+
+    <div id="lightbox" class="{url_title}">
+        <div class="light-box-close btn btnGrey">Close window</div>
+        <h3>{client_name}</h3>
+        <h4>{client_description}</h4>
+        <img src="{client_image}">
+    </div>
+
+    {/exp:channel:entries}
+    <div style="clear: both;"></div>    
+</article>
+
+
+
+<div class="instagram">
+   <article class="instagram-block">
+        <a href="http://instagram.com/maxrbins" class="btn btnWhite instagramLink">Follow us on instagram</a>
+    	<img src="{site_url}/images/client-gallery/instagram-logo.png" alt="Instagram Logo" />
+    	<p class="hashtag">#maxrbins</p>
+        <div style="clear: both;"></div>
+
+
+        <?php
+        // Supply a user id and an access token
+        $userid = "1510397014";
+        $accessToken = "1510397014.ab103e5.b8110c26a969405e9fb3db4fc9745a1a";
+
+        // Gets our data
+        function fetchData($url){
+             $ch = curl_init();
+             curl_setopt($ch, CURLOPT_URL, $url);
+             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+             curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+             $result = curl_exec($ch);
+             curl_close($ch); 
+             return $result;
+        }
+
+        // Pulls and parses data.
+        $result = fetchData("https://api.instagram.com/v1/users/{$userid}/media/recent/?access_token={$accessToken}");
+        $result = json_decode($result);
+        ?>
+
+        <?php 
+        $count = 0;
+        foreach ($result->data as $post):  
+            if ($count=="12") {
+              break;
+            } else {
+            
+            // echo '<pre>',print_r($post),'</pre>';
+            ?>
+         
+            <div class="instagram-feed-image col2 <?php if($count % 6 == 5) { echo ("last"); } ?>">
+            <!-- Renders images. @Options (thumbnail,low_resoulution, high_resolution) -->
+                <a class="group" target="_blank" rel="group1" href="<?= $post->link ?>"><img src="<?= $post->images->thumbnail->url ?>"></a>
+            </div>
+            
+            <?php 
+            $count++; 
+            // echo ($count); 
+            } 
+        endforeach 
+        ?>
+
+        <div style="clear: both;"></div>
+
+    </article>
+</div>
+
+
+<article class="client-gallery">	
+	{exp:channel:entries channel="client_gallery" offset="12"}
+	<div class="client-gallery col4 {switch="||last"}">
+		<a href="{client_image}" class="lightbox-trigger {url_title}" onClick="ga('send', 'event', 'Client Gallery Image', 'Client Gallery Image - Lightbox', 'Client Gallery Image - Lightbox - {client_name}');">
+			<div class="gallery-item">
+				<img src="{client_preview_image}" alt="{client_name}">
+				<h4>{client_name}</h4>
+				
+			</div>
+		</a>
+	</div>  
+
+    <div id="lightbox" class="{url_title}">
+        <div class="light-box-close btn btnGrey">Close window</div>
+        <h3>{client_name}</h3>
+        <h4>{client_description}</h4>
+        <img src="{client_image}">
+    </div>
+
+    {switch="||<div style="clear:both;"></div>"}
+    {/exp:channel:entries}	
+
+</article>
+
+
+
+
+<div style="clear: both;"></div>
+
+{!--
+<article class="contact">
+    <div class="contact-form">
+        <div class="centered">
+            <h1>Share your bins with us!</h1>
+        </div>
+        {exp:freeform:form  return="{site_url}/contact_us/thank_you" form_name="max-r-share-bin-form" inline_errors="yes" form:class="contact" required="first_name|last_name|user_email" admin_cc_notify="ltheiler@prestwick-group.com" }
+    
+            <div class="formRow">
+            	<div class="col6">
+                    <label>{freeform:label:first_name}</label>
+                    {freeform:field:first_name attr:id="first_name"}
+                    {if freeform:error:name}
+                        <strong>Please enter your first name.</strong>
+                    {/if}
+                </div>
+                <div class="col6 last">
+                    <label>{freeform:label:last_name}</label>
+                    {freeform:field:last_name attr:id="last_name"}
+                    {if freeform:error:name}
+                        <strong>Please enter your last name.</strong>
+                    {/if}
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+
+
+             <div class="formRow">
+               <div class="col6">
+                    <label>{freeform:label:user_email}</label>
+                    {freeform:field:user_email attr:id="email"}
+                    {if freeform:error:user_email}
+                        <strong>Please enter a valid email address.</strong>
+                    {/if}
+                </div>
+                <div class="col6 last">
+                    <label>{freeform:label:phone_number}</label>
+                    {freeform:field:phone_number attr:id="phone"}
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+
+            <div class="formRow">
+            	<div class="col6">
+                    <label>{freeform:label:job_title}</label>
+                    {freeform:field:job_title attr:id="title"}
+                </div>
+
+                <div class="col6 last">
+                    <label>{freeform:label:company}</label>
+                    {freeform:field:company attr:id="company"}
+                </div>
+            	<div style="clear: both;"></div>
+            </div>
+
+            <div class="formRow">
+
+                <div class="col6">
+                    <label>{freeform:label:file_to_share_with_us}</label>
+                    {freeform:field:file_to_share_with_us attr:class="upload-file-button btnGreen" input_wrapper_open="<p class='choose-file'>" input_wrapper_close="</p>" }
+                </div>
+
+                <div class="col6 last">
+                    <label>{freeform:label:message}</label>
+                    {freeform:field:user_message  attr:id="message" attr:class="textInput"}
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+
+            <div class="formRow">
+                <span class="col12 centered last">
+                    <pre><li class="screen-reader hidden">
+                      <label for="honeepot">Don't put anything here</label>
+                      <input type="text" name="honeepot" id="honeepot" />
+                    </li></pre>
+                    {freeform:submit attr:class="btnGreen btn" attr:id="submit"} 
+                </span>
+
+                <div style="clear: both;"></div>
+            </div>
+
+        {/exp:freeform:form} 
+    <div style="clear: both;"></div>
+    </div>
+
+</article>
+
+
+<script>
+$("input#submit").css("margin-top", "45px");
+$("#contact-form").submit(function(event) {
+    event.preventDefaut();
+    alert("button clicked");
+    
+});
+</script>
+--}
+{embed="includes/.footer"}

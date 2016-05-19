@@ -1,0 +1,61 @@
+{!-- 
+	<h3 class="filter category category-link {url_title}" data-filter=".{url_title}">{embed:embeded_collection}</h3>
+	<h3 class="filter category category-link {url_title}" data-filter=".{url_title}">{embed:embeded_category}</h3>
+--}
+
+
+{exp:channel:entries channel="product_category" disable="member_data|categories|pagination" url_title="{embed:embeded_category}" dynamic="no" sort="asc"}
+
+	<h3 class="filter category category-link {url_title}" data-filter=".{url_title}" onClick="ga('send', 'event', 'Collection Filter', 'Collection Filter - {segment_2} collection', 'Collection Filter - {segment_2} - Product Category - {title}');"><span class="product-category-toggles toggle-{url_title}">+</span> {category_name}</h3>			
+	<div class="product-group-filters {url_title}-filters hidden">
+		{category_group}
+			{category_group:product_group_filter_list}
+				{if segment_2=="oxford"}
+					{if category_group:product_group_filter_list:collections*='Oxford'}
+						{!-- Test for product collections inside product group successful. --}
+						<p><a href="{site_url}/products/{url_title}/{category_group:url_title}?collection={segment_2}"  onClick="ga('send', 'event', 'Collection Filter', 'Collection Filter - {segment_2} collection', 'Collection Filter - {segment_2} - Product Group - {category_group:title}');">{category_group:product_group_name}</a></p>
+					{/if}
+				{/if}
+				{if segment_2=="halston"}	
+					{if category_group:product_group_filter_list:collections*='Halston'}
+						{!-- Test for product collections inside product group successful. --}
+						<p><a href="{site_url}/products/{url_title}/{category_group:url_title}?collection={segment_2}"  onClick="ga('send', 'event', 'Collection Filter', 'Collection Filter - {segment_2} collection', 'Collection Filter - {segment_2} - Product Group - {category_group:title}');">{category_group:product_group_name}</a></p>
+					{/if}
+				{/if}
+				{if segment_2=="verde"}	
+					{if category_group:product_group_filter_list:collections*='Verde'}
+						{!-- Test for product collections inside product group successful. --}
+						<p><a href="{site_url}/products/{url_title}/{category_group:url_title}?collection={segment_2}"  onClick="ga('send', 'event', 'Collection Filter', 'Collection Filter - {segment_2} collection', 'Collection Filter - {segment_2} - Product Group - {category_group:title}');">{category_group:product_group_name}</a></p>
+					{/if}
+				{/if}
+				{if segment_2=="terra"}	
+					{if category_group:product_group_filter_list:collections*='Terra'}
+						{!-- Test for product collections inside product group successful. --}
+						<p><a href="{site_url}/products/{url_title}/{category_group:url_title}?collection={segment_2}"  onClick="ga('send', 'event', 'Collection Filter', 'Collection Filter - {segment_2} collection', 'Collection Filter - {segment_2} - Product Group - {category_group:title}');">{category_group:product_group_name}</a></p>
+					{/if}
+				{/if}		
+				{if segment_2=="tuscany"}	
+					{if category_group:product_group_filter_list:collections*='Tuscany'}
+						{!-- Test for product collections inside product group successful. --}
+						<p><a href="{site_url}/products/{url_title}/{category_group:url_title}?collection={segment_2}"  onClick="ga('send', 'event', 'Collection Filter', 'Collection Filter - {segment_2} collection', 'Collection Filter - {segment_2} - Product Group - {category_group:title}');">{category_group:product_group_name}</a></p>
+					{/if}
+				{/if}	
+				{if segment_2=="camden"}	
+					{if category_group:product_group_filter_list:collections*='Camden'}
+						{!-- Test for product collections inside product group successful. --}
+						<p><a href="{site_url}/products/{url_title}/{category_group:url_title}?collection={segment_2}"  onClick="ga('send', 'event', 'Collection Filter', 'Collection Filter - {segment_2} collection', 'Collection Filter - {segment_2} - Product Group - {category_group:title}');">{category_group:product_group_name}</a></p>
+					{/if}
+				{/if}
+				{if segment_2=="albany"}	
+					{if category_group:product_group_filter_list:collections*='Albany'}
+						{!-- Test for product collections inside product group successful. --}
+						<p><a href="{site_url}/products/{url_title}/{category_group:url_title}?collection={segment_2}"  onClick="ga('send', 'event', 'Collection Filter', 'Collection Filter - {segment_2} collection', 'Collection Filter - {segment_2} - Product Group - {category_group:title}');">{category_group:product_group_name}</a></p>
+					{/if}
+				{/if}																																							
+			{/category_group:product_group_filter_list}
+				{!-- <p><a href="{site_url}/products/{url_title}/{category_group:url_title}?collection={segment_2}">{category_group:title}</a></p> --}
+			
+		{/category_group}
+	</div>
+
+{/exp:channel:entries}

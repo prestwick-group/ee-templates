@@ -1,0 +1,176 @@
+{embed="includes/.header"}
+
+
+{exp:channel:entries channel="sales"}
+<div class="full-page-hero-header">
+    <img src="{sales_hero_image}" alt="Sales team hero image" /> 
+</div>
+
+
+<article class="sales-team hero-image-overlay">
+	{embed="includes_sidenav/.contact-sidenav" page="about"}
+
+	<div class="sales-team col9 last">
+		<h1>{sales_headline}</h1>
+
+		
+		<div class="sales-container col12 last">
+			<h3>{higher_education_label}</h3>
+			{higher_education_grid}
+				<div class="sales-block">
+					<img src="{higher_education_grid:sales_member_image}" alt="{higher_education_grid:sales_member_name}" />
+					<h4>{higher_education_grid:sales_member_name}</h4>
+
+					<p><a href="mailto:{higher_education_grid:sales_member_email}">{higher_education_grid:sales_member_email}</a><br />
+					{!-- {higher_education_grid:sales_member_position}<br /> --}
+					{higher_education_grid:sales_member_phone}<br />
+					<!--
+					<a href="#" class="tooltip">View Sales Territory
+						<span>
+					        <img class="callout" src="{site_url}/images/sales-team/callout.gif" />
+					        Territory<br />
+					        <img src="{higher_education_grid:sales_member_territory_image}" style="float:right;" />
+					        
+					    </span>
+					</a>
+					-->
+					</p>
+				</div>
+			{/higher_education_grid}	
+		</div>	
+
+		<div class="sales-container col9">
+			<h3>{corporate_label}</h3>
+			{corporate_grid}
+				<div class="sales-block">
+					<img src="{corporate_grid:sales_member_image}" alt="{corporate_grid:sales_member_name}" />
+					<h4>{corporate_grid:sales_member_name}</h4>
+
+					<p><a href="mailto:{corporate_grid:sales_member_email}">{corporate_grid:sales_member_email}</a><br />
+					{!-- {corporate_grid:sales_member_position}<br /> --}
+					{corporate_grid:sales_member_phone}<br />
+					<!--
+					<a href="#" class="tooltip">View Sales Territory
+						<span>
+					        <img class="callout" src="{site_url}/images/sales-team/callout.gif" />
+					        Territory<br />
+					        <img src="{corporate_grid:sales_member_territory_image}" style="float:right;" />
+					        
+					    </span>
+					</a>
+					-->
+					</p>
+				</div>
+			{/corporate_grid}
+		</div>
+
+		<div class="sales-container col3 last">
+			<h3>{venues_label}</h3>
+			{venues_grid}
+				<div class="sales-block">
+					<img src="{venues_grid:sales_member_image}" alt="{venues_grid:sales_member_name}" />
+					<h4>{venues_grid:sales_member_name}</h4>
+
+					<p><a href="mailto:{venues_grid:sales_member_email}">{venues_grid:sales_member_email}</a><br />
+					{!-- {venues_grid:sales_member_position}<br /> --}
+					{venues_grid:sales_member_phone}<br />
+					<!--
+					<a href="#" class="tooltip">View Sales Territory
+						<span>
+					        <img class="callout" src="{site_url}/images/sales-team/callout.gif" />
+					        Territory<br />
+					        <img src="{venues_grid:sales_member_territory_image}" style="float:right;" />
+					        
+					    </span>
+					</a>
+					-->
+					</p>
+				</div>
+			{/venues_grid}
+		</div>
+
+		<div class="sales-container col6">
+			<h3>{retail_label}</h3>
+			{retail_grid}
+				<div class="sales-block">
+					<img src="{retail_grid:sales_member_image}" alt="{retail_grid:sales_member_name}" />
+					<h4>{retail_grid:sales_member_name}</h4>
+
+					<p><a href="mailto:{retail_grid:sales_member_email}">{retail_grid:sales_member_email}</a><br />
+					{!-- {retail_grid:sales_member_position}<br /> --}
+					{retail_grid:sales_member_phone}<br />
+					<!-- 
+					<a href="#" class="tooltip">View Sales Territory
+						<span>
+					        <img class="callout" src="{site_url}/images/sales-team/callout.gif" />
+					        Territory<br />
+					        <img src="{retail_grid:sales_member_territory_image}" style="float:right;" />
+					        
+					    </span>
+					</a>
+					-->
+					</p>
+				</div>
+			{/retail_grid}
+		</div>
+
+		<div class="sales-container col6 last">
+			<h3>{k_12_label}</h3>
+			{k_12_grid}
+				<div class="sales-block">
+					<img src="{k_12_grid:sales_member_image}" alt="{k_12_grid:sales_member_name}" />
+					<h4>{k_12_grid:sales_member_name}</h4>
+
+					<p><a href="mailto:{k_12_grid:sales_member_email}">{k_12_grid:sales_member_email}</a><br />
+					{!-- {k_12_grid:sales_member_position}<br /> --}
+					{k_12_grid:sales_member_phone}<br />
+					<!-- 
+					<a href="#" class="tooltip">View Sales Territory
+						<span>
+					        <img class="callout" src="{site_url}/images/sales-team/callout.gif" />
+					        Territory<br />
+					        <img src="{k_12_grid:sales_member_territory_image}" style="float:right;" />
+					        
+					    </span>
+					</a>
+					-->
+					</p>
+				</div>
+			{/k_12_grid}
+		</div>
+
+
+		<div class="sales-container col12 last">
+			<h3>{support_label}</h3>
+			{support_grid}
+				<div class="sales-block">
+					<img src="{support_grid:sales_member_image}" alt="{support_grid:sales_member_name}" />
+					<h4>{support_grid:sales_member_name}</h4>
+
+					<p><a href="mailto:{support_grid:sales_member_email}">{support_grid:sales_member_email}</a><br />
+					{!-- {support_grid:sales_member_position}<br /> --}
+					{support_grid:sales_member_phone}<br />
+					<!-- 
+					<a href="#" class="tooltip">View Sales Territory
+						<span>
+					        <img class="callout" src="{site_url}/images/sales-team/callout.gif" />
+					        Territory<br />
+					        <img src="{support_grid:sales_member_territory_image}" style="float:right;" />
+					        
+					    </span>
+					</a>
+					-->
+					</p>
+				</div>
+			{/support_grid}
+		</div>
+
+
+	</div>
+	<div style="clear: both;"></div>
+</article>
+{/exp:channel:entries}
+
+
+
+{embed="includes/.footer"}

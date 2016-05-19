@@ -1,0 +1,1099 @@
+/* ================= Product section styling ================== */
+
+article.products, article.clearance-products {
+	// border-top: 3px solid $brightgreen;
+	&.category {
+		padding: 107px 20px 80px 20px;
+		h1 {
+			position: absolute;
+			z-index: 500;
+			width: 100%;
+			text-align: center;
+			&:after {
+				border-bottom: 1px solid $brightgreen;
+				clear: both;
+				width: 50px;
+				content: " ";
+				display: block;
+				margin: 15px auto;
+			}
+		}
+	}
+	&.group {
+		padding: 107px 20px 80px 20px;
+	}
+	section.product-category-hero {
+		/* ----------------------------------------------
+			height of product-category-hero controlled
+			by products.js
+		---------------------------------------------- */
+		position: relative;
+		margin-bottom: 4%;
+/* 
+		h1 {
+			position: absolute;
+			z-index: 500;
+			width: 100%;
+			text-align: center;
+			&:after {
+				border-bottom: 1px solid $brightgreen;
+				clear: both;
+				width: 50px;
+				content: " ";
+				display: block;
+				margin: 15px auto;
+			}
+		}
+*/
+		div.headline.centered {
+			h1 {
+				position: relative;
+			}
+		}
+
+		img {
+			position: absolute;
+			width: 100%;
+			z-index: 20;
+			border: 1px solid $lightborder;
+		}
+		div.product-category-hero-button {
+			position: absolute;
+			z-index: 501;
+		}
+	}
+
+
+	/* ------------------------------------------------------------------
+		Product Group hero image setup
+	------------------------------------- */
+	section.product-group-hero {
+		position: relative;
+		margin-bottom: 4%;
+		div.product-group-hero-images {
+			position: absolute;
+			width: 100%;
+			z-index: 9;
+			div.product-group-hero-images-container {
+				position: relative;
+				img {
+					width: 100%;
+					position: absolute;
+					z-index: 10;
+					&.active {
+						z-index: 13;
+					}
+				}
+			}
+		}
+		div.product-group-hero-text {
+			position: absolute;
+			z-index: 10;
+			background-color: $grey-transparent;
+			text-align: center;
+			padding: 30px 25px;
+			// right: 0;
+			max-width: 420px;
+			h2 {
+				color: $white;
+				margin: 0;
+				&:after {
+					border-bottom: 1px solid $brightgreen;
+					clear: both;
+					width: 50px;
+					content: " ";
+					display: block;
+					margin: 20px auto 20px auto;
+					line-height: 1.2em;
+					background-color: $grey-transparent;
+				}
+			}
+			h4 {
+				color: $white;
+				margin: 0;
+			}
+		}
+	}
+
+
+	div.product-filtering {
+		padding-left: 35px;
+		position: relative;
+		font-family: $font-regular;
+		h3 {
+			color: $darkgrey-2;
+			text-transform: uppercase;
+			// font-family: $font-medium;
+			padding: 0 0 25px 0;
+			border-bottom: 1px solid $lightborder;
+			margin: 0 0 5px 0;
+			&.active {
+				padding: 0;
+				border: none;
+				// margin: 0 0 5px 0;
+			}
+		}
+
+		div.product-group-filters-mobile-selected {	
+			display: none;
+			p.active-filter-group {
+				display: none;
+			}
+		}
+		div.product-group-filters {
+			p {
+				margin: 0;
+				&.criteria-label {
+					font-size: 0.8em;
+					font-family: $font-light;
+					color: $text-lightgrey;
+					font-style: italic;
+					margin-bottom: 3%;
+					line-height: 1.1em;
+				}
+				&.product-group-filter-header {
+					font-family: $font-medium;
+					color: $close-menu-grey;
+					margin-bottom: 2%;
+				}
+
+				&.product-group {
+					font-family: $font-light;
+					color: $darkgrey;
+					letter-spacing: 0.025em;
+					line-height: 1.1em;
+					margin-bottom: 3%;
+				}
+				&.active-group {
+					padding: 0 0 3%;
+					border-bottom: 1px solid $lightborder;
+					margin-bottom: 15px;
+					a {
+						color: $brightgreen;
+						// background-color: $brightgreen;
+						font-family: $font-medium;
+						letter-spacing: 0.025em;
+						display: block;
+						width: 100%;
+						padding: 0;
+						// text-transform: uppercase;
+						font-size: 1.0em;
+						span.close-group {
+							border-radius: 10px;
+							padding: 4px 6px;
+							margin-top: 5px;
+							line-height: 12px;
+							background-color: $brightgreen;
+							vertical-align: top;
+							color: $white;
+							display: inline-block;
+							font-size: 12px;
+							font-family: $font-semibold;
+						}
+					}
+				}
+
+			}
+			a.mobile-filter-category {
+				display: none;
+			}
+			button {
+				display: block;
+			}
+			&.active {
+				p.product-group-filter-header {
+					display: none;
+				}
+			}
+			form {
+				fieldset {
+					margin-bottom: 4%;
+					h4 {
+						font-family: $font-medium;
+						font-size: 0.9em;
+						color: $close-menu-grey;
+						text-transform: uppercase;
+						margin: 0;
+						border: none;
+						padding: 0;
+						span.expand-filter {
+							display: none;
+						}
+					}
+					p {
+						cursor: pointer;
+						padding: 0 0 0 24px;
+						font-family: $font-light;
+						color: $textgrey;
+						letter-spacing: 0.025em;	
+						font-size: 0.8em;
+						line-height: 1.5em;					
+						&.active {
+							color: $brightgreen;
+							// background-color: ;
+							padding: 0 0 0;
+						}
+						&:hover {
+							color: $brightgreen;
+							// background-color: $brightgreen;
+						}
+						&.filter {
+							
+							span.close-filter {
+								display: none;
+								margin-right: 6px;
+
+								border-radius: 10px;
+								padding: 4px 6px;
+								margin-top: 3px;
+								line-height: 12px;
+								background-color: $brightgreen;
+								vertical-align: top;
+								color: $white;
+								font-size: 12px;
+								font-family: $font-semibold;
+
+
+							}
+						}
+					}
+				}
+				p#Reset {
+					cursor: pointer;
+					color: $brightgreen;
+					border-top: 1px solid $lightborder;
+					padding-top: 3%;
+					font-family: $font-light;
+					letter-spacing: 0.025em;
+					font-size: 0.8em;
+					span.close-group {
+						border-radius: 10px;
+						padding: 4px 6px;
+						margin-top: 3px;
+						line-height: 12px;
+						background-color: $brightgreen;
+						vertical-align: top;
+
+						color: $white;
+						display: inline-block;
+						font-size: 12px;
+						font-family: $font-semibold;
+					}					
+				}
+			}
+		}
+		div.product-group-filters-mobile {
+			display: none;
+		}
+
+	}
+
+	div.product-list {
+		overflow: hidden;
+		img.product-category-hero {
+			width: 100%;
+			margin-bottom: 12%;
+		}
+		/* ----------------------------------------------
+			Styling shared with collection pages.
+			'page-product-block-embed' updates both.
+		---------------------------------------------- */
+		@import "_page-product-block-embed.scss"
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================================================
+=====================================================================================
+	Product Category / Group Filtering : Tablet
+=====================================================================================
+================================================================================== */
+@media screen and (max-width: 1041px) {
+	// Remove Category Hero buttons. They start to become misaligned
+	article.products {
+		&.category {
+			padding-top: 5%;		
+		}
+		&.group {
+			padding-top: 5%;
+		}
+
+		section.product-category-hero {
+			display: none;
+		}
+		div.product-filtering {
+			width: 100%;
+			h3 {
+				padding: 0 0 15px 0;
+				margin: 0;
+				border-bottom: none;
+			}
+			div.product-group-filters-mobile-selected {
+				// border-bottom: 1px solid #333;	
+				display: block;
+				font-size: 0.8em;
+				p {
+					float: left;
+					margin-right: 2%;
+					a {
+						color: $brightgreen;
+						span.close-group {
+							color: $black;
+							// font-weight: bold;
+							font-size: 0.7em;
+							vertical-align: middle;
+						}
+					}
+					span.close-group {
+						color: $black;
+						// font-weight: bold;
+						font-size: 0.7em;
+						vertical-align: middle;
+					}
+					&.active-category {
+
+					}
+					&.active-filter-group {
+						display: none;
+						color: $brightgreen;
+						cursor: pointer;
+					}
+				}
+			}	
+			div.product-group-filters.mobile {
+				//display: none;
+				margin-bottom: 5%;
+				p.active-group {
+					display: none;
+				}
+				p.criteria-label {
+					display: none;
+				}
+				p.product-group-filter-header {
+					display: none;
+				}
+				p.mobile-filter-category {
+					display: block;
+				}
+				
+				a.mobile-filter-category {
+					width: 100%;
+					display: block;
+					padding: 1% 3%;
+
+					border: 1px solid $lightborder;
+					cursor: pointer;
+					&:hover p {
+						color: $brightgreen;
+					}
+					p {
+						width: 100%;
+						margin: 0;
+
+						span.expand-filter {
+							display: block;
+							float: right;
+							font-size: 1.3em;
+							margin: 0 10px 10px 0;
+						}
+					}
+				}				
+
+				form.controls {
+					fieldset {
+						margin: 0 0 1% 0;
+						h4 {
+							border: 1px solid $lightborder;
+							padding: 1% 3%;
+							margin: 0;
+							font-family: $font-regular;
+							cursor: pointer;
+							color: $text-headlinegrey;
+							text-transform: none;
+							span.expand-filter {
+								float: right;
+								display: block;
+
+							}
+						}
+						div.filter-list {
+							display: none;
+							p.filter {
+								border: 1px solid $lightborder;
+								padding: 1% 3% 1% 6%;
+								margin: 0;
+								font-family: $font-regular;
+								cursor: pointer;
+								color: $text-headlinegrey;
+								font-size: 0.8em;
+								line-height: 1.5em;
+								// Not sure why this was removed, but display block is needed
+								// for the links to show up under the product group filters
+								// 2-17-2016 -- Lincoln
+								display: block;							
+								
+								span.close-filter {
+									display: none;
+									color: rgba(0,0,0,0);
+								}
+								a {
+									display: block;
+									padding: 1% 3% 1% 6%;
+								}
+							}
+						}
+					}
+				}
+				p#Reset {
+					display: none;
+				}
+
+				div.mobile-filter-category-links {
+					display: none;
+					p.product-group {
+						width: 100%;
+						display: block;
+						// padding: 1% 3% 1% 6%;
+						border: 1px solid $lightborder;
+						cursor: pointer;
+						margin: 0;
+						font-size: 0.9em;
+						&:hover {
+							color: $brightgreen;
+						}
+						a {
+							width: 100%;
+							margin: 0;
+							display: block;
+							padding: 1% 3% 1% 6%;
+						}
+					}
+				}
+			}				
+		}
+		div.product-list {
+			width: 100%;
+			div.embeded-product-block {
+				width: 30%;
+				&.last {
+					margin: 0 0 30px 0;
+				}
+				a {
+					div.filter-button {
+						margin-top: 100px;
+					}
+
+					div.product-block-text {
+						max-width: 200px;
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* ==================================================================================
+=====================================================================================
+	Product Category / Group Filtering : Mobile
+=====================================================================================
+================================================================================== */
+@media screen and (max-width: 666px) {
+	article.products {
+		section.product-category-hero {
+			display: none;
+		}
+		div.product-filtering {
+			padding: 0;
+			div.product-group-filters.mobile {
+				div.mobile-filter-category-links {
+					p.product-group {
+						// padding: 3% 3% 3% 6%;
+						a {
+							padding: 3% 3% 3% 6%;
+						}
+					}
+				}
+
+			}			
+		}
+		div.product-list {
+			div.embeded-product-block {
+				width: 100%;
+				&.last {
+					margin-right: 0 0 30px 0;
+				}
+				a {
+					div.filter-button {
+						margin-top: 100px;
+					}
+
+					div.product-block-text {
+						max-width: 200px;
+						margin: 0 auto;
+						h5 {
+							
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+/* ==================================================================================
+=====================================================================================
+	Product Page Styling
+=====================================================================================
+================================================================================== */
+
+
+article.product {
+	margin-bottom: 50px;
+	padding-bottom: 0;
+
+	div.product-content {
+		div.product-content-text {
+			h1 {
+				margin: 0;
+				padding: 0;
+				font-size: 2.4em;
+			}			
+			h2 {
+				border-bottom: 1px solid $lightborder;
+				margin-top: 15px;
+				padding-bottom: 15px;
+				font-size: 1.5em;
+			}
+			div.in-page-navigation {
+				p {
+					color: $text-lightgrey;
+					a {
+						font-size: 0.7em;
+						font-family: $font-regular;
+						color: $text-lightgrey;
+						margin: 0 5px;
+						text-transform: uppercase;
+					}
+				}
+			}
+			div.product-copy {
+				p {
+					
+					margin-bottom: 25px;
+					&:last-child {
+						padding-bottom: 45px;
+						border-bottom: 1px solid $lightborder;
+					}
+				}
+			}
+			div.configuration-option-block {
+				float: left;
+				text-align: center;
+				width: 33%;
+				cursor: pointer;
+				&.four-up {
+					width: 23%;
+					margin-right: 1%;
+				}
+				img {
+					width: 100%;
+					max-width: 150px;
+					margin: 0 auto 5px auto;
+					border: 1px solid $lightborder;
+					&.active {
+						border-bottom: 5px solid $brightgreen;
+						margin-bottom: -4px;
+					}
+				}
+				h5 {
+					font-family: $font-light;
+					font-size: 0.8em;
+					color: $textgrey;
+					margin: 10px 0 0 0;
+					padding: 0;
+					text-transform: uppercase;
+				}
+				p {
+					margin: 0 0 15px 0;
+					padding: 0 15px;
+					line-height: 1em;
+					font-size: 0.8em;
+				}
+			}
+		}
+		div.product-content-image {
+			img {
+				width: 100%;
+				// max-width: 400px;
+				border: 1px solid $lightborder;
+				&.clearance {
+					margin: 0 auto;
+					max-width: 290px;
+				}
+			}
+			div.large-preview-links {
+				text-align: center;
+
+				p {
+					// float: left;
+					display: inline-block;
+					a {
+						display: block;
+						&.active {
+							background-color: $brightgreen;
+							color: white;
+						}
+					}
+				}
+			}
+		}
+	}
+	div.sibling-options {
+		text-align: center;
+		h3 {
+			text-align: center;
+			color: $textgrey;
+			margin-bottom: 25px;
+		}
+		div.sibling-block {
+			text-align: center;
+			margin-bottom: 45px;
+			width: 100px;
+			display: inline-block;
+			img {
+				width: 100%;
+				max-width: 400px;
+				border: 1px solid $lightborder;
+				margin-bottom: 5px;
+				&.active {
+					border-bottom: 5px solid $brightgreen;
+					margin-bottom: 0;
+				}
+			}
+			h5 {
+				color: $textgrey;
+				margin: 10px 0 0 0;
+				padding: 0;
+				// text-transform: uppercase;
+				font-size: 0.8em;
+				line-height: 1em;			
+			}
+		}
+	}
+}
+section.customization-slider {
+	background-color: $alternate-grey;
+	padding: 2% 0;
+	margin: 3%;
+	div.customization-slider {
+		// background-color: $alternate-grey;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		// padding: 1% 0 0 0;
+		h2 {
+			margin-bottom: 0;
+			span {
+				font-family: $font-medium;
+			}
+		}
+		div#customization-slider {
+		    width: 100%;
+		    // height: 400px;
+		    // background: white;
+		    // border: 1px solid $lightborder;
+			div.rsContent {
+				img {
+					width: 100%;
+				}
+				div.slide-checks {
+					padding: 4% 0;
+					border-bottom: 1px solid $lightborder;
+					ul {
+						li {
+							float: left;
+						}
+					}
+				}
+			}
+			div.rsBullets {
+				bottom: 87%;
+				padding: 1% 0;
+				border-bottom: 1px solid #ccc;
+				background-color: #ddd;
+				display: none;
+			}
+		    div.rsOverflow {
+		    	// border: 10px solid #333;
+		    	div.rsArrow {
+					// border: 10px solid #333;
+					
+					&.rsArrowLeft {
+						//border: 10px solid #333;
+						div.rsArrowIcn {
+							background: url('http://www.#{$site-name}.#{$site-extension}/images/product/slider-arrow-left.png');
+							background-size: 100%;
+							background-repeat: no-repeat;
+							left: 20%;
+						}
+					}
+					&.rsArrowRight {
+						div.rsArrowIcn {
+							background: url('http://www.#{$site-name}.#{$site-extension}/images/product/slider-arrow-right.png');
+							background-size: 100%;
+							background-repeat: no-repeat;
+							left: 14%;
+						}
+					}
+		    	}
+		    }
+		}		
+	}
+}
+
+
+
+div.coordinated-facility-grid {
+
+	margin: 6% 0;
+	width: 100%;
+	h2 {
+		margin-bottom: 3%;
+	}
+	div.market-hero-grid-links, div.market-coordinated-grid-links {
+		width: 33.3%;
+		float: left;
+		text-align: center;
+		padding: 10px 0 10px 0;
+		background-color: $alternate-grey;
+		border: 1px solid $textbox-grey;
+		border-bottom: 1px solid $textbox-grey;
+		cursor: pointer;
+		position: relative;
+		&.link-3 {
+			width: 33.4%
+		}
+		img {
+			display: inline-block;
+			height: 42px;
+		}
+		p {
+			display: inline-block;
+			vertical-align: top;
+			
+			// margin was removed with icons were removed from the tabbed hero areas in the markets and product pages
+			// margin: 10px 0 0 0;
+			margin: 0;
+			padding: 0;
+		}
+		&:hover {
+			padding: 10px 0 8px 0;
+			background-color: $brightgreen;
+			border-bottom: 3px solid white;
+			border-left: 1px solid $white;
+			border-right: 1px solid $white;
+			border-top: 1px solid $brightgreen;
+			p {
+				color: $white;
+			}				
+		}
+		&.active {
+			padding: 10px 0 8px 0;
+			background-color: $brightgreen;
+			border-bottom: 2px solid white;
+			border-left: 1px solid $brightgreen;
+			border-right: 1px solid $brightgreen;
+			border-top: 1px solid $brightgreen;
+			p {
+				color: $white;
+			}
+			&::after {
+				content: url('http://www.#{$site-name}.#{$site-extension}/images/markets/selected-market-grid-link.png');
+				position: absolute;
+				left: 50%;
+				bottom: -24px;
+				z-index: 400;
+			}
+		}
+
+
+	}
+	div.market-grid-image {
+		display: none;
+		position: relative;
+		&.visible {
+			display: block;
+
+		}
+		img {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		p {
+			position: absolute;
+			bottom: 1%;
+			right: 6%;
+			font-family: $font-medium;
+			a {
+				color: $white;
+				&:hover {
+					color: $brightgreen;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+section.product-testimonial {
+	margin: 0;
+	padding: 5% 0;
+	background-color: $textbox-grey;
+	position: relative;
+	div.testimonial-container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		background-color: $white;
+
+		div.testimonial-text-block {
+			background-color: $white;
+			// border: 1px solid $lightborder;
+			text-align: center;
+			padding: 45px 0;
+			img {
+				margin: 40px auto;
+
+			}
+		}
+		@import "page-type-testimonial";			
+		
+		div.testimonial-image-block {
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+/* -----------------------------------------------------
+	Image Gallery 
+--------------------- */
+article {
+	div.product-image-gallery {
+		text-align: center;
+		margin: 5% 0 3% 0;
+		position: relative;
+		h2 {
+			padding: 25px 0;
+		}
+        div#image-gallery {	
+		    width: 100%;
+		    height: 400px;
+		    border: 1px solid $lightborder;
+		    div.rsOverflow {
+		    	// border: 10px solid #333;
+		    	div.rsArrow {
+					// border: 10px solid #333;
+					
+					&.rsArrowLeft {
+						//border: 10px solid #333;
+						div.rsArrowIcn {
+							background: url('http://www.#{$site-name}.#{$site-extension}/images/product/slider-arrow-left.png');
+							background-size: 100%;
+							background-repeat: no-repeat;
+							left: 20%;
+						}
+					}
+					&.rsArrowRight {
+						div.rsArrowIcn {
+							background: url('http://www.#{$site-name}.#{$site-extension}/images/product/slider-arrow-right.png');
+							background-size: 100%;
+							background-repeat: no-repeat;
+							left: 14%;
+						}
+					}
+		    	}
+		    }
+        }		
+	}
+}
+
+
+
+/* -----------------------------------------------------
+	Build your bin content
+----------------------------- */
+section.build-your-bin {
+	
+	//  background-color: $brightgreen;
+	padding-bottom: 3%;
+	/*
+	h1 {
+		padding: 3% 0;
+	}
+	*/
+	div.build-your-bin-block {
+		position: relative;
+		// height: 800px;
+		display: block;
+		width: 100%;
+		overflow: hidden;
+		img { 
+			position: absolute;
+			width: 100%;
+			// max-height: 500px;
+			z-index: 12;
+		}
+		div.build-your-bin-text {
+			position: absolute;
+			z-index: 13;
+			padding: 1%;
+			text-align: center;
+			max-width: 30%;
+			min-width: 360px;
+			background-color:  rgba(255, 255, 255, 0.9);
+			border: 1px solid $lightborder;
+			right: 8%;
+			top: 13%;
+			a {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+article {
+	div.specifications {
+		margin-top: 3%;
+		position: relative;
+		p.spec-sheet-download {
+			margin: 4% 0;
+		}
+		div.specification-block {
+			margin-top: 5%;
+			div.specification-preview-image {
+				img {
+					max-width: 500px;
+					width: 100%;
+					border: 1px solid $lightborder;
+					&.clearance {
+						float: right;
+						max-width: 150px;
+					}
+				}
+			}
+			h3{
+				font-size: 1.4em;
+			}
+			table {
+				// border: 1px solid #333;
+				&.clearance {
+					width: 100%;
+					margin-bottom: 85px;
+				}
+				tbody {
+					tr {
+						th {
+							padding: 5px 35px 0px 0;
+							margin: 0 10px;						
+							color: #122e45;
+							text-transform: uppercase;
+							font-family: $font-regular;	
+							text-align: left;				
+						}
+						td {
+							padding: 5px 35px 0px 0;
+							margin: 0 10px;
+							//border: 1px solid #333;
+							font-family: $font-regular;
+							color: #5e0942;
+							font-size: 0.9em;
+							&.center {
+								text-align: center;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 768px) {
+	// Product Page : Product Preview area styling
+	article.product {
+		div.product-content {
+			div.product-content-image {
+				img {
+					max-width: 400px;
+					margin: 0 auto;
+				}
+			}
+			div.product-content-text {
+				margin-top: 2%;
+				text-align: center;
+				div.configuration-option-block {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	// Product Page : Image gallery mobile styling
+
+
+	div.rsSlide {
+		div {
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+
+	// Product Page : Specification section mobile styling
+	article {
+		div.specifications {
+			div.specification-block {
+				text-align: center;
+				div.specification-preview-image {
+					img {
+						max-width: 300px;
+						margin: 0 auto;
+					}
+				}
+				table {
+					margin: auto;
+					tbody {
+						tr {
+							td {
+								font-size: 0.8em;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

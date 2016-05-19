@@ -1,0 +1,71 @@
+/* ================= Testimonial Blocks and Page Styles ================= */
+
+div.testimonial-text {
+	// border: 1px solid #333;
+	text-align: center;
+	// background-image: url('http://www.#{$site-name}.#{$site-extension}/images/testimonial/quote-icon.jpg');
+	//background-repeat: no-repeat;
+	//padding-top: 45px;
+	img.quote-icon {
+		float: none;
+		margin: 0 auto 15px auto; 
+		height: 65px;
+		width: 65px;
+	}
+	p {
+		padding: 0 10%;
+		
+		&.quote-copy {
+			font-size: 1.1em;
+			&.long {
+				font-size: 0.9em;
+			}
+		}
+		&.quote-author {
+			color: $brightgreen;
+			font-size: 1.4em;
+			margin: 25px 0 0 0;
+			font-style: normal;
+			font-family: $font-light;
+		}	
+		&.quote-author-info {
+			color: $text-lightgrey;
+			margin: 0;
+			padding: 0 15%;
+			font-family: $font-light;
+			font-style: italic;
+			text-transform: none;
+			font-size: 1.1em;
+		}
+		&.quote-author-company {
+			color: $text-lightgrey;
+			font-family: $font-light;
+			margin: 0;
+			font-size: 1.0em;
+		}
+	}
+}
+
+
+@media screen and (max-width: 1041px) {
+	div.testimonial-text {
+		p.quote-copy {
+			font-size: 1.0em;
+		}
+	}
+}
+
+
+@media screen and (max-width: 768px) {
+	img.testimonial-hero {
+		float: none;
+		max-width: 425px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	div.testimonial-text {
+		p.quote-copy {
+			font-size: 1.0em;
+		}
+	}
+}

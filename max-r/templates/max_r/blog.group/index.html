@@ -1,0 +1,39 @@
+{embed="includes/.header"}
+
+<article>	
+	{if segment_2==""}
+		<div class="headline centered">
+			<h1>The MAX-R BLOG</h1>
+		</div>
+	{/if}
+
+	{!-- If the user has entered the page through another post by selecting a category, display that as the title --}
+	{if segment_2=="category"}
+		<div class="headline centered">
+			<h1>The MAX-R BLOG</h1>
+			<h3 style="text-transform: uppercase;">{segment_3}</h3>
+		</div>
+	{/if}
+
+
+	{exp:channel:entries channel="blog_post" disable="member_data|pagination" orderby="date" sort="desc"}
+
+	<section class="resource-preview">
+		<div class="col4">
+			<a href="{site_url}/post/{url_title}"><img src="{blog_post_preview_image}" alt="{blog_post_headline}" class="resource-preview-image" /></a>
+		</div>
+		<div class="text-block col8 last">
+			<p class="category">{categories backspace="2"}<a href="{path=blog/}">{category_name}</a>, {/categories}</p>
+			<h3><a href="{site_url}/post/{url_title}">{blog_post_headline}</a></h3>
+			<!-- <h4>{blog_post_subhead}</h4> -->
+			<p class="date-and-author">{entry_date format="%F %d, %Y"}, {blog_post_author_relationship}{blog_post_author_relationship:blog_author_name}{/blog_post_author_relationship}</p>
+			<p class="preview-copy">{blog_post_preview_copy}</p>
+			<a href="{site_url}/post/{url_title}" class="btn btnGrey">Read More</a>
+		</div>
+		<div style="clear: both;"></div>
+	</section>
+
+	{/exp:channel:entries}
+	<div style="clear: both;"></div>
+</article>
+{embed="includes/.footer"}

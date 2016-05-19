@@ -1,0 +1,34 @@
+<!-- <p>{embed:categoryToDisplay}</p> -->
+
+{exp:channel:entries channel="product_tabbed_hero_block" dynamic="no"}
+	{if embed:categoryToDisplay==url_title}
+
+	<div class="coordinated-facility-grid">
+		<h2 class="centered">Coordinate your facility</h2>
+		{image_grid}
+			<div class="market-coordinated-grid-links link-{image_grid:count} {image_grid:count} {if image_grid:count==1}active{/if}"  onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Coordinated Facility', 'Product Page Link - Coordinated Facility - Label - {image_grid:label}');">
+				{!--
+				{if image_grid:count==1}
+					<img src="{image_grid:label_icon_hover}" alt="{image_grid:label}" class="label-icon icon-{image_grid:count} active"/>
+				{if:else}
+					<img src="{image_grid:label_icon}" alt="{image_grid:label}" class="label-icon icon-{image_grid:count}"/>
+				{/if}
+				--}
+				<p class="label">{image_grid:label}</p>
+			</div>
+		{/image_grid}
+		<div style="clear: both;"></div>
+		{image_grid}
+			<div class="market-grid-image coordinated-image-{image_grid:count} {if image_grid:count==1}visible{/if}">
+				<img src="{image_grid:image}" alt="{image_grid:label}"/>
+				{if image_grid:call_to_action!=""}
+					<p><a href="{image_grid:link}" onClick="ga('send', 'event', 'Product Page Link', 'Product Page Link - Coordinated Facility', 'Product Page Link - Coordinated Facility - {image_grid:call_to_action}');">{image_grid:call_to_action} >></a></p>
+				{/if}	
+			
+			</div>
+		{/image_grid}
+	</div>
+
+
+	{/if}
+{/exp:channel:entries}

@@ -1,0 +1,32 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="case_studies" disable="member_data|categories|pagination" dynamic="no"}
+
+<article class="case-studies">
+	<div class="headline centered">
+		<h1>{case_studies_headline}</h1>
+	</div>
+	{case_studies_relationship}
+	<a href="{site_url}/case-study/{case_studies_relationship:url_title}" onmouseover="$('img#img-{case_studies_relationship:url_title}').attr('src', '{case_studies_relationship:case_study_preview_image_hover}');" onmouseout="$('img#img-{case_studies_relationship:url_title}').attr('src', '{case_studies_relationship:case_study_preview_image}');">
+		<section class="case-study-preview">	
+			<div class="case-study-preview-image col7">
+				<img src="{case_studies_relationship:case_study_preview_image}" class="{case_studies_relationship:url_title}" id="img-{case_studies_relationship:url_title}">
+			</div>
+			<div class='case-study-preview-text col5 last'>
+				<h2>{case_studies_relationship:case_study_headline}</h2>
+				<h3>{case_studies_relationship:case_study_preview_copy}</h3>
+				<button class="btn btnGrey" alt="{case_studies_relationship:title}">READ MORE</button>
+			</div>
+			<div style="clear: both;"></div>
+		</section>
+	</a>
+	{/case_studies_relationship}
+
+
+</article>
+
+
+{/exp:channel:entries}
+<div style="clear: both;"></div>
+
+{embed="includes/.footer"}

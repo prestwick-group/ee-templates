@@ -1,0 +1,71 @@
+<ul class="col4">
+	<li id="blog" class="mouseOverToggle-resources">
+		<a href="{site_url}/blog" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Resources - Blog');">
+			<h1 class="underline">Blog</h1>
+			<p class="subnav-descriptions">Our panel of experts weigh in on everything from conducting a waste audit to branding your sustainability program.</p>
+		</a>
+	</li>
+	<li id="case-studies" class="mouseOverToggle-resources">
+		<a href="{site_url}/case-studies" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Resources - Case Studies');">
+			<h1 class="underline">Case Studies</h1>
+			<p class="subnav-descriptions">Read examples of successful recycling bin implementation and waste diversion efforts.</p>
+		</a>
+	</li>
+	<li id="white-papers" class="mouseOverToggle-resources">
+		<a href="{site_url}/white-papers" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Resources - White Papers');">
+			<h1 class="underline">White Papers</h1>
+			<p class="subnav-descriptions">Find information and detailed plans for all things waste and recycle. </p>
+		</a>
+	</li>
+	<li id="sales-policy" class="mouseOverToggle-resources">
+		<a href="{site_url}/sales-policy" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Resources - Sales Policy');">
+			<h1 class="underline">Sales Policy</h1>
+			<p class="subnav-descriptions">Information on payment terms, shipping, warranty information, and more. </p>
+		</a>
+	</li> 
+</ul>
+<ul class="col4">
+	<li id="client-gallery" class="mouseOverToggle-resources">
+		<a href="{site_url}/client-gallery" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Resources - Client Gallery');">
+			<h1 class="underline">Client Gallery</h1>
+			<p class="subnav-descriptions">See how others have customized their Max-R waste and recycle bins.</p>
+		</a>
+	</li>
+	<li id="catalog" class="mouseOverToggle-resources">
+  		<a href="{site_url}/catalogs" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Resources - Catalogs');">
+	  		<h1 class="underline">Catalogs</h1>
+			<p class="subnav-descriptions">View our online catalogs. To request a hard copy of the catalog, visit the contact page. </p>
+		</a>
+	</li> 
+	<li id="faqs" class="mouseOverToggle-resources">
+		<a href="{site_url}/faqs" onClick="ga('send', 'event', 'Header', 'Product Megamenu Link', 'Product Megamenu Link - Resources - FAQs');">
+			<h1 class="underline">FAQs</h1>
+			<p class="subnav-descriptions">Find information on our material, lead times, purchasing, shipping standards, and more in our frequently asked questions. </p>
+		</a>
+	</li>
+</ul>
+
+<script>
+$(document).ready(function(){
+	$('li.mouseOverToggle-resources').hover(function() {
+  		console.log(this.id);
+  		//$("img#preview-image").css('display', 'none');
+
+   		$("source.preview-image").attr('srcset', '{site_url}/images/header/resources-' + this.id + '.jpg');
+ 
+  		$("img#preview-image").attr('alt', 'Image for ' + this.id);
+
+	});
+});
+</script>
+
+<div class="col4 last">
+	
+     <picture>
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        <source srcset="{site_url}/images/header/resources-blog.jpg" media="(min-width: 1041px)" class="preview-image">
+        <source srcset="{site_url}/images/empty.gif" media="(min-width: 1px)" >
+        <!--[if IE 9]></video><![endif]-->
+        	<img src="{site_url}/images/header/resources-blog.jpg" alt="Resources preview image" id="preview-image">
+    </picture> 
+</div>

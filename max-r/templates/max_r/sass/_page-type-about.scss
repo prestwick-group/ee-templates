@@ -1,0 +1,23 @@
+/* ================= About section styling ================== */
+
+article.about {
+	div.about {
+		h1 {
+			border-bottom: 1px solid $lightborder;
+			padding: 0 0 45px 0;
+			margin: 0 0 45px 0;
+		}
+		img {
+			max-width: 100%;
+		}
+		ul {
+			list-style-type: disc;
+			margin-left: 25px;
+			li {
+				color: $textgrey;
+				font-family: $font-body-normal;
+			}
+		}
+	}
+}
+

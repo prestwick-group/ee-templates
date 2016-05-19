@@ -1,0 +1,41 @@
+{embed="includes/.header"}
+
+{exp:channel:entries channel="white_papers" disable="member_data|categories|pagination"}
+
+<article>
+	<div class="headline centered">
+		<h1>{white_paper_headline}</h1>
+	</div>
+
+	{!-- If the user has entered the page through another post by selecting a category, display that as the title --}
+	{!--
+	{if segment_2=="category"}
+		<div class="headline centered">
+			<h1>{segment_3}</h1>
+		</div>
+	{/if}
+	--}
+	{white_paper_grid}
+	<section class="resource-preview">
+		<div class="col4">
+			<a href="{white_paper_grid:white_paper_document}" target="_blank"><img src="{white_paper_grid:white_paper_image}" alt="{white_paper_grid:white_paper_title}" class="resource-preview-image" /></a>
+		</div>
+		<div class="text-block col8 last">
+			{!-- <p class="category">{white_paper_grid:categories backspace="2"}<a href="{path=blog/}">{category_name}</a>, {/categories}</p> --}
+			<h3><a href="{white_paper_grid:white_paper_document}" target="_blank">{white_paper_grid:white_paper_title}</a></h3>
+			<!-- <h4>{blog_post_subhead}</h4> -->
+			<p class="date-and-author">{white_paper_grid:white_paper_date format="%F %d, %Y"} {!-- {blog_post_author_relationship}{blog_post_author_relationship:blog_author_name}{/blog_post_author_relationship} --}</p>
+			<p class="preview-copy">{white_paper_grid:white_paper_preview_copy}</p>
+			<a href="{white_paper_grid:white_paper_document}" class="btn btnGrey" target="_blank">Read More</a>
+		</div>
+		<div style="clear: both;"></div>
+	</section>	
+	{/white_paper_grid}
+
+	<div style="clear: both;"></div>
+
+</article>
+{/exp:channel:entries}
+
+
+{embed="includes/.footer"}

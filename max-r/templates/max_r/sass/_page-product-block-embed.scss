@@ -1,0 +1,128 @@
+		div.embeded-product-block {
+			// margin-bottom: 8%;
+			text-align: left;
+			float: left;
+			margin-right: 2%;
+			height: 350px;
+			position: relative;	
+
+			&.clearance {
+				width: 22.5%;
+				vertical-align: top;
+				display: inline-block;
+				height: 420px;
+				a {
+					h5 {
+						padding: 0 0 0 30px;
+					}
+				}
+			}
+			img {
+				width: 100%;
+				max-width: 200px;
+				border: 1px solid $lightborder;
+				margin: 0 auto 15px auto;
+			}
+
+			// on square waste and recycle, the "base bin" text styling
+			div.product-block-text {
+				padding: 0 0 0 5px; 
+				p.base-bin {
+					font-size: 0.7em;
+					margin: 0;
+					padding: 0;
+					font-style: italic;
+					color: $textgrey;
+				}
+				h2 {
+					// text-transform: uppercase;
+					color: $textgrey;
+					font-family: $font-medium;
+					font-size: 1em;
+					margin: 0 0 3px 0;
+					padding: 0;
+					line-height: 0.9em;
+				}
+				h5 {
+					text-transform: none;
+					color: $textgrey;
+					font-size: 0.8em;
+					margin: 0;
+					padding: 0;
+					line-height: 1.2em;
+					max-width: 200px;
+				}
+			}
+			div.filter-button {
+				text-align: center;
+				margin: 40% 15% 0 15%;
+				width: 70%;
+				position: absolute;
+				top: 0;
+				display: none;
+				span {
+					text-align: center;
+					display: inline-block;
+					padding: 5px 25px;
+					&.btn {
+						min-width: auto;
+					}
+				}
+				&:hover span {
+					 background-color: $brightgreen;
+					 color: $white;
+				}
+			}
+			/* ------------------------------------------
+				On hover of the embed-product-block, 
+				make the "filter-button" visible
+			------------------------------------------- */
+			&:hover img {
+				border: 1px solid $brightgreen;
+			}
+			&:hover div.filter-button {
+				display: block;
+				border: $brightgreen;
+			}
+		}
+
+
+		/* --------------------------------------------------------------
+		-----------------------------------------------------------------
+				Test 
+		-----------------------------------------------------------------
+		-------------------------------------------------------------  */
+
+
+
+		@media screen and (max-width: 1041px) {
+		/* -----------------------------------------------------
+			Product filtering blocks are reduced two per row 
+			for the regular products and threee per row for
+			clearance products by adjusting the width of the 
+			product grid block
+		------------------------------------------------------- */
+			div.embeded-product-block {
+				width: 30%;
+				float: left;
+				margin-right: 2%;
+				&.clearance {
+					width: 30%;
+				}
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+		/* -----------------------------------------------------
+			Product filtering blocks are reduced two per row 
+			for the regular products and threee per row for
+			clearance products by adjusting the width of the 
+			product grid block
+		------------------------------------------------------- */
+			div.embeded-product-block {
+				width: 45%;
+				&.clearance {
+					width: 48%;
+				}
+			}
+		}

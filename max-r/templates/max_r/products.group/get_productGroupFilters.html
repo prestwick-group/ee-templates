@@ -1,0 +1,72 @@
+
+
+<!-- <form class="controls" id="Filters"> -->
+<form class="controls filterContainer">
+{exp:channel:entries channel="product_group" url_title="{embed:embeded_group}" dynamic="no" disable="member_data|categories|category_fields|pagination"}
+	{product_group_filter_list}		
+
+		{if product_group_filter_list:number_of_streams!=""}
+		<fieldset class="streams">
+			<h4 class="streams">Number of Streams <span class="expand-filter">+</span></h4>
+			<div class="filter-list streams">
+			{product_group_filter_list:number_of_streams}
+				<p class="filter stream {item} desktop" data-filter=".{item}" onClick="ga('send', 'event', 'Product Group Filter', 'Product Group Filter - Streams', 'Product Group Filter - Streams - {item}');"><span class="close-filter desktop">X</span>{item}</p>
+			{/product_group_filter_list:number_of_streams}
+			</div>
+		</fieldset>
+		{/if}
+
+		{if product_group_filter_list:collections!=""}
+		<fieldset class="collections">
+			<h4 class="collections">Collections <span class="expand-filter">+</span></h4>
+			<div class="filter-list collections">
+			{product_group_filter_list:collections orderby="product_group_filter_list:collections" sort="asc"}
+				<p class="filter collection {item} desktop" data-filter=".{item}" onClick="ga('send', 'event', 'Product Group Filter', 'Product Group Filter - Collections', 'Product Group Filter - Collections - {item}');"><span class="close-filter desktop">X</span>{item}</p>
+			{/product_group_filter_list:collections}
+			</div>
+		</fieldset>
+		{/if}
+
+		{if product_group_filter_list:opening!=""}
+		<fieldset class="direction">
+			<h4 class="direction">Opening Direction <span class="expand-filter">+</span></h4>
+			<div class="filter-list direction">
+			{product_group_filter_list:opening}
+				<p class="filter direction {item} desktop" data-filter=".{item}"  onClick="ga('send', 'event', 'Product Group Filter', 'Product Group Filter - Opening Direction', 'Product Group Filter - Opening Direction - {item}');"><span class="close-filter desktop">X</span>{item} Load</p>
+			{/product_group_filter_list:opening}
+			</div>
+		</fieldset>
+		{/if}
+
+		{if product_group_filter_list:size!=""}
+		<fieldset class="size">
+			<h4 class="size">Size <span class="expand-filter">+</span></h4>
+			<div class="filter-list size">
+			{product_group_filter_list:size}
+				<p class="filter size {item} desktop" data-filter=".{item}"  onClick="ga('send', 'event', 'Product Group Filter', 'Product Group Filter - Size', 'Product Group Filter - Size - {item}');"><span class="close-filter desktop">X</span>{item}</p>
+			{/product_group_filter_list:size}
+			</div>
+		</fieldset>
+		{/if}
+
+	{/product_group_filter_list}
+{/exp:channel:entries}
+	 <p id="Reset"><span class="close-group">X</span> Clear Filters</p>
+</form>
+
+
+
+
+
+
+
+{!-- 
+		{if product_group_filter_list:enclosures!=""}
+		<fieldset>
+			<h4>Enclosures</h4>
+			{product_group_filter_list:enclosures}
+				<p class="filter" data-filter=".{item}"><span class="close-filter">X</span>{item}</p>
+			{/product_group_filter_list:enclosures}
+		</fieldset>
+		{/if}
+--}

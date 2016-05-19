@@ -1,0 +1,322 @@
+{embed="includes/.header"}
+
+{if segment_2!="clearance"}
+
+	{!-- ---------------------------------------------------- 
+	---------------------------------------------------------
+	---------------------------------------------------------
+		Remove '-test' from article for live site.
+	---------------------------------------------------------
+	---------------------------------------------------------
+	-----------------------------------------------------  --}
+	<article class="products {if segment_3==""}{if segment_2!="signs-and-displays" AND segment_2!="accessories"} category{/if}{/if}  {if segment_3=="square"||segment_3=="round"||segment_3=="cardboard-recyclers"||segment_3=="roll-out-cart-enclosures"||segment_3=="e-cyclers"||segment_3=="e-cyclers"||segment_3=="doggie-waste-stations"||segment_3=="toss-n-go" } group{/if}">
+	
+	{if segment_2!="accessories"}
+		{exp:channel:entries channel="product_category" disable="member_data|categories|pagination" sort="asc"}
+
+		{!-- ----------------------------------------------------------
+			If there is no segment three, this is a product cateogry.
+		---------------------------------------------------------- --}
+		{if segment_3==""}
+			<section class="product-category-hero desktop">
+				{if segment_2!="signs-and-displays" AND segment_!="accessories"}
+					<h1>{category_name}</h1>
+				{if:else}
+					<div class="headline centered">
+						<h1>{category_name}</h1>
+					</div>
+				{/if}
+				{!-- ----------------------------------------------------------
+					Add the product category header and any attached links.
+				---------------------------------------------------------- --}
+				{if category_hero_image_tall}	
+					<img src="{category_hero_image_tall}" alt="{category_name}" class="product-category-hero" />
+				
+					{category_hero_grid}
+						<div class="product-category-hero-button" style="margin-top: {category_hero_grid:top}%; margin-left: {category_hero_grid:left}%">
+							<a href="{site_url}/products/{url_title}/{category_hero_grid:product_group:url_title}" class=' btn btnTransparentGrey'>{category_hero_grid:product_group:title}</a>
+						</div>
+					{/category_hero_grid}
+				{/if}
+			</section>
+		{/if}
+
+		{!-- ----------------------------------------------------------
+			If segment three is square or round, add the new 
+			product group -- Add group url_title to if statement.
+		---------------------------------------------------------- --}
+
+		{if segment_3=="square" || segment_3=="round" || segment_3=="cardboard-recyclers" || segment_3=="roll-out-cart-enclosures"||segment_3=="e-cyclers"||segment_3=="doggie-waste-stations"||segment_3=="toss-n-go"  }
+			{category_group orderby="entry_id" sort="asc"}
+				{if segment_3==category_group:url_title}			
+				<section class="product-group-hero desktop">
+					{category_group:product_group_hero_image_grid}
+					<div class="product-group-hero-images">
+						<div class="product-group-hero-images-container">
+							<img src="{product_group_hero_image_grid:first_image}" class="product-group-hero first-image active" alt="">
+							<img src="{product_group_hero_image_grid:second_image}" class="product-group-hero second-image" alt="">
+							<img src="{product_group_hero_image_grid:third_image}" class="product-group-hero third-image" alt="">
+						</div>
+					</div>
+					{/category_group:product_group_hero_image_grid}
+					{category_group:product_group_hero_text}
+					<div class="product-group-hero-text" style="
+					{if category_group:product_group_hero_text:top!=""}top: {category_group:product_group_hero_text:top}px;{/if} 
+					{if category_group:product_group_hero_text:bottom!=""}bottom: {category_group:product_group_hero_text:bottom}px;{/if} 
+					{if category_group:product_group_hero_text:right!=""}right: {category_group:product_group_hero_text:right}px;{/if} 
+					{if category_group:product_group_hero_text:left!=""}left: {category_group:product_group_hero_text:left}px;{/if}
+					">
+						<h2>{category_group:product_group_hero_text:headline}</h2>
+						<h4>{category_group:product_group_hero_text:subhead}</h4>
+					</div>
+					{/category_group:product_group_hero_text}	
+				</section>
+				{/if}
+			{/category_group}
+		{/if}
+
+
+
+		{!-- ------------------------------------------------------------
+		-----------------------------------------------------------------
+						Prouct Filtering
+		-----------------------------------------------------------------
+		-------------------------------------------------------------- --}
+		<div class="product-filtering col4">
+				{!-- ------------------------------------------------------------------------------------
+					If the user has chosen a product category, show all product groups in the side nav.
+				-------------------------------------------------------------------------------------- --}
+				{if segment_3==""}
+					<h3>{category_name}</h3>
+					
+					{!-- ============== Desktop ============= --}
+					<div class="product-group-filters">
+						<p class="product-group-filter-header">VIEW OUR:</p>
+						<a class="mobile-filter-category"><p>{category_name} Product Groups <span class="expand-filter">+</span></p></a>
+						<div class="mobile-filter-category-links">
+						{category_group orderby="entry_id" sort="asc"}
+							<p class="mixitin filter product-group"><a href="{site_url}/products/{url_title}/{category_group:url_title}">{category_group:product_group_name}</a></p>
+						{/category_group}
+						</div>
+					</div>
+
+				{!-- ----------------------------------------------------
+					If the user has chosen a product group, 
+					display filter groups.
+				------------------------------------------------------ --}		
+				{if:else}
+					<h3 class="active">{category_name}</h3>
+
+
+					{!-- ============== Mobile ============= --}
+
+					<div class="product-group-filters-mobile-selected filterContainer">
+						{category_group orderby="entry_id" sort="asc"}							
+							{if segment_3==category_group:url_title} 
+								<p class="active-category category"><a href="../products - Copy.group/{site_url}/products/{url_title}"><span class="close-group">X</span> {category_group:product_group_name}  </a></p>
+							{/if}
+						{/category_group}
+						<p class="active-filter-group streams filter" data-filter=""><span class="close-group">X</span> Streams: <span class="filterName"> </span></p>
+						<p class="active-filter-group collections filter" data-filter=""><span class="close-group">X</span> Collection: <span class="filterName"> </span></p>
+						<p class="active-filter-group direction filter" data-filter=""><span class="close-group">X</span> Opening: <span class="filterName"> </span></p>
+						<p class="active-filter-group size filter" data-filter=""><span class="close-group">X</span> Size: <span class="filterName"> </span></p>
+					</div>
+					<div style="clear: both;"></div>
+
+
+					{!-- ============== Desktop and Mobile ============= --}
+
+					{!-- ------------------------------------------------------------------------------------------------------
+						The class "Mobile" is added to the following div by the products.js file to create the mobile buttons
+					---------------------------------------------------------------------------------------------------- --}					
+					<div class="product-group-filters active">
+						{category_group orderby="entry_id" sort="asc"}
+							
+							{!-- ----------------------------------------------------
+								Display only the selected product group.
+							------------------------------------------------------ --}		
+							{if segment_3==category_group:url_title}
+								<p class="active-group"><a href="../products - Copy.group/{site_url}/products/{url_title}"><span class="close-group">X</span> {category_group:product_group_name}</a></p>
+								<!-- ==============================================================
+									Product Group Filters embed.
+								=============================================================== -->
+								{embed="products/get_productGroupFilters" embeded_group="{category_group:url_title}"}
+
+							{/if}
+						{/category_group}
+					</div>
+
+
+				{/if}
+		</div>
+
+
+		{!-- ------------------------------------------------------------
+		-----------------------------------------------------------------
+						Prouct Embeding
+		-----------------------------------------------------------------
+		-------------------------------------------------------------- --}
+		<div id="Container" class="product-list container col8 last">
+
+			{!-- ----------------------------------------------------
+				If the user has chosen a product category, 
+				embed the product parents passing the category title,
+				otherwise pass the group title.
+			------------------------------------------------------ --}
+			{if segment_3==""}
+				<span style="display: none;">{exp:pvl_increment id="product_child_count" start="0" step="1"}</span>
+				{embed="products/get_productParents" embeded_category="{url_title}" embeded_group=""}
+
+			{if:else}
+
+				{category_group orderby="entry_id" sort="asc"}
+
+					{if segment_3==category_group:url_title}
+						<!-- {category_group:url_title} -->
+						<span style="display: none;">{exp:pvl_increment id="product_child_count" start="0" step="1"}</span>
+						{embed="products/get_productParents" embeded_group="{category_group:url_title}" embeded_category=""}
+					{/if}
+
+				{/category_group}
+
+			{/if}
+			<div id="noResults" style="display: none;"><h3>Sorry, your filters don't match any of our proudcts.</h3></div>
+			<div style="clear: both;"></div>
+		</div>
+		<div style="clear: both;"></div>
+		{/exp:channel:entries}
+
+
+		{!-- ----------------------------------------------------
+			The second segment is "accessories".
+			Only add product listings, no filtering.
+		------------------------------------------------------ --}		
+		{if:else}
+			<div class="headline centered">
+				<h1>Accessories</h1>
+			</div>
+			<div class="product-list">
+			{exp:channel:entries channel="product_parent" dynamic="no"}
+				{categories show_group="12"}
+					{if category_name=="Accessories"}
+					<div class="embeded-product-block clearance">
+						<a class="{url_title} product-link" href="{site_url}/product/{url_title}">
+							{parent_child}
+								<img src="{parent_child:product_child_thumbnail}" id="{url_title}">
+							{/parent_child}
+							<h5>{clearance_product_name}</h5>
+							<span class="btn btnGrey">VIEW</span>
+						</a>
+					</div>
+					{/if}
+				{/categories}	
+			{/exp:channel:entries}
+			</div>
+			<div style="clear: both;"></div>			
+		{/if}
+
+	</article>
+	
+
+
+{!-- ----------------------------------------------------
+	Clearance Products.
+------------------------------------------------------ --}	
+{if:else}
+	<article class="clearance-products">
+		<h1 class="centered">Clearance products</h1>
+		<div class="product-list">
+		{exp:channel:entries channel="product_clearance" disable="member_data|categories|pagination" sort="asc"}
+			<div class="embeded-product-block clearance">
+				<a class="{url_title} product-link" href="{site_url}/product-clearance/{url_title}">
+					<img src="{clearance_product_image}" id="{url_title}">
+					<h5>{clearance_product_name}</h5>
+					<div class="filter-button">
+						<span class="btn btnGrey">VIEW</span>
+					</div>
+				</a>
+				
+			</div>		
+		{/exp:channel:entries}
+		</div>
+		<div style="clear: both;"></div>
+	</article>
+{/if}
+
+{embed="includes/.footer"}
+
+
+
+<?php
+// 
+  $col = $_GET['collection'];
+  if ($col == "oxford") {
+    $filterCollection = ".Oxford";
+    $displayName = "Oxford";
+  }
+  if ($col == "halston") {
+    $filterCollection = ".Halston";
+    $displayName = "Halston";
+  }
+  if ($col == "terra") {
+    $filterCollection = ".Terra";
+    $displayName = "Terra";
+  }
+  if ($col == "verde") {
+    $filterCollection = ".Verde";
+    $displayName = "Verde";
+  }
+  if ($col == "albany") {
+    $filterCollection = ".Albany";
+    $displayName = "Albany";
+  }
+  if ($col == "tuscany") {
+    $filterCollection = ".Tuscany";
+    $displayName = "Tuscany";
+  }
+  if ($col == "camden") {
+    $filterCollection = ".Camden";
+    $displayName = "Camden";
+  }
+
+  if ($col == "") {
+    $filterCollection = "all";
+    $displayName = "";
+  }
+
+  // Update filters for the above filteredCollection to be set to active.
+  
+
+	echo "<script>\n";
+
+	echo "var updatedFilter = ('p". $filterCollection ."');\n";
+	echo "console.log(updatedFilter);\n";
+	echo "$(updatedFilter).addClass('active');\n";
+
+	echo "buttonFilter.init();\n";
+	echo "$('#Container').mixItUp({\n";
+	echo "   load: {\n";
+	echo "     filter: '". $filterCollection ."'\n";
+	echo "   },\n";
+	echo "   controls: {\n";
+	echo "     enable: false\n";
+	echo "   },\n";
+	echo "   callbacks: {\n";
+	echo "   	onMixFail: function(){\n";
+	echo "   	$('#noResults').css('display', 'block');\n";
+	echo "   	}\n";
+	echo "   }\n";
+	echo " });\n";
+
+	// If the page happens to be mobile, set up the active-filter-group to contain the selected collection
+if($_GET){	
+	echo "$('p.active-filter-group.collections').css('display','block');\n";
+	echo "$('p.active-filter-group.collections').attr('data-filter','" . $filterCollection . "');\n";
+	echo "$('p.active-filter-group.collections').addClass('" . $filterCollection ."');\n";
+	echo "$('p.active-filter-group.collections span.filterName').text('" . $displayName . "');\n";
+	echo "$('fieldset.collections').css('display', 'none');\n";
+}	
+
+	echo "</script>\n";
+
+?>

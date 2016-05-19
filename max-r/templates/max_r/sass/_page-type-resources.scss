@@ -1,0 +1,526 @@
+/* ================= Resource Category Page content ================= */
+
+section.resource-preview {
+	display: block;
+	margin: 0 0 45px 15px;
+	img.resource-preview-image {
+		width: 100%;
+		max-width: 270px;
+		float: right;
+	}
+	div.text-block {
+		p.category {
+			text-transform: uppercase;
+			margin: 0 0 10px 0;
+			padding: 0;
+			letter-spacing: 0.01em;
+			font-size: 0.8em;
+			font-family: $font-regular;
+			a {
+				color: $brightgreen;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+		h3 {
+			margin: 0 0 10px 0;
+			padding: 0;
+			letter-spacing: 0.025em;
+			font-family: $font-regular;
+			color: $text-headlinegrey;
+		}
+		p.date-and-author {
+			color: $text-lightgrey;
+			font-family: $font-regular;
+			margin: 5px 0;
+			font-size: 0.8em;
+			letter-spacing: 0.01em;
+		}
+		p.preview-copy {
+			margin: 5px 0 15px 0;
+			font-size: 0.8em;
+			font-family: $font-body-normal;
+		}
+	}
+}
+
+@media all and (max-width: 768px) {
+	article {
+		section.resource-preview {
+			margin-bottom: 15%;
+			div.text-block {
+
+				h3 {
+					text-align: center;
+					margin-top: 1%;
+				}
+				p {
+					text-align: center;
+				}
+				a.btn {
+					display: block;
+					width: 100px;
+					margin: 0 auto;
+					text-align: center;
+				}
+			}
+			img.resource-preview-image {
+				width: 100%;
+				max-width: 400px;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+
+/* -------------- Blog Section Styles -----------*/
+
+article.blog-post {
+	padding-right: 20px;
+	div.left-nav {
+		padding-left: 45px;
+		img.author {
+			border-radius: 50px;
+			margin-bottom: 10px;
+		}
+		p.left-nav-label {
+			margin: 0;
+			padding: 0 0 7px 0;
+			font-size: 0.7em;
+			line-height: 1em;
+			font-family: $font-regular;
+			color: $text-lightgrey;
+		}
+		p.author {
+			margin: 0 0 15px 0;
+			padding: 0 0;
+			font-family: $font-medium;
+			font-size: 1.2em;
+			line-height: 1em;
+		}
+		p.categories {
+			margin: 0 0 10px 0;
+			padding: 0;
+			font-size: 0.7em;
+		}
+		div.social-media-icons {
+			ul {
+				margin: 0;
+				padding: 0;
+				li {
+					float: left;
+					margin-right: 5px;
+					a {
+						padding-left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	div.blog-copy {
+		h4 {
+			border-bottom: 1px solid $alternate-grey;
+			padding-bottom: 15px;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+		ul {
+			list-style-type: circle;
+			font-family: $font-body-normal;
+			li {
+				margin: 20px 35px;
+				color: $textgrey;
+			}
+		}
+	}
+}
+article.related-articles {
+	padding-left: 10px;
+	padding-top: 45px;
+	h3 {
+		margin: 0 0 45px 0;
+	}
+	div.related-articles {
+		text-align: center;
+		margin-bottom: 35px;
+		img {
+			margin: 0 auto;
+			width: 100%;
+		}
+		h4 {
+			margin: 15px 0 15px 0;
+			text-align: center;
+			font-family: $font-medium;
+		}
+	}
+}
+
+
+
+
+@media all and (max-width: 768px) {
+	section.resource-preview {
+		img.resource-preview-image {
+			float: none;
+			margin-bottom: 10px;
+		}
+	}
+	article.blog-post {
+		div.left-nav {
+			position: absolute;
+			bottom: 0;
+			margin-bottom: 25px;
+			img {
+				float: left; 
+				margin-right: 25px;
+			}
+		}
+		div.blog-copy {
+			margin-bottom: 200px;
+		}
+	}
+	article.related-articles {
+		div.related-articles {
+			a {
+				img {
+					max-width: 400px;
+				}
+			}
+		}
+	}
+}
+
+
+
+/* ================= Case Studies Styling ================== */
+
+
+article.case-studies {
+	section.case-study-preview {
+		margin: 0 0 45px 15px;
+		div.case-study-preview-image {
+			float: left;
+			text-align: left;
+			img {
+				float: right;
+				width: 100%;
+				max-width: 570px;
+				border: 1px solid $lightborder;
+			}
+		}
+		div.case-study-preview-text {
+			float: left;
+			h1 {
+				
+			}
+
+		}
+		&:hover div.case-study-preview-text button {
+			background-color: $lightborder;
+			color: $white;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	article.case-studies {
+		section.case-study-preview {
+			text-align: center;
+			div.case-study-preview-image {
+				float: none;
+				img {
+					float: none;
+					margin: 0 auto;
+				}
+			}
+			div.case-study-preview-text {
+				
+			}
+		}
+	}
+}
+
+
+article.case-study {
+	padding-bottom: 45px;
+
+	h2.headline {
+		font-family: $font-medium;
+		margin-bottom: 0;
+		padding: 0 10%;
+		line-height: 1.1em;
+	}
+
+	div.case-study-images {
+		img {
+			width: 100%;
+			max-width: 450px;
+		}
+		p {
+			text-align: center;
+			margin: 3px 0 4% 0;
+		}
+	}
+	div.case-study-copy {
+		text-align: center;
+		font-family: $font-body-normal;
+		img.case-study-icon {
+			margin: 0 auto 20px;
+		}
+		h3 {
+			margin: 0;
+			padding: 25px 0 0 0;
+		}
+		p {
+			margin: 0;
+			padding: 5px 0 10px 0;
+		}
+		/* ----------------------------------------------------------------------
+			Since the testimonial text is shared between different pages,	
+			it has been set up as it's own file and can be imported into
+			the particular articles that utilize it without affecting
+			it's styling
+		----------------------------------------------------------------------- */
+		@import "page-type-testimonial";
+	}
+}
+
+@media screen and (max-width: 768px) {
+	article.case-study {
+		text-align: center;
+		div.case-study-images {
+			img {
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+
+
+/* ================= Client Gallery Styling ================== */
+
+article.client-gallery {
+	div.client-gallery {
+		margin-bottom: 50px;
+	}
+}
+
+div.instagram {
+	width: 100%;
+	background-color: $alternate-grey;
+
+	article.instagram-block {
+		text-align: center;
+		padding: 45px 0 55px 15px;
+		position: relative;
+		a.instagramLink {
+			position: absolute;
+			right: 5%;
+			width: auto;		
+		}
+		img {
+			margin: 0 auto;
+		}
+		p.hashtag {
+			text-align: center;
+			margin-top: 0;
+		}
+		div.instagram-feed-image {
+			img {
+				width: 100%;
+				margin-bottom: 25px;
+			}
+		}
+
+	}
+}
+
+div.gallery-item {
+    display: inline-block;
+    //background: #fff;
+    // padding: 1em;
+    // margin: 15px 0 1.5em;
+    width: 100%;
+	
+	img {
+		width: 100%;
+	}
+	h4 {
+		padding: 15px 0;
+		margin: 0;
+		font-family: $font-regular;
+		text-align: center;
+	}
+	p {
+		padding: 0;
+		margin: 0;
+	}
+
+}
+
+article.contact {
+	div.contact-form {
+		div.centered {
+			h1 {
+				padding: 0;
+			}
+		}
+		form {
+			div.formRow {
+				div {
+					p.choose-file {	
+						input.upload-file-button {
+							
+							background-color: $white;
+							border: none;
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+@media screen and (max-width: 768px) {
+	div.instagram {
+		article.instagram-block {
+			a.instagramLink {
+				position: inherit;
+				right: auto;
+				width: 300px;
+				margin: 0 auto;
+			}
+			img { 
+				padding-top: 6%;
+			}
+			div.instagram-feed-image {
+				a.group {
+					img {
+						max-width: 200px;
+						width: 100%;
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+			
+
+	}
+}
+
+
+/* ================= FAQs Styling ================== */
+
+article.faqs {
+
+	div.faq-question-links {
+		h1 {
+			margin: 0 0 0 0;
+			border-bottom: $alternate-grey 1px solid;
+			padding: 0 0 35px 0;
+		}
+		h3 {
+			margin: 35px 0 25px 0;
+		}
+		div.faq {
+			margin-bottom: 15px;
+			a {
+				display: block;
+				img.plus {
+					display: inline-block;
+					vertical-align: top;
+					padding-top: 4px;
+				}
+				p {
+					cursor: pointer;
+					display: inline-block;
+					margin: 0 0 0 8px;
+					padding: 0;
+					vertical-align: middle;
+					font-family: $font-body-normal;
+					font-weight: 400;
+					max-width: 80%;
+				}
+			}
+			p.answer {
+				margin: 5px 0 0 0;
+				padding: 0 0 0 35px;
+				line-height: 1.4em; 
+				a {
+					display: inline-block;
+				}
+
+			}
+		}
+	}
+
+}
+
+@media all and (max-width: 768px) {
+	div.full-page-hero-header.faqs {
+		display: none;
+	}
+	div.left-nav {
+		display: none;
+	} 
+}
+
+
+
+/* ================= Sales Policy Styling ================== */
+article.sales-policy {
+	max-width: 600px;
+}
+
+
+/* ================= White Paper Styling ================== */
+article.white-papers {
+	max-width: 840px;
+}
+div.white-paper-block {
+	margin-bottom: 25px;
+	img.white-paper-image {
+		border: 1px solid #ddd;
+		width: 80%;
+	}
+	h4 {
+		margin-top: 10px;
+	}
+}
+
+
+/* ================= Catalogs Styling ================== */
+article.catalogs {
+	div.catalog-list {
+		width: 700px;
+		margin: 0 auto;
+		text-align: center;
+		a {
+			display: block;
+			
+			width: 325px;
+			float: left;
+			margin-right: 15px;
+			img {
+				width: 100%;
+				border: 1px solid $lightborder;
+			}
+		}
+	}
+	
+}
+@media all and (max-width: 768px) {
+	article.catalogs {
+		h2 {
+			text-align: center;
+			margin: 5% 0 15% 0;
+			//margin-bottom 5%;
+		}
+	}
+}

@@ -1,0 +1,163 @@
+
+<div class="back-to-top"></div>
+<footer>
+	<div id="site-links-container">
+		<div id="site-links-centered">
+			<div class="site-links">
+				<ul>
+					<li><a>Products</a>						
+						<ul>
+							<li><a href="{site_url}/products/waste-and-recycling">Waste and Recycling</a></li>
+							<li><a href="{site_url}/products/food-service">Food Service</a></li>
+							<li><a href="{site_url}/products/beverage-solutions">Beverage Solutions</a></li>
+							<li><a href="{site_url}/products/furniture">Furniture</a></li>
+							<li><a href="{site_url}/products/towel-solutions">Towel Solutions</a></li>
+							<li><a href="{site_url}/products/signs-and-displays">Signs and Displays</a></li>
+							<li><a href="{site_url}/products/site-furnishings">Site Furnishings</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="site-links">
+				<ul>					
+					<li><a>About Us</a>				
+						<ul>
+							<li><a href="{site_url}/about">About Us</a></li>
+							<li><a href="{site_url}/innovator">Innovator</a></li>
+							<li><a href="{site_url}/material">Our Material</a></li>
+							<li><a href="{site_url}/customization">Customization</a></li>
+							<li><a href="{site_url}/sustainable_practices">Sustainable Practices</a></li>
+
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="site-links">
+				<ul>
+					<li><a>Resources</a>
+						<ul>
+							<li><a href="{site_url}/case-studies">Case Studies</a></li>
+							<li><a href="{site_url}/client-gallery">Client Gallery</a></li>
+							<li><a href="{site_url}/blog">Blog</a></li>
+							<li><a href="{site_url}/catalogs">Catalog</a></li>
+							<li><a href="{site_url}/white-papers">White Papers</a></li>
+							<li><a href="{site_url}/sales-policy">Sales Policy</a></li>
+							<li><a href="{site_url}/faqs">Faqs</a></li>
+
+							<!-- <li><a href="">Product Specs</a></li> -->
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<div class="site-links">
+				<ul>
+					<li><a href="{site_url}/contact-us">Contact</a>
+						<ul>
+							<li><a href="{site_url}/sales-team">Sales Team</a></li>
+						</ul>
+					</li>
+					<li><a href="https://www.customizeabin.com">Configurator</a></li>
+					<li><a href="{site_url}/collections">Collections</a></li>
+				</ul>
+			</div>
+
+
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+
+
+	<div id="footer-links" itemscope itemtype ="http://schema.org/Organization">
+
+		<div class="footer-logo">
+			<a href="{site_url}"><span itemprop="logo"><img src="{site_url}/images/footer/footer-logo.svg" alt="icon for max-r" class="icon"></span></a>
+		</div>
+		
+		<div class="address">
+			<span itemprop="name" style="display: none;">Max-R</span>
+			<p><span itemprop="telephone">(855) 204-3560</span> &bull; <span itemprop="address">W248 N5499 Executive Drive, Sussex, WI 53089</span></p>
+		</div>
+
+		<div class="socialmedia-icons">
+
+			<a href="https://www.facebook.com/maxRbins" class="icon-facebook"><img src="{site_url}/images/footer/facebook.png" alt="facebook logo"></a>
+			<a href="https://twitter.com/maxRbins" class="icon-twitter"><img src="{site_url}/images/footer/Twitter.png" alt="twitter logo"></a>
+			<a href="https://www.instagram.com/maxRbins" class="icon-instagram"><img src="{site_url}/images/footer/instagram.png" alt="instagram logo"></a>
+			<a href="https://www.linkedin.com/company/max-r?trk=hb_tab_compy_id_671752" class="icon-linkedin"><img src="{site_url}/images/footer/LinkedIn.png" alt="linkedin logo"></a>
+			<div style="clear: both;"></div>
+		</div>
+
+		<div id="footer-copywrite">	
+			<section class="layout col12 last">
+				<div class="copywrite">
+					&copy;{current_time format="%Y"}
+				</div>
+			</section>
+			<div style="clear: both;"></div>
+		</div>
+
+	</div><!-- end footer-links -->
+	
+</footer>
+
+
+
+</body>
+
+
+{!-- ========= Product Group and Collection filtering JS.   ========= --}
+{!-- ========= Needs to be in the header below jquery call  ========= --}
+{!-- = Use mixin js and css for collections and product group pages = --}
+{if segment_1 == 'collection' || segment_1 == 'products'}
+    <script src="{site_url}/templates/max_r/includes_js.group/jquery.mixitup.min.js" type="text/javascript"></script>
+    <link href="{site_url}/templates/max_r/includes_css.group/mixitin.css" rel="stylesheet" />
+{/if}
+
+{!-- ========= Include royalslider on product pages.         ========= --}
+
+
+{if segment_1==""}
+    <link href="{site_url}/templates/max_r/includes_js.group/royalslider/royalslider.css" rel="stylesheet" />
+    <link href="{site_url}/templates/max_r/includes_js.group/royalslider/skins/default/rs-default.css" rel="stylesheet" />
+    <script src="{site_url}/templates/max_r/includes_js.group/royalslider/jquery.royalslider.min.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/front-page.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/jquery-scrollto/lib/jquery-scrollto.js"></script>
+{/if}
+{if segment_1=="products"}
+	<script  src="{site_url}/templates/max_r/includes_js.group/product-filtering.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/products.js"></script>		
+{/if}
+{if segment_1=="products-test"}
+	<script  src="{site_url}/templates/max_r/includes_js.group/product-filtering.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/products-test.js"></script>		
+{/if}
+{if segment_1=="product"}
+    <link href="{site_url}/templates/max_r/includes_js.group/royalslider/royalslider.css" rel="stylesheet" />
+    <link href="{site_url}/templates/max_r/includes_js.group/royalslider/skins/default/rs-default.css" rel="stylesheet" />
+    <script src="{site_url}/templates/max_r/includes_js.group/royalslider/jquery.royalslider.min.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/product.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/testimonials.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/market.js"></script>
+{/if}
+{if segment_1=="collection"}
+	<script src="{site_url}/templates/max_r/includes_js.group/product-filtering-collections.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/collections.js"></script>		
+{/if}
+{if segment_1=="client-gallery"}
+	<script async src="{site_url}/templates/max_r/includes_js.group/lightbox.js"></script>
+{/if}
+{if segment_1=="faqs"}
+	<script async src="{site_url}/templates/max_r/includes_js.group/faqs.js"></script>
+{/if}
+{if segment_1=="contact-us" || segment_1=="client-gallery"}
+	<script async src="{site_url}/templates/max_r/includes_js.group/contact.js"></script>
+{/if}
+{if segment_1=="market"}
+	<script async src="{site_url}/templates/max_r/includes_js.group/market.js"></script>
+	<script async src="{site_url}/templates/max_r/includes_js.group/testimonials.js"></script>
+{/if}
+{if segment_1=="customization"}
+	<script async src="{site_url}/templates/max_r/includes_js.group/customization.js"></script>
+{/if}
+</html>

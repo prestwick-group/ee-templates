@@ -1,0 +1,23 @@
+
+{exp:channel:entries channel="product_page_customization_block" dynamic="no"}
+	{if embed:collectionToDisplay==title}
+	<!-- <h2 class="centered">Customization <span class="bold">Made Easy</span></h2> -->
+	<div id="customization-slider" class="royalSlider rsDefault">
+
+		<!-- <p>Embed: {title}</p> -->
+		{product_customization_grid}
+			<div class="rsContent">
+			     <picture>
+			        <!--[if IE 9]><video style="display: none;"><![endif]-->
+			        <source srcset="{product_customization_grid:image}" media="(min-width: 1041px)">
+			        <source srcset="{site_url}/images/empty.gif" media="(min-width: 1px)" >
+			        <!--[if IE 9]></video><![endif]-->
+			        <img srcset="{product_customization_grid:image}" alt="{product_customization_grid:alt_text}">
+			    </picture>    
+
+			</div>
+
+		{/product_customization_grid}
+	</div>
+	{/if}
+{/exp:channel:entries}
